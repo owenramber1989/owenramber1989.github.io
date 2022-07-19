@@ -1,0 +1,31 @@
+body {
+ background-image: url(../img/bgsky.jpg);
+ background-repeat: no-repeat;
+ background-size: cover;
+ font-family: arial, KaiTi,  sans-serif;
+ font-size: 100%;
+}
+p:first-letter{
+    font-size: 250%;
+}
+.normal:first-letter{
+    font-size: 100%;
+}
+a:link{
+    text-decoration: none;
+    color: white;
+}
+a:visited{
+    text-decoration: none;
+    color: #66ccff;
+}
+/*visited是访问后的样式*/
+a:active{
+    text-decoration: underline;
+    color: whitesmoke;
+}
+a:hover{
+    text-decoration: underline;
+    color: whitesmoke;
+}
+/*hover这个是鼠标悬停*/

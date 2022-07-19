@@ -1,0 +1,15 @@
+h1{
+  background-color:yellow;
+  color:red;
+ }
+ div {
+border: 1px solid #000;
+overflow: hidden;
+padding: 0 1em .25em;
+}
+p {
+color: #36c; /* a blue color */
+font-weight: bold;
+margin:40px ;
+}
+body {background-color:#b0c4de;}
