@@ -8,12 +8,13 @@
 ]]></content>
   </entry>
   <entry>
-    <title></title>
+    <title>JavaScript notes</title>
     <url>/2022/07/20/JavaScript%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<h1 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h1><h2 id="位置"><a href="#位置" class="headerlink" title="位置"></a>位置</h2><p>一般放在<code>&lt;script&gt;&lt;/script&gt;里面</code>，script一般放在body的末尾，但如果js代码中有定义<code>&lt;body&gt;</code>下直接调用的函数，那么js代码必须放在head</p>
 <p>可以外部化: src=”xxx.js”就可以了</p>
 <p>JavaScript伪协议：</p>
-<p><code>&lt;a href=&quot;JavaScript:window.alert(&#39;你好，世界！</code>);&gt;`</p>
+<p><code>&lt;a href=&quot;JavaScript:window.alert(&quot;你好，世界!&quot;);&gt;</code></p>
+<span id="more"></span>
 <h2 id="变量的声明"><a href="#变量的声明" class="headerlink" title="变量的声明"></a>变量的声明</h2><p>var msg = ‘Hello, world!’;</p>
 <p>console.log(msg);</p>
 <p>其实不用var也会隐式的声明</p>
@@ -84,6 +85,10 @@
 <p><code>&lt;script src=&quot;lib.js&quot; async&gt;&lt;/script&gt;</code></p>
 <p>如果多个js文件中存在调用关系</p>
 <p>可以用defer属性，指定在文档的解析完成之后再执行脚本的属性</p>
+<h1 id="内置对象"><a href="#内置对象" class="headerlink" title="内置对象"></a>内置对象</h1><p>JavaScript会将null之外的对象全部视为true</p>
+<p>原则上基本数据类型应该避免用new运算符实例化</p>
+<p><a href="https://www.runoob.com/js/js-obj-number.html">Number</a></p>
+<p><a href="https://www.runoob.com/jsref/jsref-obj-string.html">String</a></p>
 ]]></content>
   </entry>
   <entry>
