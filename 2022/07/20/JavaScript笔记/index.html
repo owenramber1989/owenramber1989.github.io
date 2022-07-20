@@ -20,15 +20,15 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="有趣即正义^_^">
+  <meta name="description" content="基本语法位置一般放在&lt;script&gt;&lt;&#x2F;script&gt;里面，script一般放在body的末尾，但如果js代码中有定义&lt;body&gt;下直接调用的函数，那么js代码必须放在head 可以外部化: src&#x3D;”xxx.js”就可以了 JavaScript伪协议： &lt;a href&#x3D;&quot;JavaScript:window.alert(&#39;你好，世界！);">
 <meta property="og:type" content="article">
 <meta property="og:title" content="owenramber1989">
 <meta property="og:url" content="http://example.com/2022/07/20/JavaScript%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="owenramber1989">
-<meta property="og:description" content="有趣即正义^_^">
+<meta property="og:description" content="基本语法位置一般放在&lt;script&gt;&lt;&#x2F;script&gt;里面，script一般放在body的末尾，但如果js代码中有定义&lt;body&gt;下直接调用的函数，那么js代码必须放在head 可以外部化: src&#x3D;”xxx.js”就可以了 JavaScript伪协议： &lt;a href&#x3D;&quot;JavaScript:window.alert(&#39;你好，世界！);">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-07-20T10:27:20.685Z">
-<meta property="article:modified_time" content="2022-07-20T10:27:20.739Z">
+<meta property="article:modified_time" content="2022-07-20T11:29:05.252Z">
 <meta property="article:author" content="owenramber1989">
 <meta name="twitter:card" content="summary">
 
@@ -217,8 +217,9 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2022-07-20 18:27:20" itemprop="dateCreated datePublished" datetime="2022-07-20T18:27:20+08:00">2022-07-20</time>
+              <time title="创建时间：2022-07-20 18:27:20 / 修改时间：19:29:05" itemprop="dateCreated datePublished" datetime="2022-07-20T18:27:20+08:00">2022-07-20</time>
             </span>
 
           
@@ -241,14 +242,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>0</span>
+              <span>1.8k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>2 分钟</span>
             </span>
 
         </div>
@@ -260,7 +261,81 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        
+        <h1 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h1><h2 id="位置"><a href="#位置" class="headerlink" title="位置"></a>位置</h2><p>一般放在<code>&lt;script&gt;&lt;/script&gt;里面</code>，script一般放在body的末尾，但如果js代码中有定义<code>&lt;body&gt;</code>下直接调用的函数，那么js代码必须放在head</p>
+<p>可以外部化: src=”xxx.js”就可以了</p>
+<p>JavaScript伪协议：</p>
+<p><code>&lt;a href=&quot;JavaScript:window.alert(&#39;你好，世界！</code>);&gt;`</p>
+<h2 id="变量的声明"><a href="#变量的声明" class="headerlink" title="变量的声明"></a>变量的声明</h2><p>var msg = ‘Hello, world!’;</p>
+<p>console.log(msg);</p>
+<p>其实不用var也会隐式的声明</p>
+<p>var和let是有区别的，var允许重复声明一个变量，用后来的覆盖前面的，但是let不允许</p>
+<p>let能够更细致地管理变量的有效范围</p>
+<p>申明常量可以用const</p>
+<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><p>JavaScript是弱类型的语言，所以把一个数值赋给一个字符串变量也是可以的</p>
+<p>而且JavaScript中没有字符串和字符类型的区别</p>
+<h2 id="模板字符串"><a href="#模板字符串" class="headerlink" title="模板字符串"></a>模板字符串</h2><p>可以把变量嵌入字符串中，比如变量是name<br>let str = <code>你好呀，$&#123;name&#125;</code>;<br>console.log(str);</p>
+<h2 id="相等运算符"><a href="#相等运算符" class="headerlink" title="相等运算符"></a>相等运算符</h2><p>== 比较基本类型时，基本上只看内容，比较引用类型时，即使内容完全相同，只要地址不同就不会判定为相等</p>
+<h2 id="一致运算符"><a href="#一致运算符" class="headerlink" title="一致运算符"></a>一致运算符</h2><p>===会判断数据类型是否相同</p>
+<h2 id="删除delete"><a href="#删除delete" class="headerlink" title="删除delete"></a>删除delete</h2><ol>
+<li>删除数组中的元素时，只删除对应的元素，后面的元素会提上来（但索引号不发生改变）</li>
+<li>删除属性时也只删除属性本身，属性参照的对象不会被删除</li>
+<li>显示声明的对象不能删除</li>
+</ol>
+<h2 id="返回类型"><a href="#返回类型" class="headerlink" title="返回类型"></a>返回类型</h2><p>用typeof</p>
+<h2 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h2><p>for in</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> data = [ <span class="string">&#x27;apple&#x27;</span>, <span class="string">&#x27;orange&#x27;</span>, <span class="string">&#x27;banana&#x27;</span>];</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> key <span class="keyword">in</span> data)&#123;</span><br><span class="line">	<span class="variable language_">console</span>.<span class="title function_">log</span>(data[key]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>然而for in并不能保证处理的顺序，它只用于操作关联数组（对象），枚举还是用for或者for of</p>
+<p>for in语句中，给虚拟变量传的值是键名，而for of枚举的是数组的值本身</p>
+<h2 id="处理异常"><a href="#处理异常" class="headerlink" title="处理异常"></a>处理异常</h2><h3 id="try-catch-finally语句"><a href="#try-catch-finally语句" class="headerlink" title="try catch finally语句"></a>try catch finally语句</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> i=<span class="number">1</span>;</span><br><span class="line"><span class="keyword">try</span>&#123;</span><br><span class="line">	i=i*j;</span><br><span class="line">&#125;<span class="keyword">catch</span>(e)&#123;</span><br><span class="line">	<span class="variable language_">console</span>.<span class="title function_">log</span>(e.<span class="property">message</span>);</span><br><span class="line">&#125;<span class="keyword">finally</span>&#123;</span><br><span class="line">	<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;处理完成了&#x27;</span>)；</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>然后我们就可以看到 </p>
+<p>j is not defined</p>
+<p>处理完成了</p>
+<p>如果没有发生异常的话就会跳过catch语句，但无论如何finally语句都会被执行。注意tcf语句开销很大，一般不要滥用</p>
+<h3 id="throw语句"><a href="#throw语句" class="headerlink" title="throw语句"></a>throw语句</h3><p>可以直接放在try里面</p>
+<p>格式： throw </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> number = <span class="number">5</span>;</span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">     <span class="comment">// user-defined throw statement</span></span><br><span class="line">     <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">Error</span>(<span class="string">&#x27;This is the throw&#x27;</span>);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">catch</span>(error) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;An error caught&#x27;</span>);</span><br><span class="line">    <span class="keyword">if</span>( number + <span class="number">8</span> &gt; <span class="number">10</span>) &#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// statements to handle exceptions</span></span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;Error message: &#x27;</span> + error); </span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;Error resolved&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">// cannot handle the exception</span></span><br><span class="line">        <span class="comment">// rethrow the exception</span></span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">Error</span>(<span class="string">&#x27;The value is low&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>new error也可以换成别的</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">对象</th>
+<th style="text-align:left">错误的原因</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">EvalError</td>
+<td style="text-align:left">不正确的eval函数</td>
+</tr>
+<tr>
+<td style="text-align:left">RangeErro</td>
+<td style="text-align:left">设定的值超过了允许范围</td>
+</tr>
+<tr>
+<td style="text-align:left">ReferenceErro</td>
+<td style="text-align:left">访问没有声明的变量</td>
+</tr>
+<tr>
+<td style="text-align:left">SyntaxErro</td>
+<td style="text-align:left">语法错误</td>
+</tr>
+<tr>
+<td style="text-align:left">TypeError</td>
+<td style="text-align:left">设定的值不是预期的类型</td>
+</tr>
+<tr>
+<td style="text-align:left">URIError</td>
+<td style="text-align:left">错误的URI</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="异步加载"><a href="#异步加载" class="headerlink" title="异步加载"></a>异步加载</h2><p>避免加载脚本用的时间过于长，读取完后再执行</p>
+<p><code>&lt;script src=&quot;lib.js&quot; async&gt;&lt;/script&gt;</code></p>
+<p>如果多个js文件中存在调用关系</p>
+<p>可以用defer属性，指定在文档的解析完成之后再执行脚本的属性</p>
+
     </div>
 
     
@@ -338,6 +413,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">基本语法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%8D%E7%BD%AE"><span class="nav-number">1.1.</span> <span class="nav-text">位置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%98%E9%87%8F%E7%9A%84%E5%A3%B0%E6%98%8E"><span class="nav-number">1.2.</span> <span class="nav-text">变量的声明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.3.</span> <span class="nav-text">数据类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A8%A1%E6%9D%BF%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-number">1.4.</span> <span class="nav-text">模板字符串</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%B8%E7%AD%89%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">1.5.</span> <span class="nav-text">相等运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E8%87%B4%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">1.6.</span> <span class="nav-text">一致运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%A0%E9%99%A4delete"><span class="nav-number">1.7.</span> <span class="nav-text">删除delete</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%94%E5%9B%9E%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.8.</span> <span class="nav-text">返回类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BE%AA%E7%8E%AF"><span class="nav-number">1.9.</span> <span class="nav-text">循环</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%84%E7%90%86%E5%BC%82%E5%B8%B8"><span class="nav-number">1.10.</span> <span class="nav-text">处理异常</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#try-catch-finally%E8%AF%AD%E5%8F%A5"><span class="nav-number">1.10.1.</span> <span class="nav-text">try catch finally语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#throw%E8%AF%AD%E5%8F%A5"><span class="nav-number">1.10.2.</span> <span class="nav-text">throw语句</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%82%E6%AD%A5%E5%8A%A0%E8%BD%BD"><span class="nav-number">1.11.</span> <span class="nav-text">异步加载</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -390,12 +466,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">2k</span>
+    <span title="站点总字数">4k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">2 分钟</span>
+    <span title="站点阅读时长">3 分钟</span>
 </div>
 
         
