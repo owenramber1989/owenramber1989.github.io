@@ -1,85 +1,203 @@
 <?xml version="1.0" encoding="utf-8"?>
-<search> 
-  
-  
-    
-    <entry>
-      <title></title>
-      <link href="/2022/07/20/JavaScript%E7%AC%94%E8%AE%B0/"/>
-      <url>/2022/07/20/JavaScript%E7%AC%94%E8%AE%B0/</url>
-      
-        <content type="html"><![CDATA[<h1 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h1><h2 id="位置"><a href="#位置" class="headerlink" title="位置"></a>位置</h2><p>一般放在<code>&lt;script&gt;&lt;/script&gt;里面</code>，script一般放在body的末尾，但如果js代码中有定义<code>&lt;body&gt;</code>下直接调用的函数，那么js代码必须放在head</p><p>可以外部化: src=”xxx.js”就可以了</p><p>JavaScript伪协议：</p><p><code>&lt;a href=&quot;JavaScript:window.alert(&#39;你好，世界！</code>);&gt;`</p><h2 id="变量的声明"><a href="#变量的声明" class="headerlink" title="变量的声明"></a>变量的声明</h2><p>var msg = ‘Hello, world!’;</p><p>console.log(msg);</p><p>其实不用var也会隐式的声明</p><p>var和let是有区别的，var允许重复声明一个变量，用后来的覆盖前面的，但是let不允许</p><p>let能够更细致地管理变量的有效范围</p><p>申明常量可以用const</p><h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><p>JavaScript是弱类型的语言，所以把一个数值赋给一个字符串变量也是可以的</p><p>而且JavaScript中没有字符串和字符类型的区别</p><h2 id="模板字符串"><a href="#模板字符串" class="headerlink" title="模板字符串"></a>模板字符串</h2><p>可以把变量嵌入字符串中，比如变量是name<br>let str = <code>你好呀，$&#123;name&#125;</code>;<br>console.log(str);</p><h2 id="相等运算符"><a href="#相等运算符" class="headerlink" title="相等运算符"></a>相等运算符</h2><p>== 比较基本类型时，基本上只看内容，比较引用类型时，即使内容完全相同，只要地址不同就不会判定为相等</p><h2 id="一致运算符"><a href="#一致运算符" class="headerlink" title="一致运算符"></a>一致运算符</h2><p>===会判断数据类型是否相同</p><h2 id="删除delete"><a href="#删除delete" class="headerlink" title="删除delete"></a>删除delete</h2><ol><li>删除数组中的元素时，只删除对应的元素，后面的元素会提上来（但索引号不发生改变）</li><li>删除属性时也只删除属性本身，属性参照的对象不会被删除</li><li>显示声明的对象不能删除</li></ol><h2 id="返回类型"><a href="#返回类型" class="headerlink" title="返回类型"></a>返回类型</h2><p>用typeof</p><h2 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h2><p>for in</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> data = [ <span class="string">&#x27;apple&#x27;</span>, <span class="string">&#x27;orange&#x27;</span>, <span class="string">&#x27;banana&#x27;</span>];</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> key <span class="keyword">in</span> data)&#123;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(data[key]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>然而for in并不能保证处理的顺序，它只用于操作关联数组（对象），枚举还是用for或者for of</p><p>for in语句中，给虚拟变量传的值是键名，而for of枚举的是数组的值本身</p><h2 id="处理异常"><a href="#处理异常" class="headerlink" title="处理异常"></a>处理异常</h2><h3 id="try-catch-finally语句"><a href="#try-catch-finally语句" class="headerlink" title="try catch finally语句"></a>try catch finally语句</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> i=<span class="number">1</span>;</span><br><span class="line"><span class="keyword">try</span>&#123;</span><br><span class="line">i=i*j;</span><br><span class="line">&#125;<span class="keyword">catch</span>(e)&#123;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(e.<span class="property">message</span>);</span><br><span class="line">&#125;<span class="keyword">finally</span>&#123;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;处理完成了&#x27;</span>)；</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>然后我们就可以看到 </p><p>j is not defined</p><p>处理完成了</p><p>如果没有发生异常的话就会跳过catch语句，但无论如何finally语句都会被执行。注意tcf语句开销很大，一般不要滥用</p><h3 id="throw语句"><a href="#throw语句" class="headerlink" title="throw语句"></a>throw语句</h3><p>可以直接放在try里面</p><p>格式： throw </p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> number = <span class="number">5</span>;</span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">     <span class="comment">// user-defined throw statement</span></span><br><span class="line">     <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">Error</span>(<span class="string">&#x27;This is the throw&#x27;</span>);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">catch</span>(error) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;An error caught&#x27;</span>);</span><br><span class="line">    <span class="keyword">if</span>( number + <span class="number">8</span> &gt; <span class="number">10</span>) &#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// statements to handle exceptions</span></span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;Error message: &#x27;</span> + error); </span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;Error resolved&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">// cannot handle the exception</span></span><br><span class="line">        <span class="comment">// rethrow the exception</span></span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">Error</span>(<span class="string">&#x27;The value is low&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure><p>new error也可以换成别的</p><div class="table-container"><table><thead><tr><th style="text-align:left">对象</th><th style="text-align:left">错误的原因</th></tr></thead><tbody><tr><td style="text-align:left">EvalError</td><td style="text-align:left">不正确的eval函数</td></tr><tr><td style="text-align:left">RangeErro</td><td style="text-align:left">设定的值超过了允许范围</td></tr><tr><td style="text-align:left">ReferenceErro</td><td style="text-align:left">访问没有声明的变量</td></tr><tr><td style="text-align:left">SyntaxErro</td><td style="text-align:left">语法错误</td></tr><tr><td style="text-align:left">TypeError</td><td style="text-align:left">设定的值不是预期的类型</td></tr><tr><td style="text-align:left">URIError</td><td style="text-align:left">错误的URI</td></tr></tbody></table></div><h2 id="异步加载"><a href="#异步加载" class="headerlink" title="异步加载"></a>异步加载</h2><p>避免加载脚本用的时间过于长，读取完后再执行</p><p><code>&lt;script src=&quot;lib.js&quot; async&gt;&lt;/script&gt;</code></p><p>如果多个js文件中存在调用关系</p><p>可以用defer属性，指定在文档的解析完成之后再执行脚本的属性</p>]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>latex的一些新玩法</title>
-      <link href="/2022/07/19/latex%E7%9A%84%E4%B8%80%E4%BA%9B%E6%96%B0%E7%8E%A9%E6%B3%95/"/>
-      <url>/2022/07/19/latex%E7%9A%84%E4%B8%80%E4%BA%9B%E6%96%B0%E7%8E%A9%E6%B3%95/</url>
-      
-        <content type="html"><![CDATA[<h1 id="latex的基础知识"><a href="#latex的基础知识" class="headerlink" title="latex的基础知识"></a>latex的基础知识</h1><p><a href="../latex.pdf">参考资料</a></p><h2 id="测试公式显示效果"><a href="#测试公式显示效果" class="headerlink" title="测试公式显示效果"></a>测试公式显示效果</h2><script type="math/tex; mode=display">\begin{array}{l}\oint_{l} \boldsymbol{E} \cdot \mathrm{d} \boldsymbol{l}=-\iint_{S} \frac{\partial \boldsymbol{B}}{\partial t} \cdot \mathrm{d} \boldsymbol{S} \\\oint_{S} \boldsymbol{B} \cdot \mathrm{d} \boldsymbol{S}=0 \\\oint_{S} \boldsymbol{D} \cdot \mathrm{d} \boldsymbol{S}=\iiint_{V} \rho \mathrm{d} V\end{array}</script>]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>linux命令行</title>
-      <link href="/2022/07/19/linux%E5%91%BD%E4%BB%A4%E8%A1%8C/"/>
-      <url>/2022/07/19/linux%E5%91%BD%E4%BB%A4%E8%A1%8C/</url>
-      
-        <content type="html"><![CDATA[<h1 id="基本的bash-shell命令"><a href="#基本的bash-shell命令" class="headerlink" title="基本的bash shell命令"></a>基本的bash shell命令</h1><h2 id="man的使用"><a href="#man的使用" class="headerlink" title="man的使用"></a>man的使用</h2><p>man命令用来访问手册，q键用于quit</p><p>不记得命令名的话可以用关键字搜索手册页，man -k key,<br>查找与终端相关的命令就可以 man -k terminal<br><span id="more"></span></p><p>linux手册页的内容区域</p><div class="table-container"><table><thead><tr><th style="text-align:left">区域号</th><th style="text-align:center">所涵盖的内容</th></tr></thead><tbody><tr><td style="text-align:left">1</td><td style="text-align:center">可执行程序或shell命令</td></tr><tr><td style="text-align:left">2</td><td style="text-align:center">系统调用</td></tr><tr><td style="text-align:left">3</td><td style="text-align:center">库调用</td></tr><tr><td style="text-align:left">4</td><td style="text-align:center">特殊文件</td></tr><tr><td style="text-align:left">5</td><td style="text-align:center">文件格式与约定</td></tr><tr><td style="text-align:left">6</td><td style="text-align:center">游戏</td></tr><tr><td style="text-align:left">7</td><td style="text-align:center">概览、约定及杂项</td></tr><tr><td style="text-align:left">8</td><td style="text-align:center">超级用户和系统管理员命令</td></tr><tr><td style="text-align:left">9</td><td style="text-align:center">内核例程</td></tr></tbody></table></div><p>man xterm 的话其实是 man 1 xterm</p><p>man 3 intro就是阅读intro的第三部分</p><h2 id="浏览文件系统"><a href="#浏览文件系统" class="headerlink" title="浏览文件系统"></a>浏览文件系统</h2><p>cd /usr/bin 指向usr目录包含的bin目录下的用户二进制文件</p><p>cd 直接跳回主目录 </p><p>pwd 查看当前目录</p><h2 id="文件和目录列表"><a href="#文件和目录列表" class="headerlink" title="文件和目录列表"></a>文件和目录列表</h2><p>ls 显示当前目录下的文件和目录</p><p>注意ls按列排序</p><p>ls -F会在目录名后面加上正斜线，在可执行文件后面加上星号</p><p>ls -a会把隐藏文件也显示出来，而且前面会有.号</p><p>ls -F -R 递归式列出包括了子文件夹下面的文件</p><p>ls -FR和ls -F -R是一样的效果</p><p>ls -l 长列表效果，有更多信息</p><p><strong><em>指定特定文件的名称作为过滤器时</em></strong></p><p>？匹配一个字符</p><ul><li>匹配零个或者多个字符 </li></ul><p>ls -l f[a-i]ll 就是说文件名的第二个字符从a到i都是可以的</p><p>ls -l f[ai]ll 意思是文件名的第二个字符只能是a或者i</p><p>ls -l f[!a]ll 表示不能是a</p><h2 id="处理文件"><a href="#处理文件" class="headerlink" title="处理文件"></a>处理文件</h2><h3 id="创建文件"><a href="#创建文件" class="headerlink" title="创建文件"></a>创建文件</h3><p>touch test_one 在当前目录下创建一个test_one</p><p>再来一次touch test_one 可以改变文件的修改时间</p><p>ls -l 默认显示的是修改时间，如果想显示访问时间的话 </p><p>ls -l —time=atime test_one 就可以显示最后一次访问的时间了</p><h3 id="复制文件"><a href="#复制文件" class="headerlink" title="复制文件"></a>复制文件</h3><p>语法： cp source destination</p><p>cp -i test_one test_two</p><p>会强制询问是否覆盖已有的文件，不然就是如果文件已经存在，默认覆盖</p><p>cp -R 可以递归地复制整个文件夹中的内容</p><p>cp -R scripts/ Mod_scripts可以把scripts文件夹下面的所有内容都复制到Mod_scripts中</p><h3 id="链接文件"><a href="#链接文件" class="headerlink" title="链接文件"></a>链接文件</h3><p>ln -s data_file sl_data_file 就创建了一个符号文件sl_data_file,它指向data_file,但这两个文件中的内容各不相同，两个文件的inode编号也不一样</p><p>ls -i *data_file 就可以查看他俩的inode编号了</p><h2 id="tab键可以自动补全"><a href="#tab键可以自动补全" class="headerlink" title="tab键可以自动补全"></a>tab键可以自动补全</h2>]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>hexo常见问题的解决办法</title>
-      <link href="/2022/07/18/hexo%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/"/>
-      <url>/2022/07/18/hexo%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</url>
-      
-        <content type="html"><![CDATA[<h1 id="FATAL-err-Error-Spawn-failed"><a href="#FATAL-err-Error-Spawn-failed" class="headerlink" title="FATAL err: Error: Spawn failed"></a>FATAL err: Error: Spawn failed</h1><p>进入博客根目录<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rm -rf .deploy_git/</span><br><span class="line"></span><br><span class="line">git config --global core.autocrlf false</span><br></pre></td></tr></table></figure></p>]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>git常见问题的解决办法</title>
-      <link href="/2022/07/18/git%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/"/>
-      <url>/2022/07/18/git%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</url>
-      
-        <content type="html"><![CDATA[<h1 id="Failed-to-connect-to-github-com-port-443-Timed-out"><a href="#Failed-to-connect-to-github-com-port-443-Timed-out" class="headerlink" title="Failed to connect to github.com port 443: Timed out"></a>Failed to connect to github.com port 443: Timed out</h1><p>先取消代理再设置代理</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global --unset http.proxy</span><br><span class="line">git config --global --unset https.proxy</span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global https.proxy http://127.0.0.1:1080</span><br><span class="line">git config --global https.proxy https://127.0.0.1:1080</span><br></pre></td></tr></table></figure><h1 id="does-not-have-a-commit-checked-out"><a href="#does-not-have-a-commit-checked-out" class="headerlink" title="does not have a commit checked out"></a>does not have a commit checked out</h1><p>哪个文件夹报的错，删掉那个文件夹的.git</p><h1 id="fatal-unable-to-access-xxxxx-OpenSSL-SSL-read-Connection-was-reset-errno-10054"><a href="#fatal-unable-to-access-xxxxx-OpenSSL-SSL-read-Connection-was-reset-errno-10054" class="headerlink" title="fatal: unable to access xxxxx OpenSSL SSL_read: Connection was reset, errno 10054"></a>fatal: unable to access xxxxx OpenSSL SSL_read: Connection was reset, errno 10054</h1><p><code>git config --global http.sslVerify &quot;false&quot;</code></p>]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>欢迎来到owenramber1989的个人博客</title>
-      <link href="/2022/07/18/%E8%87%AA%E6%88%91%E4%BB%8B%E7%BB%8D/"/>
-      <url>/2022/07/18/%E8%87%AA%E6%88%91%E4%BB%8B%E7%BB%8D/</url>
-      
-        <content type="html"><![CDATA[<h1 id="个人简介"><a href="#个人简介" class="headerlink" title="个人简介"></a>个人简介</h1><p>本人为华中科技大学计算机科学与技术学院21级的一名普通同学，将会在此域名下记录我学到的知识，同时也会分享一些有趣的内容，共勉<code>^__^</code></p><p><a href="https://owenramber1989.com/ZONE/LEARN/html/index.html">跳转到我的自定义主页</a></p>]]></content>
-      
-      
-      
-    </entry>
-    
-    
-  
-  
+<search>
+  <entry>
+    <title>欢迎来到owenramber1989的个人博客</title>
+    <url>/2022/07/18/%E8%87%AA%E6%88%91%E4%BB%8B%E7%BB%8D/</url>
+    <content><![CDATA[<h1 id="个人简介"><a href="#个人简介" class="headerlink" title="个人简介"></a>个人简介</h1><p>本人为华中科技大学计算机科学与技术学院21级的一名普通同学，将会在此域名下记录我学到的知识，同时也会分享一些有趣的内容，共勉<code>^__^</code></p>
+<p><a href="https://owenramber1989.com/ZONE/LEARN/html/index.html">跳转到我的自定义主页</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/2022/07/20/JavaScript%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<h1 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h1><h2 id="位置"><a href="#位置" class="headerlink" title="位置"></a>位置</h2><p>一般放在<code>&lt;script&gt;&lt;/script&gt;里面</code>，script一般放在body的末尾，但如果js代码中有定义<code>&lt;body&gt;</code>下直接调用的函数，那么js代码必须放在head</p>
+<p>可以外部化: src=”xxx.js”就可以了</p>
+<p>JavaScript伪协议：</p>
+<p><code>&lt;a href=&quot;JavaScript:window.alert(&#39;你好，世界！</code>);&gt;`</p>
+<h2 id="变量的声明"><a href="#变量的声明" class="headerlink" title="变量的声明"></a>变量的声明</h2><p>var msg = ‘Hello, world!’;</p>
+<p>console.log(msg);</p>
+<p>其实不用var也会隐式的声明</p>
+<p>var和let是有区别的，var允许重复声明一个变量，用后来的覆盖前面的，但是let不允许</p>
+<p>let能够更细致地管理变量的有效范围</p>
+<p>申明常量可以用const</p>
+<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><p>JavaScript是弱类型的语言，所以把一个数值赋给一个字符串变量也是可以的</p>
+<p>而且JavaScript中没有字符串和字符类型的区别</p>
+<h2 id="模板字符串"><a href="#模板字符串" class="headerlink" title="模板字符串"></a>模板字符串</h2><p>可以把变量嵌入字符串中，比如变量是name<br>let str = <code>你好呀，$&#123;name&#125;</code>;<br>console.log(str);</p>
+<h2 id="相等运算符"><a href="#相等运算符" class="headerlink" title="相等运算符"></a>相等运算符</h2><p>== 比较基本类型时，基本上只看内容，比较引用类型时，即使内容完全相同，只要地址不同就不会判定为相等</p>
+<h2 id="一致运算符"><a href="#一致运算符" class="headerlink" title="一致运算符"></a>一致运算符</h2><p>===会判断数据类型是否相同</p>
+<h2 id="删除delete"><a href="#删除delete" class="headerlink" title="删除delete"></a>删除delete</h2><ol>
+<li>删除数组中的元素时，只删除对应的元素，后面的元素会提上来（但索引号不发生改变）</li>
+<li>删除属性时也只删除属性本身，属性参照的对象不会被删除</li>
+<li>显示声明的对象不能删除</li>
+</ol>
+<h2 id="返回类型"><a href="#返回类型" class="headerlink" title="返回类型"></a>返回类型</h2><p>用typeof</p>
+<h2 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h2><p>for in</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> data = [ <span class="string">&#x27;apple&#x27;</span>, <span class="string">&#x27;orange&#x27;</span>, <span class="string">&#x27;banana&#x27;</span>];</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> key <span class="keyword">in</span> data)&#123;</span><br><span class="line">	<span class="variable language_">console</span>.<span class="title function_">log</span>(data[key]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>然而for in并不能保证处理的顺序，它只用于操作关联数组（对象），枚举还是用for或者for of</p>
+<p>for in语句中，给虚拟变量传的值是键名，而for of枚举的是数组的值本身</p>
+<h2 id="处理异常"><a href="#处理异常" class="headerlink" title="处理异常"></a>处理异常</h2><h3 id="try-catch-finally语句"><a href="#try-catch-finally语句" class="headerlink" title="try catch finally语句"></a>try catch finally语句</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> i=<span class="number">1</span>;</span><br><span class="line"><span class="keyword">try</span>&#123;</span><br><span class="line">	i=i*j;</span><br><span class="line">&#125;<span class="keyword">catch</span>(e)&#123;</span><br><span class="line">	<span class="variable language_">console</span>.<span class="title function_">log</span>(e.<span class="property">message</span>);</span><br><span class="line">&#125;<span class="keyword">finally</span>&#123;</span><br><span class="line">	<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;处理完成了&#x27;</span>)；</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>然后我们就可以看到 </p>
+<p>j is not defined</p>
+<p>处理完成了</p>
+<p>如果没有发生异常的话就会跳过catch语句，但无论如何finally语句都会被执行。注意tcf语句开销很大，一般不要滥用</p>
+<h3 id="throw语句"><a href="#throw语句" class="headerlink" title="throw语句"></a>throw语句</h3><p>可以直接放在try里面</p>
+<p>格式： throw </p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> number = <span class="number">5</span>;</span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">     <span class="comment">// user-defined throw statement</span></span><br><span class="line">     <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">Error</span>(<span class="string">&#x27;This is the throw&#x27;</span>);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">catch</span>(error) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;An error caught&#x27;</span>);</span><br><span class="line">    <span class="keyword">if</span>( number + <span class="number">8</span> &gt; <span class="number">10</span>) &#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// statements to handle exceptions</span></span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;Error message: &#x27;</span> + error); </span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;Error resolved&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">// cannot handle the exception</span></span><br><span class="line">        <span class="comment">// rethrow the exception</span></span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">Error</span>(<span class="string">&#x27;The value is low&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>new error也可以换成别的</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">对象</th>
+<th style="text-align:left">错误的原因</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">EvalError</td>
+<td style="text-align:left">不正确的eval函数</td>
+</tr>
+<tr>
+<td style="text-align:left">RangeErro</td>
+<td style="text-align:left">设定的值超过了允许范围</td>
+</tr>
+<tr>
+<td style="text-align:left">ReferenceErro</td>
+<td style="text-align:left">访问没有声明的变量</td>
+</tr>
+<tr>
+<td style="text-align:left">SyntaxErro</td>
+<td style="text-align:left">语法错误</td>
+</tr>
+<tr>
+<td style="text-align:left">TypeError</td>
+<td style="text-align:left">设定的值不是预期的类型</td>
+</tr>
+<tr>
+<td style="text-align:left">URIError</td>
+<td style="text-align:left">错误的URI</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="异步加载"><a href="#异步加载" class="headerlink" title="异步加载"></a>异步加载</h2><p>避免加载脚本用的时间过于长，读取完后再执行</p>
+<p><code>&lt;script src=&quot;lib.js&quot; async&gt;&lt;/script&gt;</code></p>
+<p>如果多个js文件中存在调用关系</p>
+<p>可以用defer属性，指定在文档的解析完成之后再执行脚本的属性</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>latex的一些新玩法</title>
+    <url>/2022/07/19/latex%E7%9A%84%E4%B8%80%E4%BA%9B%E6%96%B0%E7%8E%A9%E6%B3%95/</url>
+    <content><![CDATA[<h1 id="latex的基础知识"><a href="#latex的基础知识" class="headerlink" title="latex的基础知识"></a>latex的基础知识</h1><p><a href="../latex.pdf">参考资料</a></p>
+<h2 id="测试公式显示效果"><a href="#测试公式显示效果" class="headerlink" title="测试公式显示效果"></a>测试公式显示效果</h2><script type="math/tex; mode=display">
+\begin{array}{l}
+\oint_{l} \boldsymbol{E} \cdot \mathrm{d} \boldsymbol{l}=-\iint_{S} \frac{\partial \boldsymbol{B}}{\partial t} \cdot \mathrm{d} \boldsymbol{S} \\
+\oint_{S} \boldsymbol{B} \cdot \mathrm{d} \boldsymbol{S}=0 \\
+\oint_{S} \boldsymbol{D} \cdot \mathrm{d} \boldsymbol{S}=\iiint_{V} \rho \mathrm{d} V
+\end{array}</script>]]></content>
+  </entry>
+  <entry>
+    <title>linux命令行</title>
+    <url>/2022/07/19/linux%E5%91%BD%E4%BB%A4%E8%A1%8C/</url>
+    <content><![CDATA[<h1 id="基本的bash-shell命令"><a href="#基本的bash-shell命令" class="headerlink" title="基本的bash shell命令"></a>基本的bash shell命令</h1><h2 id="man的使用"><a href="#man的使用" class="headerlink" title="man的使用"></a>man的使用</h2><p>man命令用来访问手册，q键用于quit</p>
+<p>不记得命令名的话可以用关键字搜索手册页，man -k key,<br>查找与终端相关的命令就可以 man -k terminal<br><span id="more"></span></p>
+<p>linux手册页的内容区域</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">区域号</th>
+<th style="text-align:center">所涵盖的内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">1</td>
+<td style="text-align:center">可执行程序或shell命令</td>
+</tr>
+<tr>
+<td style="text-align:left">2</td>
+<td style="text-align:center">系统调用</td>
+</tr>
+<tr>
+<td style="text-align:left">3</td>
+<td style="text-align:center">库调用</td>
+</tr>
+<tr>
+<td style="text-align:left">4</td>
+<td style="text-align:center">特殊文件</td>
+</tr>
+<tr>
+<td style="text-align:left">5</td>
+<td style="text-align:center">文件格式与约定</td>
+</tr>
+<tr>
+<td style="text-align:left">6</td>
+<td style="text-align:center">游戏</td>
+</tr>
+<tr>
+<td style="text-align:left">7</td>
+<td style="text-align:center">概览、约定及杂项</td>
+</tr>
+<tr>
+<td style="text-align:left">8</td>
+<td style="text-align:center">超级用户和系统管理员命令</td>
+</tr>
+<tr>
+<td style="text-align:left">9</td>
+<td style="text-align:center">内核例程</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>man xterm 的话其实是 man 1 xterm</p>
+<p>man 3 intro就是阅读intro的第三部分</p>
+<h2 id="浏览文件系统"><a href="#浏览文件系统" class="headerlink" title="浏览文件系统"></a>浏览文件系统</h2><p>cd /usr/bin 指向usr目录包含的bin目录下的用户二进制文件</p>
+<p>cd 直接跳回主目录 </p>
+<p>pwd 查看当前目录</p>
+<h2 id="文件和目录列表"><a href="#文件和目录列表" class="headerlink" title="文件和目录列表"></a>文件和目录列表</h2><p>ls 显示当前目录下的文件和目录</p>
+<p>注意ls按列排序</p>
+<p>ls -F会在目录名后面加上正斜线，在可执行文件后面加上星号</p>
+<p>ls -a会把隐藏文件也显示出来，而且前面会有.号</p>
+<p>ls -F -R 递归式列出包括了子文件夹下面的文件</p>
+<p>ls -FR和ls -F -R是一样的效果</p>
+<p>ls -l 长列表效果，有更多信息</p>
+<p><strong><em>指定特定文件的名称作为过滤器时</em></strong></p>
+<p>？匹配一个字符</p>
+<ul>
+<li>匹配零个或者多个字符 </li>
+</ul>
+<p>ls -l f[a-i]ll 就是说文件名的第二个字符从a到i都是可以的</p>
+<p>ls -l f[ai]ll 意思是文件名的第二个字符只能是a或者i</p>
+<p>ls -l f[!a]ll 表示不能是a</p>
+<h2 id="处理文件"><a href="#处理文件" class="headerlink" title="处理文件"></a>处理文件</h2><h3 id="创建文件"><a href="#创建文件" class="headerlink" title="创建文件"></a>创建文件</h3><p>touch test_one 在当前目录下创建一个test_one</p>
+<p>再来一次touch test_one 可以改变文件的修改时间</p>
+<p>ls -l 默认显示的是修改时间，如果想显示访问时间的话 </p>
+<p>ls -l —time=atime test_one 就可以显示最后一次访问的时间了</p>
+<h3 id="复制文件"><a href="#复制文件" class="headerlink" title="复制文件"></a>复制文件</h3><p>语法： cp source destination</p>
+<p>cp -i test_one test_two</p>
+<p>会强制询问是否覆盖已有的文件，不然就是如果文件已经存在，默认覆盖</p>
+<p>cp -R 可以递归地复制整个文件夹中的内容</p>
+<p>cp -R scripts/ Mod_scripts可以把scripts文件夹下面的所有内容都复制到Mod_scripts中</p>
+<h3 id="链接文件"><a href="#链接文件" class="headerlink" title="链接文件"></a>链接文件</h3><p>ln -s data_file sl_data_file 就创建了一个符号文件sl_data_file,它指向data_file,但这两个文件中的内容各不相同，两个文件的inode编号也不一样</p>
+<p>ls -i *data_file 就可以查看他俩的inode编号了</p>
+<h2 id="tab键可以自动补全"><a href="#tab键可以自动补全" class="headerlink" title="tab键可以自动补全"></a>tab键可以自动补全</h2>]]></content>
+  </entry>
+  <entry>
+    <title>hexo常见问题的解决办法</title>
+    <url>/2022/07/18/hexo%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<h1 id="FATAL-err-Error-Spawn-failed"><a href="#FATAL-err-Error-Spawn-failed" class="headerlink" title="FATAL err: Error: Spawn failed"></a>FATAL err: Error: Spawn failed</h1><p>进入博客根目录<br><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">rm -rf .deploy_git/</span><br><span class="line"></span><br><span class="line">git config --global core.autocrlf false</span><br></pre></td></tr></table></figure></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>git常见问题的解决办法</title>
+    <url>/2022/07/18/git%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<h1 id="Failed-to-connect-to-github-com-port-443-Timed-out"><a href="#Failed-to-connect-to-github-com-port-443-Timed-out" class="headerlink" title="Failed to connect to github.com port 443: Timed out"></a>Failed to connect to github.com port 443: Timed out</h1><p>先取消代理再设置代理</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global --unset http.proxy</span><br><span class="line">git config --global --unset https.proxy</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global https.proxy http://127.0.0.1:1080</span><br><span class="line">git config --global https.proxy https://127.0.0.1:1080</span><br></pre></td></tr></table></figure>
+<h1 id="does-not-have-a-commit-checked-out"><a href="#does-not-have-a-commit-checked-out" class="headerlink" title="does not have a commit checked out"></a>does not have a commit checked out</h1><p>哪个文件夹报的错，删掉那个文件夹的.git</p>
+<h1 id="fatal-unable-to-access-xxxxx-OpenSSL-SSL-read-Connection-was-reset-errno-10054"><a href="#fatal-unable-to-access-xxxxx-OpenSSL-SSL-read-Connection-was-reset-errno-10054" class="headerlink" title="fatal: unable to access xxxxx OpenSSL SSL_read: Connection was reset, errno 10054"></a>fatal: unable to access xxxxx OpenSSL SSL_read: Connection was reset, errno 10054</h1><p><code>git config --global http.sslVerify &quot;false&quot;</code></p>
+]]></content>
+  </entry>
 </search>
