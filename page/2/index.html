@@ -118,7 +118,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="badge-check fa-fw"></i>归档</a>
+    <a href="/archives/" rel="section"><i class="badge-check fa-fw"></i>时间轴</a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -185,7 +185,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/07/18/git%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/07/18/%E8%87%AA%E6%88%91%E4%BB%8B%E7%BB%8D/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -199,26 +199,30 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2022/07/18/git%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" class="post-title-link" itemprop="url">git常见问题的解决办法</a>
+            <a href="/2022/07/18/%E8%87%AA%E6%88%91%E4%BB%8B%E7%BB%8D/" class="post-title-link" itemprop="url">欢迎来到owenramber1989的个人博客</a>
         </h2>
 
         <div class="post-meta">
 
          
+            <i class="fa fa-thumb-tack"></i>
+            <font color=7D26CD>置顶</font>
+            <span class="post-meta-divider">|</span>
+        
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2022-07-18 16:56:16" itemprop="dateCreated datePublished" datetime="2022-07-18T16:56:16+08:00">2022-07-18</time>
+              <time title="创建时间：2022-07-18 14:00:58" itemprop="dateCreated datePublished" datetime="2022-07-18T14:00:58+08:00">2022-07-18</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-07-19 15:42:17" itemprop="dateModified" datetime="2022-07-19T15:42:17+08:00">2022-07-19</time>
+                <time title="修改时间：2022-07-20 19:22:27" itemprop="dateModified" datetime="2022-07-20T19:22:27+08:00">2022-07-20</time>
               </span>
 
           
@@ -230,8 +234,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2022/07/18/git%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2022/07/18/git%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" itemprop="commentCount"></span>
+    <a title="valine" href="/2022/07/18/%E8%87%AA%E6%88%91%E4%BB%8B%E7%BB%8D/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2022/07/18/%E8%87%AA%E6%88%91%E4%BB%8B%E7%BB%8D/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -241,7 +245,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>392</span>
+              <span>80</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -260,11 +264,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="Failed-to-connect-to-github-com-port-443-Timed-out"><a href="#Failed-to-connect-to-github-com-port-443-Timed-out" class="headerlink" title="Failed to connect to github.com port 443: Timed out"></a>Failed to connect to github.com port 443: Timed out</h1><p>先取消代理再设置代理</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global --unset http.proxy</span><br><span class="line">git config --global --unset https.proxy</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global https.proxy http://127.0.0.1:1080</span><br><span class="line">git config --global https.proxy https://127.0.0.1:1080</span><br></pre></td></tr></table></figure>
-<h1 id="does-not-have-a-commit-checked-out"><a href="#does-not-have-a-commit-checked-out" class="headerlink" title="does not have a commit checked out"></a>does not have a commit checked out</h1><p>哪个文件夹报的错，删掉那个文件夹的.git</p>
-<h1 id="fatal-unable-to-access-xxxxx-OpenSSL-SSL-read-Connection-was-reset-errno-10054"><a href="#fatal-unable-to-access-xxxxx-OpenSSL-SSL-read-Connection-was-reset-errno-10054" class="headerlink" title="fatal: unable to access xxxxx OpenSSL SSL_read: Connection was reset, errno 10054"></a>fatal: unable to access xxxxx OpenSSL SSL_read: Connection was reset, errno 10054</h1><p><code>git config --global http.sslVerify &quot;false&quot;</code></p>
+          <h1 id="个人简介"><a href="#个人简介" class="headerlink" title="个人简介"></a>个人简介</h1><p>本人为华中科技大学计算机科学与技术学院21级的一名普通同学，将会在此域名下记录我学到的知识，同时也会分享一些有趣的内容，共勉<code>^__^</code></p>
+<p><a target="_blank" rel="noopener" href="https://owenramber1989.com/ZONE/LEARN/html/index.html">跳转到我的自定义主页</a></p>
 
       
     </div>
