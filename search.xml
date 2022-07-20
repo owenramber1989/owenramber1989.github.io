@@ -20,13 +20,7 @@
     <title>latex的一些新玩法</title>
     <url>/2022/07/19/latex%E7%9A%84%E4%B8%80%E4%BA%9B%E6%96%B0%E7%8E%A9%E6%B3%95/</url>
     <content><![CDATA[<h1 id="latex的基础知识"><a href="#latex的基础知识" class="headerlink" title="latex的基础知识"></a>latex的基础知识</h1><p><a href="../latex.pdf">参考资料</a></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>欢迎来到owenramber1989的个人博客</title>
-    <url>/2022/07/18/test/</url>
-    <content><![CDATA[<h1 id="个人简介"><a href="#个人简介" class="headerlink" title="个人简介"></a>个人简介</h1><p>本人为华中科技大学计算机科学与技术学院21级的一名普通同学，将会在此域名下记录我学到的知识，同时也会分享一些有趣的内容，共勉<code>^__^</code></p>
-<p><a href="https://owenramber1989.com/ZONE/LEARN/html/index.html">跳转</a></p>
+<h2 id="测试公式显示效果"><a href="#测试公式显示效果" class="headerlink" title="测试公式显示效果"></a>测试公式显示效果</h2><p>$$<br>\begin{array}{l}<br>\oint_{l} \boldsymbol{E} \cdot \mathrm{d} \boldsymbol{l}&#x3D;-\iint_{S} \frac{\partial \boldsymbol{B}}{\partial t} \cdot \mathrm{d} \boldsymbol{S} \<br>\oint_{S} \boldsymbol{B} \cdot \mathrm{d} \boldsymbol{S}&#x3D;0 \<br>\oint_{S} \boldsymbol{D} \cdot \mathrm{d} \boldsymbol{S}&#x3D;\iiint_{V} \rho \mathrm{d} V<br>\end{array}<br>$$</p>
 ]]></content>
   </entry>
   <entry>
@@ -113,5 +107,12 @@
 <h3 id="链接文件"><a href="#链接文件" class="headerlink" title="链接文件"></a>链接文件</h3><p>ln -s data_file sl_data_file 就创建了一个符号文件sl_data_file,它指向data_file,但这两个文件中的内容各不相同，两个文件的inode编号也不一样</p>
 <p>ls -i *data_file 就可以查看他俩的inode编号了</p>
 <h2 id="tab键可以自动补全"><a href="#tab键可以自动补全" class="headerlink" title="tab键可以自动补全"></a>tab键可以自动补全</h2>]]></content>
+  </entry>
+  <entry>
+    <title>欢迎来到owenramber1989的个人博客</title>
+    <url>/2022/07/18/test/</url>
+    <content><![CDATA[<h1 id="个人简介"><a href="#个人简介" class="headerlink" title="个人简介"></a>个人简介</h1><p>本人为华中科技大学计算机科学与技术学院21级的一名普通同学，将会在此域名下记录我学到的知识，同时也会分享一些有趣的内容，共勉<code>^__^</code></p>
+<p><a href="https://owenramber1989.com/ZONE/LEARN/html/index.html">跳转</a></p>
+]]></content>
   </entry>
 </search>
