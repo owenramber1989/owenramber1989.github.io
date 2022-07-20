@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>欢迎来到owenramber1989的个人博客</title>
+    <url>/2022/07/18/%E8%87%AA%E6%88%91%E4%BB%8B%E7%BB%8D/</url>
+    <content><![CDATA[<h1 id="个人简介"><a href="#个人简介" class="headerlink" title="个人简介"></a>个人简介</h1><p>本人为华中科技大学计算机科学与技术学院21级的一名普通同学，将会在此域名下记录我学到的知识，同时也会分享一些有趣的内容，共勉<code>^__^</code></p>
+<p><a href="https://owenramber1989.com/ZONE/LEARN/html/index.html">跳转到我的自定义主页</a></p>
+]]></content>
+  </entry>
+  <entry>
     <title>JavaScript notes</title>
     <url>/2022/07/20/JavaScript%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<h1 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h1><h2 id="位置"><a href="#位置" class="headerlink" title="位置"></a>位置</h2><p>一般放在<code>&lt;script&gt;&lt;/script&gt;里面</code>，script一般放在body的末尾，但如果js代码中有定义<code>&lt;body&gt;</code>下直接调用的函数，那么js代码必须放在head</p>
@@ -82,29 +89,6 @@
 <p>原则上基本数据类型应该避免用new运算符实例化</p>
 <p><a href="https://www.runoob.com/js/js-obj-number.html">Number</a></p>
 <p><a href="https://www.runoob.com/jsref/jsref-obj-string.html">String</a></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>git常见问题的解决办法</title>
-    <url>/2022/07/18/git%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</url>
-    <content><![CDATA[<h1 id="Failed-to-connect-to-github-com-port-443-Timed-out"><a href="#Failed-to-connect-to-github-com-port-443-Timed-out" class="headerlink" title="Failed to connect to github.com port 443: Timed out"></a>Failed to connect to github.com port 443: Timed out</h1><p>先取消代理再设置代理</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global --unset http.proxy</span><br><span class="line">git config --global --unset https.proxy</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global https.proxy http://127.0.0.1:1080</span><br><span class="line">git config --global https.proxy https://127.0.0.1:1080</span><br></pre></td></tr></table></figure>
-<h1 id="does-not-have-a-commit-checked-out"><a href="#does-not-have-a-commit-checked-out" class="headerlink" title="does not have a commit checked out"></a>does not have a commit checked out</h1><p>哪个文件夹报的错，删掉那个文件夹的.git</p>
-<h1 id="fatal-unable-to-access-xxxxx-OpenSSL-SSL-read-Connection-was-reset-errno-10054"><a href="#fatal-unable-to-access-xxxxx-OpenSSL-SSL-read-Connection-was-reset-errno-10054" class="headerlink" title="fatal: unable to access xxxxx OpenSSL SSL_read: Connection was reset, errno 10054"></a>fatal: unable to access xxxxx OpenSSL SSL_read: Connection was reset, errno 10054</h1><p><code>git config --global http.sslVerify &quot;false&quot;</code></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>hexo常见问题的解决办法</title>
-    <url>/2022/07/18/hexo%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</url>
-    <content><![CDATA[<h1 id="FATAL-err-Error-Spawn-failed"><a href="#FATAL-err-Error-Spawn-failed" class="headerlink" title="FATAL err: Error: Spawn failed"></a>FATAL err: Error: Spawn failed</h1><p>进入博客根目录<br><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">rm -rf .deploy_git/</span><br><span class="line"></span><br><span class="line">git config --global core.autocrlf false</span><br></pre></td></tr></table></figure></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>欢迎来到owenramber1989的个人博客</title>
-    <url>/2022/07/18/%E8%87%AA%E6%88%91%E4%BB%8B%E7%BB%8D/</url>
-    <content><![CDATA[<h1 id="个人简介"><a href="#个人简介" class="headerlink" title="个人简介"></a>个人简介</h1><p>本人为华中科技大学计算机科学与技术学院21级的一名普通同学，将会在此域名下记录我学到的知识，同时也会分享一些有趣的内容，共勉<code>^__^</code></p>
-<p><a href="https://owenramber1989.com/ZONE/LEARN/html/index.html">跳转到我的自定义主页</a></p>
 ]]></content>
   </entry>
   <entry>
@@ -204,5 +188,21 @@
 <h3 id="链接文件"><a href="#链接文件" class="headerlink" title="链接文件"></a>链接文件</h3><p>ln -s data_file sl_data_file 就创建了一个符号文件sl_data_file,它指向data_file,但这两个文件中的内容各不相同，两个文件的inode编号也不一样</p>
 <p>ls -i *data_file 就可以查看他俩的inode编号了</p>
 <h2 id="tab键可以自动补全"><a href="#tab键可以自动补全" class="headerlink" title="tab键可以自动补全"></a>tab键可以自动补全</h2>]]></content>
+  </entry>
+  <entry>
+    <title>hexo常见问题的解决办法</title>
+    <url>/2022/07/18/hexo%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<h1 id="FATAL-err-Error-Spawn-failed"><a href="#FATAL-err-Error-Spawn-failed" class="headerlink" title="FATAL err: Error: Spawn failed"></a>FATAL err: Error: Spawn failed</h1><p>进入博客根目录<br><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">rm -rf .deploy_git/</span><br><span class="line"></span><br><span class="line">git config --global core.autocrlf false</span><br></pre></td></tr></table></figure></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>git常见问题的解决办法</title>
+    <url>/2022/07/18/git%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<h1 id="Failed-to-connect-to-github-com-port-443-Timed-out"><a href="#Failed-to-connect-to-github-com-port-443-Timed-out" class="headerlink" title="Failed to connect to github.com port 443: Timed out"></a>Failed to connect to github.com port 443: Timed out</h1><p>先取消代理再设置代理</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global --unset http.proxy</span><br><span class="line">git config --global --unset https.proxy</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global https.proxy http://127.0.0.1:1080</span><br><span class="line">git config --global https.proxy https://127.0.0.1:1080</span><br></pre></td></tr></table></figure>
+<h1 id="does-not-have-a-commit-checked-out"><a href="#does-not-have-a-commit-checked-out" class="headerlink" title="does not have a commit checked out"></a>does not have a commit checked out</h1><p>哪个文件夹报的错，删掉那个文件夹的.git</p>
+<h1 id="fatal-unable-to-access-xxxxx-OpenSSL-SSL-read-Connection-was-reset-errno-10054"><a href="#fatal-unable-to-access-xxxxx-OpenSSL-SSL-read-Connection-was-reset-errno-10054" class="headerlink" title="fatal: unable to access xxxxx OpenSSL SSL_read: Connection was reset, errno 10054"></a>fatal: unable to access xxxxx OpenSSL SSL_read: Connection was reset, errno 10054</h1><p><code>git config --global http.sslVerify &quot;false&quot;</code></p>
+]]></content>
   </entry>
 </search>
