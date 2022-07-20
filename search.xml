@@ -1,6 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>欢迎来到owenramber1989的个人博客</title>
+    <url>/2022/07/18/test/</url>
+    <content><![CDATA[<h1 id="个人简介"><a href="#个人简介" class="headerlink" title="个人简介"></a>个人简介</h1><p>本人为华中科技大学计算机科学与技术学院21级的一名普通同学，将会在此域名下记录我学到的知识，同时也会分享一些有趣的内容，共勉<code>^__^</code></p>
+<p><a href="https://owenramber1989.com/ZONE/LEARN/html/index.html">跳转到我的自定义主页</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/2022/07/20/JavaScript%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>latex的一些新玩法</title>
+    <url>/2022/07/19/latex%E7%9A%84%E4%B8%80%E4%BA%9B%E6%96%B0%E7%8E%A9%E6%B3%95/</url>
+    <content><![CDATA[<h1 id="latex的基础知识"><a href="#latex的基础知识" class="headerlink" title="latex的基础知识"></a>latex的基础知识</h1><p><a href="../latex.pdf">参考资料</a></p>
+<h2 id="测试公式显示效果"><a href="#测试公式显示效果" class="headerlink" title="测试公式显示效果"></a>测试公式显示效果</h2><script type="math/tex; mode=display">
+\begin{array}{l}
+\oint_{l} \boldsymbol{E} \cdot \mathrm{d} \boldsymbol{l}=-\iint_{S} \frac{\partial \boldsymbol{B}}{\partial t} \cdot \mathrm{d} \boldsymbol{S} \\
+\oint_{S} \boldsymbol{B} \cdot \mathrm{d} \boldsymbol{S}=0 \\
+\oint_{S} \boldsymbol{D} \cdot \mathrm{d} \boldsymbol{S}=\iiint_{V} \rho \mathrm{d} V
+\end{array}</script>]]></content>
+  </entry>
+  <entry>
     <title>linux命令行</title>
     <url>/2022/07/19/linux%E5%91%BD%E4%BB%A4%E8%A1%8C/</url>
     <content><![CDATA[<h1 id="基本的bash-shell命令"><a href="#基本的bash-shell命令" class="headerlink" title="基本的bash shell命令"></a>基本的bash shell命令</h1><h2 id="man的使用"><a href="#man的使用" class="headerlink" title="man的使用"></a>man的使用</h2><p>man命令用来访问手册，q键用于quit</p>
@@ -88,17 +111,6 @@
 <h2 id="tab键可以自动补全"><a href="#tab键可以自动补全" class="headerlink" title="tab键可以自动补全"></a>tab键可以自动补全</h2>]]></content>
   </entry>
   <entry>
-    <title>latex的一些新玩法</title>
-    <url>/2022/07/19/latex%E7%9A%84%E4%B8%80%E4%BA%9B%E6%96%B0%E7%8E%A9%E6%B3%95/</url>
-    <content><![CDATA[<h1 id="latex的基础知识"><a href="#latex的基础知识" class="headerlink" title="latex的基础知识"></a>latex的基础知识</h1><p><a href="../latex.pdf">参考资料</a></p>
-<h2 id="测试公式显示效果"><a href="#测试公式显示效果" class="headerlink" title="测试公式显示效果"></a>测试公式显示效果</h2><script type="math/tex; mode=display">
-\begin{array}{l}
-\oint_{l} \boldsymbol{E} \cdot \mathrm{d} \boldsymbol{l}=-\iint_{S} \frac{\partial \boldsymbol{B}}{\partial t} \cdot \mathrm{d} \boldsymbol{S} \\
-\oint_{S} \boldsymbol{B} \cdot \mathrm{d} \boldsymbol{S}=0 \\
-\oint_{S} \boldsymbol{D} \cdot \mathrm{d} \boldsymbol{S}=\iiint_{V} \rho \mathrm{d} V
-\end{array}</script>]]></content>
-  </entry>
-  <entry>
     <title>hexo常见问题的解决办法</title>
     <url>/2022/07/18/hexo%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</url>
     <content><![CDATA[<h1 id="FATAL-err-Error-Spawn-failed"><a href="#FATAL-err-Error-Spawn-failed" class="headerlink" title="FATAL err: Error: Spawn failed"></a>FATAL err: Error: Spawn failed</h1><p>进入博客根目录<br><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">rm -rf .deploy_git/</span><br><span class="line"></span><br><span class="line">git config --global core.autocrlf false</span><br></pre></td></tr></table></figure></p>
@@ -112,13 +124,6 @@
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global https.proxy http://127.0.0.1:1080</span><br><span class="line">git config --global https.proxy https://127.0.0.1:1080</span><br></pre></td></tr></table></figure>
 <h1 id="does-not-have-a-commit-checked-out"><a href="#does-not-have-a-commit-checked-out" class="headerlink" title="does not have a commit checked out"></a>does not have a commit checked out</h1><p>哪个文件夹报的错，删掉那个文件夹的.git</p>
 <h1 id="fatal-unable-to-access-xxxxx-OpenSSL-SSL-read-Connection-was-reset-errno-10054"><a href="#fatal-unable-to-access-xxxxx-OpenSSL-SSL-read-Connection-was-reset-errno-10054" class="headerlink" title="fatal: unable to access xxxxx OpenSSL SSL_read: Connection was reset, errno 10054"></a>fatal: unable to access xxxxx OpenSSL SSL_read: Connection was reset, errno 10054</h1><p><code>git config --global http.sslVerify &quot;false&quot;</code></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>欢迎来到owenramber1989的个人博客</title>
-    <url>/2022/07/18/test/</url>
-    <content><![CDATA[<h1 id="个人简介"><a href="#个人简介" class="headerlink" title="个人简介"></a>个人简介</h1><p>本人为华中科技大学计算机科学与技术学院21级的一名普通同学，将会在此域名下记录我学到的知识，同时也会分享一些有趣的内容，共勉<code>^__^</code></p>
-<p><a href="https://owenramber1989.com/ZONE/LEARN/html/index.html">跳转</a></p>
 ]]></content>
   </entry>
 </search>
