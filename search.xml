@@ -8,11 +8,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>test</title>
-    <url>/2022/07/21/test/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
     <title>算法竞赛的笔记</title>
     <url>/2022/07/21/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<h1 id="二分"><a href="#二分" class="headerlink" title="二分"></a>二分</h1><h2 id="基本思想"><a href="#基本思想" class="headerlink" title="基本思想"></a>基本思想</h2><p>用二分做题的关键就是找到问题中的单调性</p>
