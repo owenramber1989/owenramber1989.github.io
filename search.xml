@@ -1,6 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Python学习笔记.md</title>
+    <url>/2022/07/23/python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<h1 id="基础语法知识"><a href="#基础语法知识" class="headerlink" title="基础语法知识"></a>基础语法知识</h1><p><a href="https://www.runoob.com/python/python-tutorial.html">简明教程</a></p>
+<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><ol>
+<li>Python中的True，False，None首字母都必须大写</li>
+<li>Python语句末尾不加分号</li>
+<li>def语句，if语句，try&amp;except语句末尾要加冒号</li>
+<li>列表的负号就是倒数</li>
+<li>列表的切片有两个下标，省略第一个下标就是0，省略第二个就是使用列表的长度，都省略就是使用整个列表</li>
+<li>列表元素的删除用del</li>
+<li>列表是可变的，字符串是不可变的，元组用圆括号，也是不可变的</li>
+<li>字典中的表项是不排序的</li>
+</ol>
+<h1 id="模式匹配与正则表达式"><a href="#模式匹配与正则表达式" class="headerlink" title="模式匹配与正则表达式"></a>模式匹配与正则表达式</h1><h2 id="创建正则表达式对象"><a href="#创建正则表达式对象" class="headerlink" title="创建正则表达式对象"></a>创建正则表达式对象</h2><p>STEP1： 导入re模块</p>
+<p>import re</p>
+<p>向re.compile()传入一个字符串值，表示正则表达式，返回一个Regex对象</p>
+]]></content>
+      <categories>
+        <category>编程语言</category>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>工具</tag>
+        <tag>编程语言</tag>
+        <tag>学习笔记</tag>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>CSS3学习笔记</title>
     <url>/2022/07/23/CSS3%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<h1 id="方框模型"><a href="#方框模型" class="headerlink" title="方框模型"></a>方框模型</h1><p>CSS显示的所有对象都是方框</p>
@@ -64,414 +93,6 @@
         <tag>CSS</tag>
         <tag>工具</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>git常见问题的解决办法</title>
-    <url>/2022/07/18/git%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</url>
-    <content><![CDATA[<h1 id="Failed-to-connect-to-github-com-port-443-Timed-out"><a href="#Failed-to-connect-to-github-com-port-443-Timed-out" class="headerlink" title="Failed to connect to github.com port 443: Timed out"></a>Failed to connect to github.com port 443: Timed out</h1><p>先取消代理再设置代理</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global --unset http.proxy</span><br><span class="line">git config --global --unset https.proxy</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global https.proxy http://127.0.0.1:1080</span><br><span class="line">git config --global https.proxy https://127.0.0.1:1080</span><br></pre></td></tr></table></figure>
-<h1 id="does-not-have-a-commit-checked-out"><a href="#does-not-have-a-commit-checked-out" class="headerlink" title="does not have a commit checked out"></a>does not have a commit checked out</h1><p>哪个文件夹报的错，删掉那个文件夹的.git</p>
-<h1 id="fatal-unable-to-access-xxxxx-OpenSSL-SSL-read-Connection-was-reset-errno-10054"><a href="#fatal-unable-to-access-xxxxx-OpenSSL-SSL-read-Connection-was-reset-errno-10054" class="headerlink" title="fatal: unable to access xxxxx OpenSSL SSL_read: Connection was reset, errno 10054"></a>fatal: unable to access xxxxx OpenSSL SSL_read: Connection was reset, errno 10054</h1><p><code>git config --global http.sslVerify &quot;false&quot;</code></p>
-]]></content>
-      <categories>
-        <category>工具</category>
-        <category>git</category>
-      </categories>
-      <tags>
-        <tag>报错</tag>
-        <tag>git</tag>
-        <tag>github</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>hexo常见问题的解决办法</title>
-    <url>/2022/07/18/hexo%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</url>
-    <content><![CDATA[<h1 id="FATAL-err-Error-Spawn-failed"><a href="#FATAL-err-Error-Spawn-failed" class="headerlink" title="FATAL err: Error: Spawn failed"></a>FATAL err: Error: Spawn failed</h1><p>进入博客根目录<br><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">rm -rf .deploy_git/</span><br><span class="line"></span><br><span class="line">git config --global core.autocrlf false</span><br></pre></td></tr></table></figure></p>
-]]></content>
-      <categories>
-        <category>个人博客的搭建</category>
-        <category>hexo框架</category>
-      </categories>
-      <tags>
-        <tag>报错</tag>
-        <tag>hexo</tag>
-        <tag>博客</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>latex的一些新玩法</title>
-    <url>/2022/07/19/latex%E7%9A%84%E4%B8%80%E4%BA%9B%E6%96%B0%E7%8E%A9%E6%B3%95/</url>
-    <content><![CDATA[<h1 id="latex的基础知识"><a href="#latex的基础知识" class="headerlink" title="latex的基础知识"></a>latex的基础知识</h1><p><a href="../latex.pdf">参考资料</a></p>
-<h2 id="测试公式显示效果"><a href="#测试公式显示效果" class="headerlink" title="测试公式显示效果"></a>测试公式显示效果</h2><script type="math/tex; mode=display">
-\begin{array}{l}
-\oint_{l} \boldsymbol{E} \cdot \mathrm{d} \boldsymbol{l}=-\iint_{S} \frac{\partial \boldsymbol{B}}{\partial t} \cdot \mathrm{d} \boldsymbol{S} \\
-\oint_{S} \boldsymbol{B} \cdot \mathrm{d} \boldsymbol{S}=0 \\
-\oint_{S} \boldsymbol{D} \cdot \mathrm{d} \boldsymbol{S}=\iiint_{V} \rho \mathrm{d} V
-\end{array}</script>]]></content>
-      <categories>
-        <category>工具</category>
-        <category>latex</category>
-      </categories>
-      <tags>
-        <tag>排版工具</tag>
-        <tag>整活</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>linux命令行</title>
-    <url>/2022/07/19/linux%E5%91%BD%E4%BB%A4%E8%A1%8C/</url>
-    <content><![CDATA[<h1 id="man的使用"><a href="#man的使用" class="headerlink" title="man的使用"></a>man的使用</h1><p>man命令用来访问手册，q键用于quit</p>
-<p>不记得命令名的话可以用关键字搜索手册页，man -k key,<br>查找与终端相关的命令就可以 man -k terminal<br><span id="more"></span></p>
-<p>linux手册页的内容区域</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:left">区域号</th>
-<th style="text-align:center">所涵盖的内容</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">1</td>
-<td style="text-align:center">可执行程序或shell命令</td>
-</tr>
-<tr>
-<td style="text-align:left">2</td>
-<td style="text-align:center">系统调用</td>
-</tr>
-<tr>
-<td style="text-align:left">3</td>
-<td style="text-align:center">库调用</td>
-</tr>
-<tr>
-<td style="text-align:left">4</td>
-<td style="text-align:center">特殊文件</td>
-</tr>
-<tr>
-<td style="text-align:left">5</td>
-<td style="text-align:center">文件格式与约定</td>
-</tr>
-<tr>
-<td style="text-align:left">6</td>
-<td style="text-align:center">游戏</td>
-</tr>
-<tr>
-<td style="text-align:left">7</td>
-<td style="text-align:center">概览、约定及杂项</td>
-</tr>
-<tr>
-<td style="text-align:left">8</td>
-<td style="text-align:center">超级用户和系统管理员命令</td>
-</tr>
-<tr>
-<td style="text-align:left">9</td>
-<td style="text-align:center">内核例程</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>man xterm 的话其实是 man 1 xterm</p>
-<p>man 3 intro就是阅读intro的第三部分</p>
-<h1 id="浏览文件系统"><a href="#浏览文件系统" class="headerlink" title="浏览文件系统"></a>浏览文件系统</h1><p>cd /usr/bin 指向usr目录包含的bin目录下的用户二进制文件</p>
-<p>.. 返回上级目录</p>
-<p>cd 直接跳回主目录 </p>
-<p>pwd 查看当前目录</p>
-<h1 id="文件和目录列表"><a href="#文件和目录列表" class="headerlink" title="文件和目录列表"></a>文件和目录列表</h1><p>ls 显示当前目录下的文件和目录</p>
-<p>注意ls按列排序</p>
-<p>ls -F会在目录名后面加上正斜线，在可执行文件后面加上星号</p>
-<p>ls -a会把隐藏文件也显示出来，而且前面会有.号</p>
-<p>ls -F -R 递归式列出包括了子文件夹下面的文件</p>
-<p>ls -FR和ls -F -R是一样的效果</p>
-<p>ls -l 长列表效果，有更多信息</p>
-<p><strong><em>指定特定文件的名称作为过滤器时</em></strong></p>
-<p>？匹配一个字符</p>
-<ul>
-<li>匹配零个或者多个字符 </li>
-</ul>
-<p>ls -l f[a-i]ll 就是说文件名的第二个字符从a到i都是可以的</p>
-<p>ls -l f[ai]ll 意思是文件名的第二个字符只能是a或者i</p>
-<p>ls -l f[!a]ll 表示不能是a</p>
-<h1 id="处理文件"><a href="#处理文件" class="headerlink" title="处理文件"></a>处理文件</h1><h2 id="查看文件信息"><a href="#查看文件信息" class="headerlink" title="查看文件信息"></a>查看文件信息</h2><p>file /bin/ls</p>
-<p>可以用来查看ls文件是不是ELF格式，也就是 Executable and Linking Format</p>
-<h2 id="显示文件内容"><a href="#显示文件内容" class="headerlink" title="显示文件内容"></a>显示文件内容</h2><h3 id="cat命令"><a href="#cat命令" class="headerlink" title="cat命令"></a>cat命令</h3><p>可以显示一个或多个文件的内容</p>
-<p>cat file1 file2 会将file1和file2的内容拼接起来显示然后退出</p>
-<h2 id="创建文件"><a href="#创建文件" class="headerlink" title="创建文件"></a>创建文件</h2><p>touch test_one 在当前目录下创建一个test_one</p>
-<p>再来一次touch test_one 可以改变文件的修改时间</p>
-<p>ls -l 默认显示的是修改时间，如果想显示访问时间的话 </p>
-<p>ls -l —time=atime test_one 就可以显示最后一次访问的时间了</p>
-<h2 id="复制文件"><a href="#复制文件" class="headerlink" title="复制文件"></a>复制文件</h2><p>语法： cp source destination</p>
-<p>cp file1…file<sub>N</sub> dir</p>
-<p>可以把file1到file<sub>N</sub>的文件全部复制到dir目录</p>
-<p>cp -i test_one test_two</p>
-<p>会强制询问是否覆盖已有的文件，不然就是如果文件已经存在，默认覆盖</p>
-<p>cp -R 可以递归地复制整个文件夹中的内容</p>
-<p>cp -R scripts/ Mod_scripts可以把scripts文件夹下面的所有内容都复制到Mod_scripts中</p>
-<h2 id="重命名文件"><a href="#重命名文件" class="headerlink" title="重命名文件"></a>重命名文件</h2><h3 id="mv命令"><a href="#mv命令" class="headerlink" title="mv命令"></a>mv命令</h3><p>mv file1 file2</p>
-<p>把文件file1重命名为file2</p>
-<p>mv file1 … fileN dir 把多个文件<strong>移动</strong>到某个目录</p>
-<h2 id="链接文件"><a href="#链接文件" class="headerlink" title="链接文件"></a>链接文件</h2><p>ln -s data_file sl_data_file 就创建了一个符号文件sl_data_file,它指向data_file,但这两个文件中的内容各不相同，两个文件的inode编号也不一样</p>
-<p>ls -i *data_file 就可以查看他俩的inode编号了</p>
-<h2 id="tab键可以自动补全"><a href="#tab键可以自动补全" class="headerlink" title="tab键可以自动补全"></a>tab键可以自动补全</h2><h2 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a>删除文件</h2><p>rm file</p>
-<h1 id="处理目录"><a href="#处理目录" class="headerlink" title="处理目录"></a>处理目录</h1><h2 id="设置当前工作目录"><a href="#设置当前工作目录" class="headerlink" title="设置当前工作目录"></a>设置当前工作目录</h2><p>cd <em>dir</em></p>
-<h2 id="创建新目录"><a href="#创建新目录" class="headerlink" title="创建新目录"></a>创建新目录</h2><p>mkdir <em>dir</em></p>
-<h2 id="删除目录"><a href="#删除目录" class="headerlink" title="删除目录"></a>删除目录</h2><p>rmdir <em>dir</em></p>
-<p>注意如果目录非空，那么上面的命令会失效，<code>rm -rf</code>可以删除一个目录以及其中的所有内容</p>
-<h1 id="中间命令"><a href="#中间命令" class="headerlink" title="中间命令"></a>中间命令</h1><h2 id="grep命令"><a href="#grep命令" class="headerlink" title="grep命令"></a>grep命令</h2><p>显示文件（或输入流）中与参数匹配的行</p>
-<p>grep root /etc/passwd 会显示文件passwd中包含文本root的所有行</p>
-<p>grep root /etc/*</p>
-<p>可以查看/etc目录中所有包含root的文件</p>
-<p>grep -i 不区分大小写</p>
-<p>grep -v 反转匹配，即显示所有不匹配的行</p>
-<h2 id="less命令"><a href="#less命令" class="headerlink" title="less命令"></a>less命令</h2><p>内容分屏显示</p>
-<p>grep ie /usr/share/dict/words | less </p>
-<p>less 经常和别的命令搭配起来一起使用</p>
-<h2 id="diff命令"><a href="#diff命令" class="headerlink" title="diff命令"></a>diff命令</h2><p>用来查看两个文件的不同</p>
-<h2 id="find命令"><a href="#find命令" class="headerlink" title="find命令"></a>find命令</h2><p>find <em>dir</em> -name <em>file</em> -print</p>
-<p>可以再目录中寻找文件</p>
-<p>locate与find相似，但是locate可以再系统创建的文件索引中查找文件</p>
-<h2 id="find与tail命令"><a href="#find与tail命令" class="headerlink" title="find与tail命令"></a>find与tail命令</h2><p>head命令默认显示文件的前10行内容，tail则是后10行</p>
-<p>可以指定参数 head -5 就是前五行，tail +5 就是后五行</p>
-<h2 id="sort命令"><a href="#sort命令" class="headerlink" title="sort命令"></a>sort命令</h2><p>将文件内的所有行按照字母顺序快速排序， -n 可以按照数字顺序</p>
-<ul>
-<li>r可以进行反向排序</li>
-</ul>
-<p>#</p>
-]]></content>
-      <categories>
-        <category>linux</category>
-        <category>命令行</category>
-      </categories>
-      <tags>
-        <tag>linux</tag>
-        <tag>命令行</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>linux系统学习笔记</title>
-    <url>/2022/07/23/linux%E7%B3%BB%E7%BB%9F/</url>
-    <content><![CDATA[<h1 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h1><h2 id="更改shell"><a href="#更改shell" class="headerlink" title="更改shell"></a>更改shell</h2><p>使用chsh命令可以更改shell（如改为ksh或者tcsh）</p>
-<h2 id="环境变量和shell变量"><a href="#环境变量和shell变量" class="headerlink" title="环境变量和shell变量"></a>环境变量和shell变量</h2><p>shell中可以保存一些临时变量，称为shell变量，可以用来保存脚本执行过程中的数据</p>
-<p>STUFF=blah</p>
-<p>这一语句将blah赋值给shell变量STUFF</p>
-<p>可以用echo $STUFF 来显示变量STUFF的值</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:left">环境变量</th>
-<th style="text-align:left">shell变量</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">能够被shell中运行的所有进程访问</td>
-<td style="text-align:left">只能被当前的shell访问，在shell中运行的命令则无法访问</td>
-</tr>
-</tbody>
-</table>
-</div>
-<span id="more"></span>
-<h2 id="命令路径"><a href="#命令路径" class="headerlink" title="命令路径"></a>命令路径</h2><p>echo $PATH</p>
-<p>可以看到所有的路径组件，彼此以：分隔</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:left">PATH=<em>dir</em>:$PATH</th>
-<th style="text-align:left">PATH=$PATH1:<em>dir</em></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">优先查找<em>dir</em>路径</td>
-<td style="text-align:left">最后查找<em>dir</em>路径</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h2 id="shell输入输出"><a href="#shell输入输出" class="headerlink" title="shell输入输出"></a>shell输入输出</h2><p><em>command</em> &gt; <em>file</em></p>
-<p>将命令的执行结果输出到文件（默认是屏幕），如果文件不存在，将会被创建，如果存在，将会清空其中的内容</p>
-<p>如果不想覆盖文件，可以加入到文件末尾</p>
-<p><em>command</em> &gt;&gt; <em>file</em></p>
-<p>可以使用管道字符|将一个命令的执行结果输出到另一个命令</p>
-<p>head /proc/cpuinfo | tr a-z A-Z</p>
-<h3 id="标准输入重定向"><a href="#标准输入重定向" class="headerlink" title="标准输入重定向"></a>标准输入重定向</h3><p>head &lt; /proc/cpuinfo</p>
-<p>将文件内容重定向为命令的标准输入</p>
-<h2 id="查看和操纵进程"><a href="#查看和操纵进程" class="headerlink" title="查看和操纵进程"></a>查看和操纵进程</h2><p>可以用ps命令列出所有正在运行的进程</p>
-<ol>
-<li>PID 进程ID</li>
-<li>TTY 进程所在的终端设备</li>
-<li>STAT 进程状态，S休眠，R运行 可参考 man 1 ps</li>
-<li>TIME 进程目前为止所用CPU时长，就是进程占用CPU的总时长</li>
-<li>COMMAND 命令名</li>
-</ol>
-<p>一些实用的选项组合</p>
-<ol>
-<li>ps x 显示当前用户运行的所有进程</li>
-<li>ps ax 显示系统当前运行的所有进程，包括其他用户的进程</li>
-<li>ps u 显示更详细的进程信息</li>
-<li>ps w 显示命令的全名，而非仅显示一行以内的内容</li>
-</ol>
-<p>注意可以把PID当成ps命令的一个参数，用来查看该特定进程的信息</p>
-<p>ps u <script type="math/tex">就是一个例子，其中</script>是一个shell变量，表示当前的shell进程</p>
-<h2 id="终止进程"><a href="#终止进程" class="headerlink" title="终止进程"></a>终止进程</h2><p>kill <em>pid</em></p>
-<h2 id="暂停进程"><a href="#暂停进程" class="headerlink" title="暂停进程"></a>暂停进程</h2><p>kill -STOP <em>pid</em></p>
-<h2 id="文件模式和权限"><a href="#文件模式和权限" class="headerlink" title="文件模式和权限"></a>文件模式和权限</h2><p>当我们使用ls -l 来查看文件信息后</p>
-<p>-rw-r—r— 1 juster somegroup 7041 Mar 26 19:34 endnotes.html</p>
-<p>其中第一个-，指的是文件类型。-代表常规文件，d代表目录</p>
-<p>后面的九个字符代表文件权限信息，平均分成三部分，用户.用户组.其他 </p>
-<p>r 文件可读</p>
-<p>w 文件可写</p>
-<p>x 文件可执行</p>
-<h2 id="更改文件权限"><a href="#更改文件权限" class="headerlink" title="更改文件权限"></a>更改文件权限</h2><p>chmod g+r <em>file</em></p>
-<p>chmod o+r <em>file</em></p>
-<p>这样就给用户组g和其他用户o加上了可读权限r</p>
-<p>也可以 chmod go+r <em>file</em></p>
-<p>如果想要取消权限，可以go-r</p>
-<p>也可以使用<strong>绝对权限设置</strong>，使用数组来代表权限</p>
-<p>chmod 644 file </p>
-<h2 id="归档和压缩文件"><a href="#归档和压缩文件" class="headerlink" title="归档和压缩文件"></a>归档和压缩文件</h2><p>压缩文件 gzip <em>file</em></p>
-<p>解压缩文件 gunzip <em>file.gz</em></p>
-<p>gzip命令只可以压缩单个文件</p>
-]]></content>
-      <categories>
-        <category>操作系统</category>
-        <category>linux</category>
-      </categories>
-      <tags>
-        <tag>linux</tag>
-        <tag>学习笔记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Python学习笔记.md</title>
-    <url>/2022/07/23/python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<h1 id="基础语法知识"><a href="#基础语法知识" class="headerlink" title="基础语法知识"></a>基础语法知识</h1><p><a href="https://www.runoob.com/python/python-tutorial.html">简明教程</a></p>
-<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><ol>
-<li>Python中的True，False，None首字母都必须大写</li>
-<li>Python语句末尾不加分号</li>
-<li>def语句，if语句，try&amp;except语句末尾要加冒号</li>
-<li>列表的负号就是倒数</li>
-<li>列表的切片有两个下标，省略第一个下标就是0，省略第二个就是使用列表的长度，都省略就是使用整个列表</li>
-<li>列表元素的删除用del</li>
-<li>列表是可变的，字符串是不可变的，元组用圆括号，也是不可变的</li>
-<li>字典中的表项是不排序的</li>
-</ol>
-<h1 id="模式匹配与正则表达式"><a href="#模式匹配与正则表达式" class="headerlink" title="模式匹配与正则表达式"></a>模式匹配与正则表达式</h1><h2 id="创建正则表达式对象"><a href="#创建正则表达式对象" class="headerlink" title="创建正则表达式对象"></a>创建正则表达式对象</h2><p>STEP1： 导入re模块</p>
-<p>import re</p>
-<p>向re.compile()传入一个字符串值，表示正则表达式，返回一个Regex对象</p>
-]]></content>
-      <categories>
-        <category>编程语言</category>
-        <category>Python</category>
-      </categories>
-      <tags>
-        <tag>工具</tag>
-        <tag>学习笔记</tag>
-        <tag>Python</tag>
-        <tag>编程语言</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>JavaScript notes</title>
-    <url>/2022/07/20/JavaScript%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<h1 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h1><h2 id="位置"><a href="#位置" class="headerlink" title="位置"></a>位置</h2><p>一般放在<code>&lt;script&gt;&lt;/script&gt;里面</code>，script一般放在body的末尾，但如果js代码中有定义<code>&lt;body&gt;</code>下直接调用的函数，那么js代码必须放在head</p>
-<p>可以外部化: src=”xxx.js”就可以了</p>
-<p>JavaScript伪协议：</p>
-<p><code>&lt;a href=&quot;JavaScript:window.alert(&quot;你好，世界!&quot;);&gt;</code></p>
-<span id="more"></span>
-<h2 id="变量的声明"><a href="#变量的声明" class="headerlink" title="变量的声明"></a>变量的声明</h2><p>var msg = ‘Hello, world!’;</p>
-<p>console.log(msg);</p>
-<p>其实不用var也会隐式的声明</p>
-<p>var和let是有区别的，var允许重复声明一个变量，用后来的覆盖前面的，但是let不允许</p>
-<p>let能够更细致地管理变量的有效范围</p>
-<p>申明常量可以用const</p>
-<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><p>JavaScript是弱类型的语言，所以把一个数值赋给一个字符串变量也是可以的</p>
-<p>而且JavaScript中没有字符串和字符类型的区别</p>
-<h2 id="模板字符串"><a href="#模板字符串" class="headerlink" title="模板字符串"></a>模板字符串</h2><p>可以把变量嵌入字符串中，比如变量是name<br>let str = <code>你好呀，$&#123;name&#125;</code>;<br>console.log(str);</p>
-<h2 id="相等运算符"><a href="#相等运算符" class="headerlink" title="相等运算符"></a>相等运算符</h2><p>== 比较基本类型时，基本上只看内容，比较引用类型时，即使内容完全相同，只要地址不同就不会判定为相等</p>
-<h2 id="一致运算符"><a href="#一致运算符" class="headerlink" title="一致运算符"></a>一致运算符</h2><p>===会判断数据类型是否相同</p>
-<h2 id="删除delete"><a href="#删除delete" class="headerlink" title="删除delete"></a>删除delete</h2><ol>
-<li>删除数组中的元素时，只删除对应的元素，后面的元素会提上来（但索引号不发生改变）</li>
-<li>删除属性时也只删除属性本身，属性参照的对象不会被删除</li>
-<li>显示声明的对象不能删除</li>
-</ol>
-<h2 id="返回类型"><a href="#返回类型" class="headerlink" title="返回类型"></a>返回类型</h2><p>用typeof</p>
-<h2 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h2><p>for in</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> data = [ <span class="string">&#x27;apple&#x27;</span>, <span class="string">&#x27;orange&#x27;</span>, <span class="string">&#x27;banana&#x27;</span>];</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> key <span class="keyword">in</span> data)&#123;</span><br><span class="line">	<span class="variable language_">console</span>.<span class="title function_">log</span>(data[key]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>然而for in并不能保证处理的顺序，它只用于操作关联数组（对象），枚举还是用for或者for of</p>
-<p>for in语句中，给虚拟变量传的值是键名，而for of枚举的是数组的值本身</p>
-<h2 id="处理异常"><a href="#处理异常" class="headerlink" title="处理异常"></a>处理异常</h2><h3 id="try-catch-finally语句"><a href="#try-catch-finally语句" class="headerlink" title="try catch finally语句"></a>try catch finally语句</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> i=<span class="number">1</span>;</span><br><span class="line"><span class="keyword">try</span>&#123;</span><br><span class="line">	i=i*j;</span><br><span class="line">&#125;<span class="keyword">catch</span>(e)&#123;</span><br><span class="line">	<span class="variable language_">console</span>.<span class="title function_">log</span>(e.<span class="property">message</span>);</span><br><span class="line">&#125;<span class="keyword">finally</span>&#123;</span><br><span class="line">	<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;处理完成了&#x27;</span>)；</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>然后我们就可以看到 </p>
-<p>j is not defined</p>
-<p>处理完成了</p>
-<p>如果没有发生异常的话就会跳过catch语句，但无论如何finally语句都会被执行。注意tcf语句开销很大，一般不要滥用</p>
-<h3 id="throw语句"><a href="#throw语句" class="headerlink" title="throw语句"></a>throw语句</h3><p>可以直接放在try里面</p>
-<p>格式： throw </p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> number = <span class="number">5</span>;</span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">     <span class="comment">// user-defined throw statement</span></span><br><span class="line">     <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">Error</span>(<span class="string">&#x27;This is the throw&#x27;</span>);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">catch</span>(error) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;An error caught&#x27;</span>);</span><br><span class="line">    <span class="keyword">if</span>( number + <span class="number">8</span> &gt; <span class="number">10</span>) &#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// statements to handle exceptions</span></span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;Error message: &#x27;</span> + error); </span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;Error resolved&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">// cannot handle the exception</span></span><br><span class="line">        <span class="comment">// rethrow the exception</span></span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">Error</span>(<span class="string">&#x27;The value is low&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>new error也可以换成别的</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:left">对象</th>
-<th style="text-align:left">错误的原因</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">EvalError</td>
-<td style="text-align:left">不正确的eval函数</td>
-</tr>
-<tr>
-<td style="text-align:left">RangeErro</td>
-<td style="text-align:left">设定的值超过了允许范围</td>
-</tr>
-<tr>
-<td style="text-align:left">ReferenceErro</td>
-<td style="text-align:left">访问没有声明的变量</td>
-</tr>
-<tr>
-<td style="text-align:left">SyntaxErro</td>
-<td style="text-align:left">语法错误</td>
-</tr>
-<tr>
-<td style="text-align:left">TypeError</td>
-<td style="text-align:left">设定的值不是预期的类型</td>
-</tr>
-<tr>
-<td style="text-align:left">URIError</td>
-<td style="text-align:left">错误的URI</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h2 id="异步加载"><a href="#异步加载" class="headerlink" title="异步加载"></a>异步加载</h2><p>避免加载脚本用的时间过于长，读取完后再执行</p>
-<p><code>&lt;script src=&quot;lib.js&quot; async&gt;&lt;/script&gt;</code></p>
-<p>如果多个js文件中存在调用关系</p>
-<p>可以用defer属性，指定在文档的解析完成之后再执行脚本的属性</p>
-<h1 id="内置对象"><a href="#内置对象" class="headerlink" title="内置对象"></a>内置对象</h1><p>JavaScript会将null之外的对象全部视为true</p>
-<p>原则上基本数据类型应该避免用new运算符实例化</p>
-<p><a href="https://www.runoob.com/js/js-obj-number.html">Number</a></p>
-<p><a href="https://www.runoob.com/jsref/jsref-obj-string.html">String</a></p>
-]]></content>
-      <categories>
-        <category>编程语言</category>
-        <category>JavaScript</category>
-      </categories>
-      <tags>
-        <tag>编程语言</tag>
-        <tag>前端技术</tag>
-        <tag>JavaScript</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>欢迎来到owenramber1989的个人博客</title>
-    <url>/2022/07/18/%E8%87%AA%E6%88%91%E4%BB%8B%E7%BB%8D/</url>
-    <content><![CDATA[<h1 id="个人简介"><a href="#个人简介" class="headerlink" title="个人简介"></a>个人简介</h1><p>本人为华中科技大学计算机科学与技术学院21级的一名普通同学，将会在此域名下记录我学到的知识，同时也会分享一些有趣的内容，共勉<code>^__^</code></p>
-]]></content>
   </entry>
   <entry>
     <title>算法竞赛的笔记</title>
@@ -639,6 +260,448 @@ F_{n} & F_{n-1}
         <tag>算法</tag>
         <tag>数据结构</tag>
         <tag>ICPC</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>linux命令行</title>
+    <url>/2022/07/19/linux%E5%91%BD%E4%BB%A4%E8%A1%8C/</url>
+    <content><![CDATA[<h1 id="man的使用"><a href="#man的使用" class="headerlink" title="man的使用"></a>man的使用</h1><p>man命令用来访问手册，q键用于quit</p>
+<p>不记得命令名的话可以用关键字搜索手册页，man -k key,<br>查找与终端相关的命令就可以 man -k terminal<br><span id="more"></span></p>
+<p>linux手册页的内容区域</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">区域号</th>
+<th style="text-align:center">所涵盖的内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">1</td>
+<td style="text-align:center">可执行程序或shell命令</td>
+</tr>
+<tr>
+<td style="text-align:left">2</td>
+<td style="text-align:center">系统调用</td>
+</tr>
+<tr>
+<td style="text-align:left">3</td>
+<td style="text-align:center">库调用</td>
+</tr>
+<tr>
+<td style="text-align:left">4</td>
+<td style="text-align:center">特殊文件</td>
+</tr>
+<tr>
+<td style="text-align:left">5</td>
+<td style="text-align:center">文件格式与约定</td>
+</tr>
+<tr>
+<td style="text-align:left">6</td>
+<td style="text-align:center">游戏</td>
+</tr>
+<tr>
+<td style="text-align:left">7</td>
+<td style="text-align:center">概览、约定及杂项</td>
+</tr>
+<tr>
+<td style="text-align:left">8</td>
+<td style="text-align:center">超级用户和系统管理员命令</td>
+</tr>
+<tr>
+<td style="text-align:left">9</td>
+<td style="text-align:center">内核例程</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>man xterm 的话其实是 man 1 xterm</p>
+<p>man 3 intro就是阅读intro的第三部分</p>
+<h1 id="浏览文件系统"><a href="#浏览文件系统" class="headerlink" title="浏览文件系统"></a>浏览文件系统</h1><p>cd /usr/bin 指向usr目录包含的bin目录下的用户二进制文件</p>
+<p>.. 返回上级目录</p>
+<p>cd 直接跳回主目录 </p>
+<p>pwd 查看当前目录</p>
+<h1 id="文件和目录列表"><a href="#文件和目录列表" class="headerlink" title="文件和目录列表"></a>文件和目录列表</h1><p>ls 显示当前目录下的文件和目录</p>
+<p>注意ls按列排序</p>
+<p>ls -F会在目录名后面加上正斜线，在可执行文件后面加上星号</p>
+<p>ls -a会把隐藏文件也显示出来，而且前面会有.号</p>
+<p>ls -F -R 递归式列出包括了子文件夹下面的文件</p>
+<p>ls -FR和ls -F -R是一样的效果</p>
+<p>ls -l 长列表效果，有更多信息</p>
+<p><strong><em>指定特定文件的名称作为过滤器时</em></strong></p>
+<p>？匹配一个字符</p>
+<ul>
+<li>匹配零个或者多个字符 </li>
+</ul>
+<p>ls -l f[a-i]ll 就是说文件名的第二个字符从a到i都是可以的</p>
+<p>ls -l f[ai]ll 意思是文件名的第二个字符只能是a或者i</p>
+<p>ls -l f[!a]ll 表示不能是a</p>
+<h1 id="处理文件"><a href="#处理文件" class="headerlink" title="处理文件"></a>处理文件</h1><h2 id="查看文件信息"><a href="#查看文件信息" class="headerlink" title="查看文件信息"></a>查看文件信息</h2><p>file /bin/ls</p>
+<p>可以用来查看ls文件是不是ELF格式，也就是 Executable and Linking Format</p>
+<h2 id="显示文件内容"><a href="#显示文件内容" class="headerlink" title="显示文件内容"></a>显示文件内容</h2><h3 id="cat命令"><a href="#cat命令" class="headerlink" title="cat命令"></a>cat命令</h3><p>可以显示一个或多个文件的内容</p>
+<p>cat file1 file2 会将file1和file2的内容拼接起来显示然后退出</p>
+<h2 id="创建文件"><a href="#创建文件" class="headerlink" title="创建文件"></a>创建文件</h2><p>touch test_one 在当前目录下创建一个test_one</p>
+<p>再来一次touch test_one 可以改变文件的修改时间</p>
+<p>ls -l 默认显示的是修改时间，如果想显示访问时间的话 </p>
+<p>ls -l —time=atime test_one 就可以显示最后一次访问的时间了</p>
+<h2 id="复制文件"><a href="#复制文件" class="headerlink" title="复制文件"></a>复制文件</h2><p>语法： cp source destination</p>
+<p>cp file1…file<sub>N</sub> dir</p>
+<p>可以把file1到file<sub>N</sub>的文件全部复制到dir目录</p>
+<p>cp -i test_one test_two</p>
+<p>会强制询问是否覆盖已有的文件，不然就是如果文件已经存在，默认覆盖</p>
+<p>cp -R 可以递归地复制整个文件夹中的内容</p>
+<p>cp -R scripts/ Mod_scripts可以把scripts文件夹下面的所有内容都复制到Mod_scripts中</p>
+<h2 id="重命名文件"><a href="#重命名文件" class="headerlink" title="重命名文件"></a>重命名文件</h2><h3 id="mv命令"><a href="#mv命令" class="headerlink" title="mv命令"></a>mv命令</h3><p>mv file1 file2</p>
+<p>把文件file1重命名为file2</p>
+<p>mv file1 … fileN dir 把多个文件<strong>移动</strong>到某个目录</p>
+<h2 id="链接文件"><a href="#链接文件" class="headerlink" title="链接文件"></a>链接文件</h2><p>ln -s data_file sl_data_file 就创建了一个符号文件sl_data_file,它指向data_file,但这两个文件中的内容各不相同，两个文件的inode编号也不一样</p>
+<p>ls -i *data_file 就可以查看他俩的inode编号了</p>
+<h2 id="tab键可以自动补全"><a href="#tab键可以自动补全" class="headerlink" title="tab键可以自动补全"></a>tab键可以自动补全</h2><h2 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a>删除文件</h2><p>rm file</p>
+<h1 id="处理目录"><a href="#处理目录" class="headerlink" title="处理目录"></a>处理目录</h1><h2 id="设置当前工作目录"><a href="#设置当前工作目录" class="headerlink" title="设置当前工作目录"></a>设置当前工作目录</h2><p>cd <em>dir</em></p>
+<h2 id="创建新目录"><a href="#创建新目录" class="headerlink" title="创建新目录"></a>创建新目录</h2><p>mkdir <em>dir</em></p>
+<h2 id="删除目录"><a href="#删除目录" class="headerlink" title="删除目录"></a>删除目录</h2><p>rmdir <em>dir</em></p>
+<p>注意如果目录非空，那么上面的命令会失效，<code>rm -rf</code>可以删除一个目录以及其中的所有内容</p>
+<h1 id="中间命令"><a href="#中间命令" class="headerlink" title="中间命令"></a>中间命令</h1><h2 id="grep命令"><a href="#grep命令" class="headerlink" title="grep命令"></a>grep命令</h2><p>显示文件（或输入流）中与参数匹配的行</p>
+<p>grep root /etc/passwd 会显示文件passwd中包含文本root的所有行</p>
+<p>grep root /etc/*</p>
+<p>可以查看/etc目录中所有包含root的文件</p>
+<p>grep -i 不区分大小写</p>
+<p>grep -v 反转匹配，即显示所有不匹配的行</p>
+<h2 id="less命令"><a href="#less命令" class="headerlink" title="less命令"></a>less命令</h2><p>内容分屏显示</p>
+<p>grep ie /usr/share/dict/words | less </p>
+<p>less 经常和别的命令搭配起来一起使用</p>
+<h2 id="diff命令"><a href="#diff命令" class="headerlink" title="diff命令"></a>diff命令</h2><p>用来查看两个文件的不同</p>
+<h2 id="find命令"><a href="#find命令" class="headerlink" title="find命令"></a>find命令</h2><p>find <em>dir</em> -name <em>file</em> -print</p>
+<p>可以再目录中寻找文件</p>
+<p>locate与find相似，但是locate可以再系统创建的文件索引中查找文件</p>
+<h2 id="find与tail命令"><a href="#find与tail命令" class="headerlink" title="find与tail命令"></a>find与tail命令</h2><p>head命令默认显示文件的前10行内容，tail则是后10行</p>
+<p>可以指定参数 head -5 就是前五行，tail +5 就是后五行</p>
+<h2 id="sort命令"><a href="#sort命令" class="headerlink" title="sort命令"></a>sort命令</h2><p>将文件内的所有行按照字母顺序快速排序， -n 可以按照数字顺序</p>
+<ul>
+<li>r可以进行反向排序</li>
+</ul>
+<p>#</p>
+]]></content>
+      <categories>
+        <category>linux</category>
+        <category>命令行</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+        <tag>命令行</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>欢迎来到owenramber1989的个人博客</title>
+    <url>/2022/07/18/%E8%87%AA%E6%88%91%E4%BB%8B%E7%BB%8D/</url>
+    <content><![CDATA[<h1 id="个人简介"><a href="#个人简介" class="headerlink" title="个人简介"></a>个人简介</h1><p>本人为华中科技大学计算机科学与技术学院21级的一名普通同学，将会在此域名下记录我学到的知识，同时也会分享一些有趣的内容，共勉<code>^__^</code></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>计算机网络学习笔记</title>
+    <url>/2022/07/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</url>
+    <content><![CDATA[<h1 id="浏览器如何生成消息"><a href="#浏览器如何生成消息" class="headerlink" title="浏览器如何生成消息"></a>浏览器如何生成消息</h1><h2 id="生成HTTP请求消息"><a href="#生成HTTP请求消息" class="headerlink" title="生成HTTP请求消息"></a>生成HTTP请求消息</h2><p>STEP1： 输入URL</p>
+<p>URL具有多种格式</p>
+<p><strong>用HTTP协议访问Web服务器时</strong></p>
+<p><a href="http://user:password@www.anything.com:80/dir/file1.html">http://user:password@www.anything.com:80/dir/file1.html</a> </p>
+<p>用户名（可省略）+密码（可省略）+Web服务器域名+端口号（可省略）+文件的路径名</p>
+<p><strong>用FTP协议下载和上传文件时</strong></p>
+<p>ftp://user:password@ftp.anything.com:21/dir/file1.html</p>
+<p>中间的是FTP服务器域名</p>
+<p><strong>读取客户端计算机本地文件时</strong></p>
+<p>file://localhost/c:/path/file1.zip</p>
+<p><strong>发送电子邮件时</strong></p>
+<p>mailto:tone@anything.com<br><span id="more"></span></p>
+<p>STEP2: 使用HTTP协议访问Web服务器</p>
+<p>对URL的解析让浏览器确定了Web服务器和文件名，然后浏览器会根据这些消息生成请求消息</p>
+<ol>
+<li>请求消息的第一行称为<code>请求行</code>，最开头的方法可以告诉Web服务器它应该进行怎样的操作，第一行的末尾要加上HTTP的版本号</li>
+<li>第二行开始为消息头，然后就是消息体</li>
+</ol>
+<p>STEP3： Web服务器返回响应消息</p>
+<p>第一行的内容是状态码和响应短语</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">状态码</th>
+<th style="text-align:left">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">1xx</td>
+<td style="text-align:left">告知请求的处理进度和情况</td>
+</tr>
+<tr>
+<td style="text-align:left">2xx</td>
+<td style="text-align:left">成功</td>
+</tr>
+<tr>
+<td style="text-align:left">3xx</td>
+<td style="text-align:left">表示需要进一步操作</td>
+</tr>
+<tr>
+<td style="text-align:left">4xx</td>
+<td style="text-align:left">客户端错误</td>
+</tr>
+<tr>
+<td style="text-align:left">5xx</td>
+<td style="text-align:left">服务端错误</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="向DNS服务器查询Web服务器的IP地址"><a href="#向DNS服务器查询Web服务器的IP地址" class="headerlink" title="向DNS服务器查询Web服务器的IP地址"></a>向DNS服务器查询Web服务器的IP地址</h2><h2 id="DNS服务器的接力"><a href="#DNS服务器的接力" class="headerlink" title="DNS服务器的接力"></a>DNS服务器的接力</h2><h2 id="委托协议栈发送消息"><a href="#委托协议栈发送消息" class="headerlink" title="委托协议栈发送消息"></a>委托协议栈发送消息</h2><h1 id="用电信号传输TCP-IP数据"><a href="#用电信号传输TCP-IP数据" class="headerlink" title="用电信号传输TCP/IP数据"></a>用电信号传输TCP/IP数据</h1><h2 id="创建套接字"><a href="#创建套接字" class="headerlink" title="创建套接字"></a>创建套接字</h2><h2 id="连接服务器"><a href="#连接服务器" class="headerlink" title="连接服务器"></a>连接服务器</h2><h2 id="收发数据"><a href="#收发数据" class="headerlink" title="收发数据"></a>收发数据</h2><h2 id="从服务器断开并删除套接字"><a href="#从服务器断开并删除套接字" class="headerlink" title="从服务器断开并删除套接字"></a>从服务器断开并删除套接字</h2><h2 id="IP与以太网的包收发操作"><a href="#IP与以太网的包收发操作" class="headerlink" title="IP与以太网的包收发操作"></a>IP与以太网的包收发操作</h2><h2 id="UDP协议的收发操作"><a href="#UDP协议的收发操作" class="headerlink" title="UDP协议的收发操作"></a>UDP协议的收发操作</h2>]]></content>
+      <categories>
+        <category>计算机网络</category>
+      </categories>
+      <tags>
+        <tag>学习笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>linux系统学习笔记</title>
+    <url>/2022/07/23/linux%E7%B3%BB%E7%BB%9F/</url>
+    <content><![CDATA[<h1 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h1><h2 id="更改shell"><a href="#更改shell" class="headerlink" title="更改shell"></a>更改shell</h2><p>使用chsh命令可以更改shell（如改为ksh或者tcsh）</p>
+<h2 id="环境变量和shell变量"><a href="#环境变量和shell变量" class="headerlink" title="环境变量和shell变量"></a>环境变量和shell变量</h2><p>shell中可以保存一些临时变量，称为shell变量，可以用来保存脚本执行过程中的数据</p>
+<p>STUFF=blah</p>
+<p>这一语句将blah赋值给shell变量STUFF</p>
+<p>可以用echo $STUFF 来显示变量STUFF的值</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">环境变量</th>
+<th style="text-align:left">shell变量</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">能够被shell中运行的所有进程访问</td>
+<td style="text-align:left">只能被当前的shell访问，在shell中运行的命令则无法访问</td>
+</tr>
+</tbody>
+</table>
+</div>
+<span id="more"></span>
+<h2 id="命令路径"><a href="#命令路径" class="headerlink" title="命令路径"></a>命令路径</h2><p>echo $PATH</p>
+<p>可以看到所有的路径组件，彼此以：分隔</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">PATH=<em>dir</em>:$PATH</th>
+<th style="text-align:left">PATH=$PATH1:<em>dir</em></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">优先查找<em>dir</em>路径</td>
+<td style="text-align:left">最后查找<em>dir</em>路径</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="shell输入输出"><a href="#shell输入输出" class="headerlink" title="shell输入输出"></a>shell输入输出</h2><p><em>command</em> &gt; <em>file</em></p>
+<p>将命令的执行结果输出到文件（默认是屏幕），如果文件不存在，将会被创建，如果存在，将会清空其中的内容</p>
+<p>如果不想覆盖文件，可以加入到文件末尾</p>
+<p><em>command</em> &gt;&gt; <em>file</em></p>
+<p>可以使用管道字符|将一个命令的执行结果输出到另一个命令</p>
+<p>head /proc/cpuinfo | tr a-z A-Z</p>
+<h3 id="标准输入重定向"><a href="#标准输入重定向" class="headerlink" title="标准输入重定向"></a>标准输入重定向</h3><p>head &lt; /proc/cpuinfo</p>
+<p>将文件内容重定向为命令的标准输入</p>
+<h2 id="查看和操纵进程"><a href="#查看和操纵进程" class="headerlink" title="查看和操纵进程"></a>查看和操纵进程</h2><p>可以用ps命令列出所有正在运行的进程</p>
+<ol>
+<li>PID 进程ID</li>
+<li>TTY 进程所在的终端设备</li>
+<li>STAT 进程状态，S休眠，R运行 可参考 man 1 ps</li>
+<li>TIME 进程目前为止所用CPU时长，就是进程占用CPU的总时长</li>
+<li>COMMAND 命令名</li>
+</ol>
+<p>一些实用的选项组合</p>
+<ol>
+<li>ps x 显示当前用户运行的所有进程</li>
+<li>ps ax 显示系统当前运行的所有进程，包括其他用户的进程</li>
+<li>ps u 显示更详细的进程信息</li>
+<li>ps w 显示命令的全名，而非仅显示一行以内的内容</li>
+</ol>
+<p>注意可以把PID当成ps命令的一个参数，用来查看该特定进程的信息</p>
+<p>ps u <script type="math/tex">就是一个例子，其中</script>是一个shell变量，表示当前的shell进程</p>
+<h2 id="终止进程"><a href="#终止进程" class="headerlink" title="终止进程"></a>终止进程</h2><p>kill <em>pid</em></p>
+<h2 id="暂停进程"><a href="#暂停进程" class="headerlink" title="暂停进程"></a>暂停进程</h2><p>kill -STOP <em>pid</em></p>
+<h2 id="文件模式和权限"><a href="#文件模式和权限" class="headerlink" title="文件模式和权限"></a>文件模式和权限</h2><p>当我们使用ls -l 来查看文件信息后</p>
+<p>-rw-r—r— 1 juster somegroup 7041 Mar 26 19:34 endnotes.html</p>
+<p>其中第一个-，指的是文件类型。-代表常规文件，d代表目录</p>
+<p>后面的九个字符代表文件权限信息，平均分成三部分，用户.用户组.其他 </p>
+<p>r 文件可读</p>
+<p>w 文件可写</p>
+<p>x 文件可执行</p>
+<h2 id="更改文件权限"><a href="#更改文件权限" class="headerlink" title="更改文件权限"></a>更改文件权限</h2><p>chmod g+r <em>file</em></p>
+<p>chmod o+r <em>file</em></p>
+<p>这样就给用户组g和其他用户o加上了可读权限r</p>
+<p>也可以 chmod go+r <em>file</em></p>
+<p>如果想要取消权限，可以go-r</p>
+<p>也可以使用<strong>绝对权限设置</strong>，使用数组来代表权限</p>
+<p>chmod 644 file </p>
+<h2 id="归档和压缩文件"><a href="#归档和压缩文件" class="headerlink" title="归档和压缩文件"></a>归档和压缩文件</h2><p>压缩文件 gzip <em>file</em></p>
+<p>解压缩文件 gunzip <em>file.gz</em></p>
+<p>gzip命令只可以压缩单个文件</p>
+]]></content>
+      <categories>
+        <category>操作系统</category>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+        <tag>学习笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JavaScript notes</title>
+    <url>/2022/07/20/JavaScript%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<h1 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h1><h2 id="位置"><a href="#位置" class="headerlink" title="位置"></a>位置</h2><p>一般放在<code>&lt;script&gt;&lt;/script&gt;里面</code>，script一般放在body的末尾，但如果js代码中有定义<code>&lt;body&gt;</code>下直接调用的函数，那么js代码必须放在head</p>
+<p>可以外部化: src=”xxx.js”就可以了</p>
+<p>JavaScript伪协议：</p>
+<p><code>&lt;a href=&quot;JavaScript:window.alert(&quot;你好，世界!&quot;);&gt;</code></p>
+<span id="more"></span>
+<h2 id="变量的声明"><a href="#变量的声明" class="headerlink" title="变量的声明"></a>变量的声明</h2><p>var msg = ‘Hello, world!’;</p>
+<p>console.log(msg);</p>
+<p>其实不用var也会隐式的声明</p>
+<p>var和let是有区别的，var允许重复声明一个变量，用后来的覆盖前面的，但是let不允许</p>
+<p>let能够更细致地管理变量的有效范围</p>
+<p>申明常量可以用const</p>
+<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><p>JavaScript是弱类型的语言，所以把一个数值赋给一个字符串变量也是可以的</p>
+<p>而且JavaScript中没有字符串和字符类型的区别</p>
+<h2 id="模板字符串"><a href="#模板字符串" class="headerlink" title="模板字符串"></a>模板字符串</h2><p>可以把变量嵌入字符串中，比如变量是name<br>let str = <code>你好呀，$&#123;name&#125;</code>;<br>console.log(str);</p>
+<h2 id="相等运算符"><a href="#相等运算符" class="headerlink" title="相等运算符"></a>相等运算符</h2><p>== 比较基本类型时，基本上只看内容，比较引用类型时，即使内容完全相同，只要地址不同就不会判定为相等</p>
+<h2 id="一致运算符"><a href="#一致运算符" class="headerlink" title="一致运算符"></a>一致运算符</h2><p>===会判断数据类型是否相同</p>
+<h2 id="删除delete"><a href="#删除delete" class="headerlink" title="删除delete"></a>删除delete</h2><ol>
+<li>删除数组中的元素时，只删除对应的元素，后面的元素会提上来（但索引号不发生改变）</li>
+<li>删除属性时也只删除属性本身，属性参照的对象不会被删除</li>
+<li>显示声明的对象不能删除</li>
+</ol>
+<h2 id="返回类型"><a href="#返回类型" class="headerlink" title="返回类型"></a>返回类型</h2><p>用typeof</p>
+<h2 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h2><p>for in</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> data = [ <span class="string">&#x27;apple&#x27;</span>, <span class="string">&#x27;orange&#x27;</span>, <span class="string">&#x27;banana&#x27;</span>];</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> key <span class="keyword">in</span> data)&#123;</span><br><span class="line">	<span class="variable language_">console</span>.<span class="title function_">log</span>(data[key]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>然而for in并不能保证处理的顺序，它只用于操作关联数组（对象），枚举还是用for或者for of</p>
+<p>for in语句中，给虚拟变量传的值是键名，而for of枚举的是数组的值本身</p>
+<h2 id="处理异常"><a href="#处理异常" class="headerlink" title="处理异常"></a>处理异常</h2><h3 id="try-catch-finally语句"><a href="#try-catch-finally语句" class="headerlink" title="try catch finally语句"></a>try catch finally语句</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> i=<span class="number">1</span>;</span><br><span class="line"><span class="keyword">try</span>&#123;</span><br><span class="line">	i=i*j;</span><br><span class="line">&#125;<span class="keyword">catch</span>(e)&#123;</span><br><span class="line">	<span class="variable language_">console</span>.<span class="title function_">log</span>(e.<span class="property">message</span>);</span><br><span class="line">&#125;<span class="keyword">finally</span>&#123;</span><br><span class="line">	<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;处理完成了&#x27;</span>)；</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>然后我们就可以看到 </p>
+<p>j is not defined</p>
+<p>处理完成了</p>
+<p>如果没有发生异常的话就会跳过catch语句，但无论如何finally语句都会被执行。注意tcf语句开销很大，一般不要滥用</p>
+<h3 id="throw语句"><a href="#throw语句" class="headerlink" title="throw语句"></a>throw语句</h3><p>可以直接放在try里面</p>
+<p>格式： throw </p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> number = <span class="number">5</span>;</span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">     <span class="comment">// user-defined throw statement</span></span><br><span class="line">     <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">Error</span>(<span class="string">&#x27;This is the throw&#x27;</span>);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">catch</span>(error) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;An error caught&#x27;</span>);</span><br><span class="line">    <span class="keyword">if</span>( number + <span class="number">8</span> &gt; <span class="number">10</span>) &#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// statements to handle exceptions</span></span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;Error message: &#x27;</span> + error); </span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;Error resolved&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">// cannot handle the exception</span></span><br><span class="line">        <span class="comment">// rethrow the exception</span></span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">Error</span>(<span class="string">&#x27;The value is low&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>new error也可以换成别的</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">对象</th>
+<th style="text-align:left">错误的原因</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">EvalError</td>
+<td style="text-align:left">不正确的eval函数</td>
+</tr>
+<tr>
+<td style="text-align:left">RangeErro</td>
+<td style="text-align:left">设定的值超过了允许范围</td>
+</tr>
+<tr>
+<td style="text-align:left">ReferenceErro</td>
+<td style="text-align:left">访问没有声明的变量</td>
+</tr>
+<tr>
+<td style="text-align:left">SyntaxErro</td>
+<td style="text-align:left">语法错误</td>
+</tr>
+<tr>
+<td style="text-align:left">TypeError</td>
+<td style="text-align:left">设定的值不是预期的类型</td>
+</tr>
+<tr>
+<td style="text-align:left">URIError</td>
+<td style="text-align:left">错误的URI</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="异步加载"><a href="#异步加载" class="headerlink" title="异步加载"></a>异步加载</h2><p>避免加载脚本用的时间过于长，读取完后再执行</p>
+<p><code>&lt;script src=&quot;lib.js&quot; async&gt;&lt;/script&gt;</code></p>
+<p>如果多个js文件中存在调用关系</p>
+<p>可以用defer属性，指定在文档的解析完成之后再执行脚本的属性</p>
+<h1 id="内置对象"><a href="#内置对象" class="headerlink" title="内置对象"></a>内置对象</h1><p>JavaScript会将null之外的对象全部视为true</p>
+<p>原则上基本数据类型应该避免用new运算符实例化</p>
+<p><a href="https://www.runoob.com/js/js-obj-number.html">Number</a></p>
+<p><a href="https://www.runoob.com/jsref/jsref-obj-string.html">String</a></p>
+]]></content>
+      <categories>
+        <category>编程语言</category>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>编程语言</tag>
+        <tag>前端技术</tag>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>latex的一些新玩法</title>
+    <url>/2022/07/19/latex%E7%9A%84%E4%B8%80%E4%BA%9B%E6%96%B0%E7%8E%A9%E6%B3%95/</url>
+    <content><![CDATA[<h1 id="latex的基础知识"><a href="#latex的基础知识" class="headerlink" title="latex的基础知识"></a>latex的基础知识</h1><p><a href="../latex.pdf">参考资料</a></p>
+<h2 id="测试公式显示效果"><a href="#测试公式显示效果" class="headerlink" title="测试公式显示效果"></a>测试公式显示效果</h2><script type="math/tex; mode=display">
+\begin{array}{l}
+\oint_{l} \boldsymbol{E} \cdot \mathrm{d} \boldsymbol{l}=-\iint_{S} \frac{\partial \boldsymbol{B}}{\partial t} \cdot \mathrm{d} \boldsymbol{S} \\
+\oint_{S} \boldsymbol{B} \cdot \mathrm{d} \boldsymbol{S}=0 \\
+\oint_{S} \boldsymbol{D} \cdot \mathrm{d} \boldsymbol{S}=\iiint_{V} \rho \mathrm{d} V
+\end{array}</script>]]></content>
+      <categories>
+        <category>工具</category>
+        <category>latex</category>
+      </categories>
+      <tags>
+        <tag>排版工具</tag>
+        <tag>整活</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo常见问题的解决办法</title>
+    <url>/2022/07/18/hexo%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<h1 id="FATAL-err-Error-Spawn-failed"><a href="#FATAL-err-Error-Spawn-failed" class="headerlink" title="FATAL err: Error: Spawn failed"></a>FATAL err: Error: Spawn failed</h1><p>进入博客根目录<br><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">rm -rf .deploy_git/</span><br><span class="line"></span><br><span class="line">git config --global core.autocrlf false</span><br></pre></td></tr></table></figure></p>
+]]></content>
+      <categories>
+        <category>个人博客的搭建</category>
+        <category>hexo框架</category>
+      </categories>
+      <tags>
+        <tag>报错</tag>
+        <tag>hexo</tag>
+        <tag>博客</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>git常见问题的解决办法</title>
+    <url>/2022/07/18/git%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<h1 id="Failed-to-connect-to-github-com-port-443-Timed-out"><a href="#Failed-to-connect-to-github-com-port-443-Timed-out" class="headerlink" title="Failed to connect to github.com port 443: Timed out"></a>Failed to connect to github.com port 443: Timed out</h1><p>先取消代理再设置代理</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global --unset http.proxy</span><br><span class="line">git config --global --unset https.proxy</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global https.proxy http://127.0.0.1:1080</span><br><span class="line">git config --global https.proxy https://127.0.0.1:1080</span><br></pre></td></tr></table></figure>
+<h1 id="does-not-have-a-commit-checked-out"><a href="#does-not-have-a-commit-checked-out" class="headerlink" title="does not have a commit checked out"></a>does not have a commit checked out</h1><p>哪个文件夹报的错，删掉那个文件夹的.git</p>
+<h1 id="fatal-unable-to-access-xxxxx-OpenSSL-SSL-read-Connection-was-reset-errno-10054"><a href="#fatal-unable-to-access-xxxxx-OpenSSL-SSL-read-Connection-was-reset-errno-10054" class="headerlink" title="fatal: unable to access xxxxx OpenSSL SSL_read: Connection was reset, errno 10054"></a>fatal: unable to access xxxxx OpenSSL SSL_read: Connection was reset, errno 10054</h1><p><code>git config --global http.sslVerify &quot;false&quot;</code></p>
+]]></content>
+      <categories>
+        <category>工具</category>
+        <category>git</category>
+      </categories>
+      <tags>
+        <tag>报错</tag>
+        <tag>git</tag>
+        <tag>github</tag>
       </tags>
   </entry>
 </search>
