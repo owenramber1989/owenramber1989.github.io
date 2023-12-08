@@ -4,13 +4,19 @@
   
   
   <entry>
-    <title>Hello World</title>
-    <link href="/2023/12/02/hello-world/"/>
-    <url>/2023/12/02/hello-world/</url>
+    <title>C++求职方向需要掌握的内容</title>
+    <link href="/2023/12/08/C-%E6%B1%82%E8%81%8C%E6%96%B9%E5%90%91%E9%9C%80%E8%A6%81%E6%8E%8C%E6%8F%A1%E7%9A%84%E5%86%85%E5%AE%B9/"/>
+    <url>/2023/12/08/C-%E6%B1%82%E8%81%8C%E6%96%B9%E5%90%91%E9%9C%80%E8%A6%81%E6%8E%8C%E6%8F%A1%E7%9A%84%E5%86%85%E5%AE%B9/</url>
     
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+    <content type="html"><![CDATA[<h2 id="需要掌握的语法知识"><a href="#需要掌握的语法知识" class="headerlink" title="需要掌握的语法知识"></a>需要掌握的语法知识</h2><ol><li>泛型编程</li><li>多态</li></ol><h2 id="C-开发方面的知识"><a href="#C-开发方面的知识" class="headerlink" title="C++开发方面的知识"></a>C++开发方面的知识</h2><h3 id="Linux-Unix-后台开发"><a href="#Linux-Unix-后台开发" class="headerlink" title="Linux&#x2F;Unix 后台开发"></a>Linux&#x2F;Unix 后台开发</h3><ol><li>必读书目 APUE, UNP, TCP&#x2F;IP. 网络方面面试的时候可能会问，开发过程中遇到的最难的问题是什么？这一块<br>可以说<code>网络大量小包导致网络利用率下降</code>, <code>糊涂窗口问题</code>,<code>fd耗尽</code>之类的</li></ol><h3 id="数据库方面的知识"><a href="#数据库方面的知识" class="headerlink" title="数据库方面的知识"></a>数据库方面的知识</h3><ol><li>首先要熟悉 redis，比如哨兵原理，如何实现持久化</li></ol><h3 id="系统相关知识"><a href="#系统相关知识" class="headerlink" title="系统相关知识"></a>系统相关知识</h3><ol><li>内核优化 eBPF</li><li>内核泄漏</li></ol>]]></content>
     
     
+    
+    <tags>
+      
+      <tag>jobs</tag>
+      
+    </tags>
     
   </entry>
   
