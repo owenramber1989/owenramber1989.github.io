@@ -23,6 +23,8 @@
     <published>2024-01-16T08:25:45.000Z</published>
     <updated>2024-01-31T02:04:13.068Z</updated>
     
+    <content type="html"><![CDATA[<h1 id="通关了的游戏"><a href="#通关了的游戏" class="headerlink" title="通关了的游戏"></a>通关了的游戏</h1><h2 id="塞尔达系列"><a href="#塞尔达系列" class="headerlink" title="塞尔达系列"></a>塞尔达系列</h2><ol><li>塞尔达传说·旷野之息</li><li>塞尔达传说·王国之泪</li><li>塞尔达传说·御天之剑 HD（因为恶性bug弃坑云通关&#x2F;**50%**）</li><li>塞尔达无双·</li></ol><h2 id="刺客信条系列"><a href="#刺客信条系列" class="headerlink" title="刺客信条系列"></a>刺客信条系列</h2><ol><li>刺客信条·2</li><li>刺客信条·兄弟会</li><li>刺客信条·黑旗</li><li>刺客信条·叛变（因为恶性bug弃坑云通关&#x2F;**75%**）</li><li>刺客信条·大革命</li><li>刺客信条·枭雄</li></ol><h2 id="Rockstar"><a href="#Rockstar" class="headerlink" title="Rockstar"></a>Rockstar</h2><ol><li>GTA5</li><li>GTASA(实在打不过弃坑云通关&#x2F;<strong>25%</strong>)</li><li>荒野大镖客·救赎 1(遇到恶性bug弃坑云通关&#x2F;<strong>90%</strong>)</li></ol><h2 id="索尼第一方"><a href="#索尼第一方" class="headerlink" title="索尼第一方"></a>索尼第一方</h2><ol><li>最后生还者·第一幕 重制版</li></ol><h2 id="Square-Enix"><a href="#Square-Enix" class="headerlink" title="Square Enix"></a>Square Enix</h2><ol><li>三角战略</li><li>八方旅人2(邪道升级后有点无聊，弃坑云通关&#x2F;<strong>90%</strong>)</li></ol><h2 id="世嘉"><a href="#世嘉" class="headerlink" title="世嘉"></a>世嘉</h2><ol><li>P4G(因为战斗系统过于无聊弃坑，看P4A补全了剧情&#x2F;<strong>30%</strong>)</li><li>P5R</li></ol><h2 id="独立游戏"><a href="#独立游戏" class="headerlink" title="独立游戏"></a>独立游戏</h2><ol><li>艾迪芬奇的记忆</li><li>画中世界</li><li>奥伯拉丁的回归</li><li>哈迪斯</li><li>特工A·伪装游戏</li><li>一起开火车(其实这款游戏没有严格意义上的通关标准)</li></ol><h1 id="只玩了一部分的游戏"><a href="#只玩了一部分的游戏" class="headerlink" title="只玩了一部分的游戏"></a>只玩了一部分的游戏</h1><p><code>这里的游戏都没有云通关过，所以没有进度</code></p><ol><li>塞尔达传说·时之笛 3d 重制版</li><li>最终幻想7 核心危机</li><li>逆转裁判123·成步堂精选集</li><li>星之卡比·探索发现</li><li>霍格沃茨之遗</li><li>巫师3·狂猎</li><li>极乐迪斯科</li><li>小小梦魇2</li><li>以撒的结合·忏悔</li><li>尼尔·机械纪元 年度版</li><li>狙击精英4</li><li>未命名的鹅游戏</li><li>八方旅人</li><li>迷宫大侦探</li><li>这是我的战争 完整版</li><li>珍妮的线索 · 小侦探</li><li>刺客信条3</li><li>雪地奔驰</li><li>传送门2</li><li>孤岛危机2</li><li>漫威蜘蛛侠1</li></ol>]]></content>
+    
     
       
       
@@ -45,6 +47,8 @@
     <id>http://example.com/2023/12/08/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E9%9D%A2%E8%AF%95%E9%A2%98/</id>
     <published>2023-12-08T08:43:56.000Z</published>
     <updated>2023-12-09T07:50:55.736Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="需要熟悉的-api"><a href="#需要熟悉的-api" class="headerlink" title="需要熟悉的 api"></a>需要熟悉的 api</h2><p>这一块可以参考 Robert Love 写的 Linux System Programming</p><h2 id=""><a href="#" class="headerlink" title=""></a></h2>]]></content>
     
     
       
@@ -71,6 +75,8 @@
     <published>2023-12-08T08:27:44.000Z</published>
     <updated>2023-12-08T08:40:36.785Z</updated>
     
+    <content type="html"><![CDATA[<h2 id="C-语言基础"><a href="#C-语言基础" class="headerlink" title="C 语言基础"></a>C 语言基础</h2><ol><li>const 的各类问题</li><li>static 的作用</li><li>内存对齐</li><li>inline 的优缺点与适用场景</li><li>sizeof 和 strlen 的区别</li><li>如何在 C 语言中实现 C++的面向对象特性(封装、继承、多态)</li><li>如何提高 memcpy 的效率</li><li>typedef 和 define 的区别</li><li>extern 的作用</li></ol><h2 id="C-语言问题"><a href="#C-语言问题" class="headerlink" title="C++语言问题"></a>C++语言问题</h2><ol><li>struct 和 class 的区别</li><li>RAII 相关问题</li><li>运行时多态的实现原理？虚函数的实现机制</li><li>虚函数的优缺点，如何正确使用虚函数</li><li>构造函数可以是虚函数吗？析构函数可以是虚函数吗？</li><li>基类的析构函数可以调用虚函数吗？基类的构造函数可以调用虚函数吗？</li><li>什么时候用指针，什么时候用引用</li><li>volatile 的作用</li><li>怎样实现一个线程池</li><li>Effective Modern C++书中提到的各种问题</li><li>如何调试内存泄漏</li><li>unique_ptr 的所有权机制</li><li>如何自己实现智能指针</li></ol><h2 id="STL-相关问题"><a href="#STL-相关问题" class="headerlink" title="STL 相关问题"></a>STL 相关问题</h2><ol><li>数组和 std::array 各自的优缺点</li><li>std::vector 提供的 api 是如何实现的</li><li>deque,map,set 的底层数据结构</li><li>std::string 的常用函数</li></ol><h2 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h2><ol><li>饿汉和懒汉线程安全的单例模式</li><li>观察者模式类关系和优点</li><li>代理模式类关系和优点</li><li>工厂模式概念和优点</li><li>构造者模式概念</li><li>适配器模式概念</li></ol>]]></content>
+    
     
     <summary type="html">同时包含了C语言基础的相关问题</summary>
     
@@ -89,6 +95,8 @@
     <id>http://example.com/2023/12/08/C-%E6%B1%82%E8%81%8C%E6%96%B9%E5%90%91%E9%9C%80%E8%A6%81%E6%8E%8C%E6%8F%A1%E7%9A%84%E5%86%85%E5%AE%B9/</id>
     <published>2023-12-08T08:14:25.000Z</published>
     <updated>2023-12-08T08:27:19.842Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="需要掌握的语法知识"><a href="#需要掌握的语法知识" class="headerlink" title="需要掌握的语法知识"></a>需要掌握的语法知识</h2><ol><li>泛型编程</li><li>多态</li></ol><h2 id="C-开发方面的知识"><a href="#C-开发方面的知识" class="headerlink" title="C++开发方面的知识"></a>C++开发方面的知识</h2><h3 id="Linux-Unix-后台开发"><a href="#Linux-Unix-后台开发" class="headerlink" title="Linux&#x2F;Unix 后台开发"></a>Linux&#x2F;Unix 后台开发</h3><ol><li>必读书目 APUE, UNP, TCP&#x2F;IP. 网络方面面试的时候可能会问，开发过程中遇到的最难的问题是什么？这一块可以说<code>网络大量小包导致网络利用率下降</code>, <code>糊涂窗口问题</code>,<code>fd耗尽</code>之类的</li></ol><h3 id="数据库方面的知识"><a href="#数据库方面的知识" class="headerlink" title="数据库方面的知识"></a>数据库方面的知识</h3><ol><li>首先要熟悉 redis，比如哨兵原理，如何实现持久化</li></ol><h3 id="系统相关知识"><a href="#系统相关知识" class="headerlink" title="系统相关知识"></a>系统相关知识</h3><ol><li>内核优化 eBPF</li><li>内核泄漏</li></ol>]]></content>
     
     
     <summary type="html">这里只是简单的分类，没有给出详细阐述</summary>
