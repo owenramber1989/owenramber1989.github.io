@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>ts1989</title>
+  <icon>http://example.com/icon.png</icon>
+  
+  <link href="http://example.com/atom.xml" rel="self"/>
+  
+  <link href="http://example.com/"/>
+  <updated>2024-01-31T02:04:13.068Z</updated>
+  <id>http://example.com/</id>
+  
+  <author>
+    <name>Jinming Zhang</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>gamesiveplayed</title>
+    <link href="http://example.com/2024/01/16/gamesiveplayed/"/>
+    <id>http://example.com/2024/01/16/gamesiveplayed/</id>
+    <published>2024-01-16T08:25:45.000Z</published>
+    <updated>2024-01-31T02:04:13.068Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;通关了的游戏&quot;&gt;&lt;a href=&quot;#通关了的游戏&quot; class=&quot;headerlink&quot; title=&quot;通关了的游戏&quot;&gt;&lt;/a&gt;通关了的游戏&lt;/h1&gt;&lt;h2 id=&quot;塞尔达系列&quot;&gt;&lt;a href=&quot;#塞尔达系列&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="game" scheme="http://example.com/tags/game/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>操作系统面试题</title>
+    <link href="http://example.com/2023/12/08/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    <id>http://example.com/2023/12/08/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E9%9D%A2%E8%AF%95%E9%A2%98/</id>
+    <published>2023-12-08T08:43:56.000Z</published>
+    <updated>2023-12-09T07:50:55.736Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;需要熟悉的-api&quot;&gt;&lt;a href=&quot;#需要熟悉的-api&quot; class=&quot;headerlink&quot; title=&quot;需要熟悉的 api&quot;&gt;&lt;/a&gt;需要熟悉的 api&lt;/h2&gt;&lt;p&gt;这一块可以参考 Robert Love 写的 Linux System</summary>
+        
+      
+    
+    
+    
+    
+    <category term="jobs" scheme="http://example.com/tags/jobs/"/>
+    
+    <category term="OS" scheme="http://example.com/tags/OS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C++面试中的语言题</title>
+    <link href="http://example.com/2023/12/08/C-%E9%9D%A2%E8%AF%95%E4%B8%AD%E7%9A%84%E8%AF%AD%E8%A8%80%E9%A2%98/"/>
+    <id>http://example.com/2023/12/08/C-%E9%9D%A2%E8%AF%95%E4%B8%AD%E7%9A%84%E8%AF%AD%E8%A8%80%E9%A2%98/</id>
+    <published>2023-12-08T08:27:44.000Z</published>
+    <updated>2023-12-08T08:40:36.785Z</updated>
+    
+    
+    <summary type="html">同时包含了C语言基础的相关问题</summary>
+    
+    
+    
+    
+    <category term="jobs" scheme="http://example.com/tags/jobs/"/>
+    
+    <category term="C++" scheme="http://example.com/tags/C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C++求职方向需要掌握的内容</title>
+    <link href="http://example.com/2023/12/08/C-%E6%B1%82%E8%81%8C%E6%96%B9%E5%90%91%E9%9C%80%E8%A6%81%E6%8E%8C%E6%8F%A1%E7%9A%84%E5%86%85%E5%AE%B9/"/>
+    <id>http://example.com/2023/12/08/C-%E6%B1%82%E8%81%8C%E6%96%B9%E5%90%91%E9%9C%80%E8%A6%81%E6%8E%8C%E6%8F%A1%E7%9A%84%E5%86%85%E5%AE%B9/</id>
+    <published>2023-12-08T08:14:25.000Z</published>
+    <updated>2023-12-08T08:27:19.842Z</updated>
+    
+    
+    <summary type="html">这里只是简单的分类，没有给出详细阐述</summary>
+    
+    
+    
+    
+    <category term="jobs" scheme="http://example.com/tags/jobs/"/>
+    
+  </entry>
+  
+</feed>
