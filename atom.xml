@@ -35,4 +35,23 @@
     
   </entry>
   
+  <entry>
+    <title>tcp粘包问题的成因与解决方案</title>
+    <link href="http://example.com/2023/07/08/tcp%E7%B2%98%E5%8C%85%E9%97%AE%E9%A2%98%E7%9A%84%E6%88%90%E5%9B%A0%E4%B8%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"/>
+    <id>http://example.com/2023/07/08/tcp%E7%B2%98%E5%8C%85%E9%97%AE%E9%A2%98%E7%9A%84%E6%88%90%E5%9B%A0%E4%B8%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</id>
+    <published>2023-07-08T01:56:40.000Z</published>
+    <updated>2024-04-01T06:16:44.390Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="TCP粘包问题是什么"><a href="#TCP粘包问题是什么" class="headerlink" title="TCP粘包问题是什么"></a>TCP粘包问题是什么</h2><p>TCP粘包问题指的是发送方发送的若干数据包在到达接收方时粘成了一包</p><h2 id="造成粘包问题的可能原因"><a href="#造成粘包问题的可能原因" class="headerlink" title="造成粘包问题的可能原因"></a>造成粘包问题的可能原因</h2><h3 id="接收方"><a href="#接收方" class="headerlink" title="接收方"></a>接收方</h3><p>TCP接收端接收到数据包时，并不会直接交给应用程序处理，而是会先放到缓存中，如果应用程序从缓存中读取数据包的速度<br>小于TCP将接收到的数据包放到缓存中的速度，多个数据包在缓存中就有可能首尾相连</p><h3 id="发送方"><a href="#发送方" class="headerlink" title="发送方"></a>发送方</h3><p>使用了Nagle算法，在收到一次确认时，才会发送下一个分组，并且这个分组是多个小分组的集合体</p><h2 id="一定要解决粘包问题吗"><a href="#一定要解决粘包问题吗" class="headerlink" title="一定要解决粘包问题吗"></a>一定要解决粘包问题吗</h2><p>不一定，如果这些数据包本来就是同一块数据的不同部分，那么没必要处理；如果是多个并列的，或者是多个互不相关的分组<br>，那就必须要处理了</p><h2 id="如何解决"><a href="#如何解决" class="headerlink" title="如何解决"></a>如何解决</h2><ol><li>发送方： 可以使用TCP_NODELAY选项关闭NAGLE算法</li><li>应用层：格式化数据，使得每条数据有固定的格式（开始符，结束符），并在发送时一并发送数据长度，这样接收方应用程序就能轻松读取数据包长度，方便循环处理</li></ol><h2 id="UDP会出现粘包问题吗"><a href="#UDP会出现粘包问题吗" class="headerlink" title="UDP会出现粘包问题吗"></a>UDP会出现粘包问题吗</h2><p>不会，UDP协议面向数据报，TCP协议面向流，UDP保护消息边界，TCP不保护，所以TCP会出现粘包问题，UDP不会  </p>]]></content>
+    
+    
+    <summary type="html">本文探讨了因Nagle算法导致的tcp粘包问题</summary>
+    
+    
+    
+    
+    <category term="network" scheme="http://example.com/tags/network/"/>
+    
+  </entry>
+  
 </feed>
