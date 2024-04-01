@@ -16,22 +16,22 @@
   <meta name="author" content="Jinming Zhang">
   <meta name="keywords" content="">
   
-    <meta name="description" content="我拥有过的游戏、游玩平台与时间记录、 准备买的游戏以及对部分游戏的评价">
+    <meta name="description" content="实现一个简易shared_ptr模板类需要些什么 引用计数 控制对引用计数访问权限的互斥锁 构造函数，拷贝构造函数，重载赋值运算符，解引用运算符等等 析构函数，避免在临界区访问引用计数  类的私有成员变量1234567template&lt;class T&gt; class my_shared_ptr&#123;private:  int* _p_ref_count;  std::mutex*">
 <meta property="og:type" content="article">
-<meta property="og:title" content="我的电子游戏展柜">
-<meta property="og:url" content="http://example.com/2024/01/16/gamesiveplayed/index.html">
+<meta property="og:title" content="shared_ptr的简易实现">
+<meta property="og:url" content="http://example.com/2023/08/11/shared-ptr%E7%9A%84%E7%AE%80%E6%98%93%E5%AE%9E%E7%8E%B0/index.html">
 <meta property="og:site_name" content="ts1989">
-<meta property="og:description" content="我拥有过的游戏、游玩平台与时间记录、 准备买的游戏以及对部分游戏的评价">
+<meta property="og:description" content="实现一个简易shared_ptr模板类需要些什么 引用计数 控制对引用计数访问权限的互斥锁 构造函数，拷贝构造函数，重载赋值运算符，解引用运算符等等 析构函数，避免在临界区访问引用计数  类的私有成员变量1234567template&lt;class T&gt; class my_shared_ptr&#123;private:  int* _p_ref_count;  std::mutex*">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-01-16T08:25:45.000Z">
-<meta property="article:modified_time" content="2024-03-20T06:11:51.241Z">
+<meta property="article:published_time" content="2023-08-11T04:56:32.000Z">
+<meta property="article:modified_time" content="2024-04-01T05:32:36.231Z">
 <meta property="article:author" content="Jinming Zhang">
-<meta property="article:tag" content="game">
+<meta property="article:tag" content="cpp">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>我的电子游戏展柜 - ts1989</title>
+  <title>shared_ptr的简易实现 - ts1989</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -198,7 +198,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="我的电子游戏展柜"></span>
+            <span id="subtitle" data-typed-text="shared_ptr的简易实现"></span>
           
         </div>
 
@@ -209,8 +209,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-01-16 16:25" pubdate>
-          2024年1月16日 下午
+        <time datetime="2023-08-11 12:56" pubdate>
+          2023年8月11日 下午
         </time>
       </span>
     
@@ -221,7 +221,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          848 字
+          1.4k 字
         
       </span>
     
@@ -232,7 +232,7 @@
         
         
         
-          8 分钟
+          12 分钟
         
       </span>
     
@@ -269,94 +269,20 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">我的电子游戏展柜</h1>
+            <h1 id="seo-header">shared_ptr的简易实现</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="正在等打折的游戏"><a href="#正在等打折的游戏" class="headerlink" title="正在等打折的游戏"></a>正在等打折的游戏</h2><ul>
-<li>Balatro 小丑牌</li>
-<li>艾尔登法环</li>
-</ul>
-<h2 id="通关了的游戏"><a href="#通关了的游戏" class="headerlink" title="通关了的游戏"></a>通关了的游戏</h2><h3 id="塞尔达系列"><a href="#塞尔达系列" class="headerlink" title="塞尔达系列"></a>塞尔达系列</h3><ol>
-<li>塞尔达传说·旷野之息</li>
-<li>塞尔达传说·王国之泪</li>
-<li>塞尔达传说·御天之剑 HD（因为恶性 bug 弃坑云通关&#x2F;**50%**）</li>
-<li>塞尔达无双·灾厄启示录 (剧情云通关)</li>
+                <h2 id="实现一个简易shared-ptr模板类需要些什么"><a href="#实现一个简易shared-ptr模板类需要些什么" class="headerlink" title="实现一个简易shared_ptr模板类需要些什么"></a>实现一个简易shared_ptr模板类需要些什么</h2><ol>
+<li>引用计数</li>
+<li>控制对引用计数访问权限的互斥锁</li>
+<li>构造函数，拷贝构造函数，重载赋值运算符，解引用运算符等等</li>
+<li>析构函数，避免在临界区访问引用计数</li>
 </ol>
-<h3 id="马里奥系列"><a href="#马里奥系列" class="headerlink" title="马里奥系列"></a>马里奥系列</h3><ol>
-<li>马里奥网球</li>
-</ol>
-<h3 id="刺客信条系列"><a href="#刺客信条系列" class="headerlink" title="刺客信条系列"></a>刺客信条系列</h3><ol>
-<li>刺客信条·2(PC + NS)</li>
-<li>刺客信条·兄弟会(<code>PC</code> + NS)</li>
-<li>刺客信条·黑旗(<code>PC</code> + NS)</li>
-<li>刺客信条·叛变（NS）</li>
-<li>刺客信条·大革命(PC)</li>
-<li>刺客信条·枭雄(PC)</li>
-</ol>
-<h3 id="Rockstar"><a href="#Rockstar" class="headerlink" title="Rockstar"></a>Rockstar</h3><ol>
-<li>GTA5(PC)</li>
-<li>GTASA(PC + <code>NS</code>)</li>
-<li>荒野大镖客·救赎 1(NS)</li>
-<li>荒野大镖客·救赎 2(PC: Epic)</li>
-</ol>
-<h3 id="索尼第一方"><a href="#索尼第一方" class="headerlink" title="索尼第一方"></a>索尼第一方</h3><ol>
-<li>最后生还者·第一幕 重制版(PC)</li>
-<li>最后生还者·第二幕 (PS4)</li>
-<li>神秘海域·盗贼合集(PC + <code>SD</code>)</li>
-</ol>
-<h3 id="Square-Enix"><a href="#Square-Enix" class="headerlink" title="Square Enix"></a>Square Enix</h3><ol>
-<li>三角战略(NS)</li>
-<li>八方旅人 1(NS)</li>
-<li>八方旅人 2(NS)</li>
-</ol>
-<h3 id="世嘉"><a href="#世嘉" class="headerlink" title="世嘉"></a>世嘉</h3><ol>
-<li>P3R(XGP)</li>
-<li>P4G(NS + <code>PC</code> + <code>SD</code>)</li>
-<li>P5R(NS + <code>PS4无印版</code> + <code>PC</code>)</li>
-</ol>
-<h3 id="卡普空"><a href="#卡普空" class="headerlink" title="卡普空"></a>卡普空</h3><ol>
-<li>生化危机 4 重制版(SD)</li>
-</ol>
-<h3 id="独立游戏"><a href="#独立游戏" class="headerlink" title="独立游戏"></a>独立游戏</h3><ol>
-<li>艾迪芬奇的记忆(NS)</li>
-<li>画中世界(NS)</li>
-<li>奥伯拉丁的回归(NS)</li>
-<li>哈迪斯(NS)</li>
-<li>特工 A·伪装游戏(NS)</li>
-<li>一起开火车(NS)</li>
-</ol>
-<h2 id="只玩了一部分的游戏"><a href="#只玩了一部分的游戏" class="headerlink" title="只玩了一部分的游戏"></a>只玩了一部分的游戏</h2><p><code>这里的游戏都没有云通关过，所以没有进度</code></p>
-<ol>
-<li>塞尔达传说·时之笛 3d 重制版</li>
-<li>漫威蜘蛛侠 1(PC)</li>
-<li>逆转裁判 123·成步堂精选集(NS + XGP)</li>
-<li>星之卡比·探索发现</li>
-<li>霍格沃茨之遗(PC + SD + NS)</li>
-<li>巫师 3·狂猎(P + SD + NS)</li>
-<li>极乐迪斯科(SD + NS)</li>
-<li>小小梦魇 2(NS)</li>
-<li>以撒的结合·忏悔(NS)</li>
-<li>尼尔·机械纪元 年度版(NS)</li>
-<li>狙击精英 4(NS)</li>
-<li>未命名的鹅游戏(NS)</li>
-<li>神秘海域·德雷克合集(PS4)</li>
-<li>迷宫大侦探(NS)</li>
-<li>这是我的战争 完整版(NS + PC + SD)</li>
-<li>珍妮的线索 · 小侦探(NS)</li>
-<li>刺客信条 3(PC)</li>
-<li>雪地奔驰(NS + PC)</li>
-<li>传送门 2(NS)</li>
-<li>孤岛危机 2(NS)</li>
-</ol>
-<h2 id="只玩了开头的游戏"><a href="#只玩了开头的游戏" class="headerlink" title="只玩了开头的游戏"></a>只玩了开头的游戏</h2><ol>
-<li>王国之心 3(PS4)</li>
-<li>最终幻想 7 核心危机(NS)</li>
-</ol>
-<hr>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs 中文">1. 游玩过的游戏，除了独占游戏外均标注游玩平台。已通关游戏分类列表里，未通关的平台使用灰色背景。<br>2. SD指的是Steam Deck Oled 512GB 版。<br></code></pre></td></tr></table></figure>
+<h2 id="类的私有成员变量"><a href="#类的私有成员变量" class="headerlink" title="类的私有成员变量"></a>类的私有成员变量</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">class</span> <span class="hljs-title class_">T</span>&gt; <br><span class="hljs-keyword">class</span> <span class="hljs-title class_">my_shared_ptr</span>&#123;<br><span class="hljs-keyword">private</span>:<br>  <span class="hljs-type">int</span>* _p_ref_count;<br>  std::mutex* _p_mutex;<br>  T* _p_ptr;<br>&#125;; <br></code></pre></td></tr></table></figure>
 
+<h2 id="定义构造与析构函数"><a href="#定义构造与析构函数" class="headerlink" title="定义构造与析构函数"></a>定义构造与析构函数</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">class</span> <span class="hljs-title class_">T</span>&gt;<br><span class="hljs-keyword">class</span> <span class="hljs-title class_">my_shared_ptr</span>&#123;<br><span class="hljs-keyword">public</span>:<br>  <span class="hljs-built_in">my_shared_ptr</span>(T* ptr=<span class="hljs-literal">nullptr</span>): <br>    _p_ref_count(<span class="hljs-keyword">new</span> <span class="hljs-built_in">int</span>(<span class="hljs-number">1</span>)),<br>    _p_mutex(<span class="hljs-keyword">new</span> std::mutex),<br>    _p_ptr(ptr) &#123;&#125;<br>  <span class="hljs-built_in">my_shared_ptr</span>(<span class="hljs-type">const</span> my_shared_ptr&lt;T&gt;&amp; msp)<br>    _p_ref_count(msp._p_ref_count),<br>    _p_mutex(msp._p_mutex),<br>    _p_ptr(msp._p_ptr) &#123;<br>      <span class="hljs-built_in">add_ref_count</span>();<br>    &#125;<br>  ~<span class="hljs-built_in">my_shared_ptr</span>() &#123;<br>    <span class="hljs-built_in">release</span>();<br>  &#125;<br>  my_shared_ptr&lt;T&gt;&amp; <span class="hljs-keyword">operator</span>=(<span class="hljs-type">const</span> my_shared_ptr&lt;T&gt;&amp; msp) &#123;<br>    <span class="hljs-keyword">if</span>(_p_ptr!=msp._p_ptr) &#123;<br>      <span class="hljs-built_in">release</span>(); <span class="hljs-comment">// 释放旧资源</span><br>      _p_ref_count = msp._p_ref_count;<br>      _p_mutex = msp._p_mutex;<br>      _p_ptr = msp._p_ptr;<br>      <span class="hljs-built_in">add_ref_count</span>();<br>    &#125;<br>    <span class="hljs-keyword">return</span> *<span class="hljs-keyword">this</span>;<br>  &#125;<br>  T&amp; <span class="hljs-keyword">operator</span>*() &#123;<br>    <span class="hljs-keyword">return</span> *_p_ptr;<br>  &#125;<br>  T* <span class="hljs-keyword">operator</span>-&gt;() &#123;<br>    <span class="hljs-keyword">return</span> _p_ptr;<br>  &#125;<br>  <span class="hljs-function">T* <span class="hljs-title">get</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-keyword">return</span> _p_ptr;<br>  &#125;<br>  <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">get_ref_count</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-keyword">return</span> *_p_ref_count;<br>  &#125;<br>  <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">add_ref_count</span><span class="hljs-params">()</span> </span>&#123;<br>    _p_mutex-&gt;<span class="hljs-built_in">lock</span>();<br>    ++(*_p_ref_count);<br>    _p_mutex-&gt;<span class="hljs-built_in">unlock</span>();<br>  &#125;<br><span class="hljs-keyword">private</span>:<br>  <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">release</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-type">bool</span> delete_flag = <span class="hljs-literal">false</span>;<br>    _p_mutex-&gt;<span class="hljs-built_in">lock</span>();<br>    <span class="hljs-keyword">if</span>(--(*_p_ref_count)==<span class="hljs-number">0</span>) &#123;<br>      <span class="hljs-keyword">delete</span> _p_ref_count;<br>      <span class="hljs-keyword">delete</span> _p_ptr;<br>      delete_flag = <span class="hljs-literal">true</span>;<br>    &#125;<br>    _p_mutex-&gt;<span class="hljs-built_in">unlock</span>();<br>    <span class="hljs-keyword">if</span>(delete_flag) <span class="hljs-keyword">delete</span> _p_mutex;<br>  &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
                 
               </div>
             
@@ -368,7 +294,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/game/" class="print-no-link">#game</a>
+        <a href="/tags/cpp/" class="print-no-link">#cpp</a>
       
     </div>
   
@@ -380,8 +306,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>我的电子游戏展柜</div>
-      <div>http://example.com/2024/01/16/gamesiveplayed/</div>
+      <div>shared_ptr的简易实现</div>
+      <div>http://example.com/2023/08/11/shared-ptr的简易实现/</div>
     </div>
     <div class="license-meta">
       
@@ -393,7 +319,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年1月16日</div>
+          <div>2023年8月11日</div>
         </div>
       
       
@@ -425,21 +351,15 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/03/09/moviesivewatched/" title="我的影视作品展柜">
+                      <a href="/2024/01/16/gamesiveplayed/" title="我的电子游戏展柜">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">我的影视作品展柜</span>
+                        <span class="hidden-mobile">我的电子游戏展柜</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
                   </article>
                   <article class="post-next col-6">
                     
-                    
-                      <a href="/2023/08/11/shared-ptr%E7%9A%84%E7%AE%80%E6%98%93%E5%AE%9E%E7%8E%B0/" title="shared_ptr的简易实现">
-                        <span class="hidden-mobile">shared_ptr的简易实现</span>
-                        <span class="visible-mobile">下一篇</span>
-                        <i class="iconfont icon-arrowright"></i>
-                      </a>
                     
                   </article>
                 </div>
