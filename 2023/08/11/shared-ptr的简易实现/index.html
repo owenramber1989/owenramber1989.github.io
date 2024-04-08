@@ -24,7 +24,7 @@
 <meta property="og:description" content="自己动手实现my_shared_ptr模板类">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-08-11T04:56:32.000Z">
-<meta property="article:modified_time" content="2024-04-01T05:49:32.699Z">
+<meta property="article:modified_time" content="2024-04-08T13:26:54.432Z">
 <meta property="article:author" content="Jinming Zhang">
 <meta property="article:tag" content="cpp">
 <meta name="twitter:card" content="summary_large_image">
@@ -221,7 +221,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.1k 字
+          3.1k 字
         
       </span>
     
@@ -232,7 +232,7 @@
         
         
         
-          18 分钟
+          26 分钟
         
       </span>
     
@@ -290,6 +290,26 @@
 </ol>
 <h2 id="存在的问题"><a href="#存在的问题" class="headerlink" title="存在的问题"></a>存在的问题</h2><p>my_shared_ptr模板类没有考虑不是new出来的对象，实际上shared_ptr针对这种情况设计了仿函数删除器</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">// 仿函数的删除器</span><br><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">class</span> <span class="hljs-title class_">T</span>&gt;<br><span class="hljs-keyword">struct</span> <span class="hljs-title class_">FreeFunc</span> &#123;<br>  <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">operator</span><span class="hljs-params">()</span><span class="hljs-params">(T* ptr)</span> </span>&#123;<br>    cout &lt;&lt; <span class="hljs-string">&quot;free:&quot;</span> &lt;&lt; ptr &lt;&lt; endl;<br>    <span class="hljs-built_in">free</span>(ptr);<br>  &#125;<br>&#125;;<br><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">class</span> <span class="hljs-title class_">T</span>&gt;<br><span class="hljs-keyword">struct</span> <span class="hljs-title class_">DeleteArrayFunc</span> &#123;<br>  <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">operator</span><span class="hljs-params">()</span><span class="hljs-params">(T* ptr)</span> </span>&#123;<br>    cout &lt;&lt; <span class="hljs-string">&quot;delete[]&quot;</span> &lt;&lt; ptr &lt;&lt; endl;<br>    <span class="hljs-keyword">delete</span>[] ptr;<br>  &#125;<br>&#125;;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123; <br>  FreeFunc&lt;<span class="hljs-type">int</span>&gt; freeFunc;<br>  <span class="hljs-function">std::shared_ptr&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">sp1</span><span class="hljs-params">((<span class="hljs-type">int</span>*)malloc(<span class="hljs-number">4</span>), freeFunc)</span></span>;<br>  DeleteArrayFunc&lt;<span class="hljs-type">int</span>&gt; deleteArrayFunc;<br>  <span class="hljs-function">std::shared_ptr&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">sp2</span><span class="hljs-params">((<span class="hljs-type">int</span>*)malloc(<span class="hljs-number">4</span>), deleteArrayFunc)</span></span>;<br>  <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="std-shared-ptr的线程安全问题"><a href="#std-shared-ptr的线程安全问题" class="headerlink" title="std::shared_ptr的线程安全问题"></a>std::shared_ptr的线程安全问题</h2><h3 id="在哪些方面存在安全隐患"><a href="#在哪些方面存在安全隐患" class="headerlink" title="在哪些方面存在安全隐患"></a>在哪些方面存在安全隐患</h3><ol>
+<li>引用计数</li>
+<li>修改指向</li>
+<li>shared_ptr<T>中的T的线程安全问题</li>
+</ol>
+<p>std::shared_ptr中有两个指针，一个指向所管理的数据，一个指向控制块，这里面包括引用计数，weak_ptr的数量，删除器和分配器之类的，rc是存放在堆上的。</p>
+<p>根据cppreference的说法，rc的加减是内存安全的</p>
+<p><code>To satisfy thread safety requirements, the reference counters are typically incremented using an equivalent of std::atomic::fetch_add with std::memory_order_relaxed (decrementing requires stronger ordering to safely destroy the control block)</code></p>
+<p>关于修改指向时的线程安全问题，依多线程访问的是不是同一个shared_ptr模板类的对象有所不同</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">std::thread <span class="hljs-title">td</span><span class="hljs-params">([&amp;sp1] () &#123;....&#125;)</span></span>;<br>``<br><br>```<span class="hljs-function">cpp</span><br><span class="hljs-function">std::thread <span class="hljs-title">td</span><span class="hljs-params">([sp1] () &#123;....&#125;)</span></span>;<br></code></pre></td></tr></table></figure>
+
+<p>如果std::thread的回调函数是一个lambda表达式，那么如果这里是引用捕获就有问题，拷贝就没事</p>
+<p>或者下面这种</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">fn</span><span class="hljs-params">(shared_ptr&lt;A&gt;* sp)</span> </span>&#123;<br>    ...<br>&#125;<br>...<br>    <span class="hljs-function">std::thread <span class="hljs-title">td</span><span class="hljs-params">(fn, &amp;sp1)</span></span>;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">fn</span><span class="hljs-params">(shared_ptr&lt;A&gt;&amp; sp)</span> </span>&#123;<br>    ...<br>&#125;<br>...<br>    <span class="hljs-function">std::thread <span class="hljs-title">td</span><span class="hljs-params">(fn, std::ref(sp1))</span></span>;<br></code></pre></td></tr></table></figure>
+
+<p>当我们在多线程回调中修改指向时，就不是线程安全的了</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">fn</span><span class="hljs-params">(shared_ptr&lt;A&gt;&amp; sp)</span> </span>&#123;<br>    ...<br>    <span class="hljs-keyword">if</span> (..) &#123;<br>        sp = other_sp;<br>    &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (...) &#123;<br>        sp = other_sp2;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>这时other_sp的rc要加1，sp的要减1，但这整个过程并不是一个原子过程</p>
+<p>最后，如果shared_str管理的数据是STL容器这类，那么任何多线程间修改容器结构的操作都很容易导致core dump.</p>
 
                 
               </div>
