@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2024-04-08T12:06:05.572Z</updated>
+  <updated>2024-04-08T12:20:01.209Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>C++中的菱形继承问题</title>
+    <link href="http://example.com/2024/04/08/C-%E4%B8%AD%E7%9A%84%E8%8F%B1%E5%BD%A2%E7%BB%A7%E6%89%BF%E9%97%AE%E9%A2%98/"/>
+    <id>http://example.com/2024/04/08/C-%E4%B8%AD%E7%9A%84%E8%8F%B1%E5%BD%A2%E7%BB%A7%E6%89%BF%E9%97%AE%E9%A2%98/</id>
+    <published>2024-04-08T12:09:46.000Z</published>
+    <updated>2024-04-08T12:20:01.209Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="什么是菱形继承"><a href="#什么是菱形继承" class="headerlink" title="什么是菱形继承"></a>什么是菱形继承</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">grandfather</span><br>&#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-type">int</span> age;<br>    <span class="hljs-built_in">grandfather</span>() &#123;<br>    age = <span class="hljs-number">108</span>;<br>    &#125;<br>&#125;;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">father1</span>: <span class="hljs-keyword">public</span> grandfather&#123;&#125;;<br><span class="hljs-keyword">class</span> <span class="hljs-title class_">father2</span>: <span class="hljs-keyword">public</span> grandfather&#123;&#125;;<br><span class="hljs-keyword">class</span> <span class="hljs-title class_">son</span> :<span class="hljs-keyword">public</span> father1, <span class="hljs-keyword">public</span> father2&#123;&#125;;<br></code></pre></td></tr></table></figure><p>这时son就是菱形继承的产物，如果编写以下代码</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>  son s;<br>  s.age=<span class="hljs-number">4</span>;<br>  cout&lt;&lt;s.age;<br>  <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure><p>甚至无法通过编译</p><p><img src="/image.png" alt="alt text"></p><h2 id="如何解决"><a href="#如何解决" class="headerlink" title="如何解决"></a>如何解决</h2><ol><li>手动写明作用域</li><li>使用virtual public 继承</li></ol><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    son s;<br>    s.father1::age = <span class="hljs-number">4</span>;<br>    cout &lt;&lt; s.father1::age;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br><br>```cpp<br><span class="hljs-keyword">class</span> <span class="hljs-title class_">father1</span>:<span class="hljs-keyword">virtual</span> <span class="hljs-keyword">public</span> grandfather&#123;&#125;;<br><span class="hljs-keyword">class</span> <span class="hljs-title class_">father2</span>:<span class="hljs-keyword">virtual</span> <span class="hljs-keyword">public</span> grandfather&#123;&#125;;<br><span class="hljs-keyword">class</span> <span class="hljs-title class_">son</span> :<span class="hljs-keyword">public</span> father1, <span class="hljs-keyword">public</span> father2&#123;&#125;;<br></code></pre></td></tr></table></figure><p>以上两种方式均可以通过编译，但是使用第二种方式的话，p.age, p.father1::age, p.father2::age其实会指向同一块内存区域，既浪费了空间(多了两个vbptr),又没起到任何作用，所以还是要尽量避免菱形继承的使用。</p>]]></content>
+    
+    
+    <summary type="html">本文探讨如何解决菱形继承带来的问题</summary>
+    
+    
+    
+    
+    <category term="cpp" scheme="http://example.com/tags/cpp/"/>
+    
+  </entry>
   
   <entry>
     <title>C++中的仿函数</title>
