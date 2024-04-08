@@ -24,7 +24,7 @@
 <meta property="og:description" content="本文讨论了C++中functor的作用和特点">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-04-08T11:13:42.000Z">
-<meta property="article:modified_time" content="2024-04-08T12:03:37.358Z">
+<meta property="article:modified_time" content="2024-04-08T12:06:05.572Z">
 <meta property="article:author" content="Jinming Zhang">
 <meta property="article:tag" content="cpp">
 <meta name="twitter:card" content="summary_large_image">
@@ -290,7 +290,7 @@
 <p>这样我们就可以获得std::unordered_map&lt;PageId,frame_id_t,PageIdHash&gt;了，如果我们想要提供默认实现，可以<br>再使用模板特化的方法</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">template</span> &lt;&gt; <span class="hljs-keyword">struct</span> <span class="hljs-title class_">std</span>::hash&lt;PageId&gt; &#123;<br>  <span class="hljs-function"><span class="hljs-type">size_t</span> <span class="hljs-title">operator</span><span class="hljs-params">()</span><span class="hljs-params">(<span class="hljs-type">const</span> PageId &amp;obj)</span> <span class="hljs-type">const</span> </span>&#123;<br>    <span class="hljs-keyword">return</span> std::<span class="hljs-built_in">hash</span>&lt;<span class="hljs-type">int64_t</span>&gt;()(obj.<span class="hljs-built_in">Get</span>());<br>  &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
 
-<p>有时候仿函数的存在是为了让函数具有类的性质，通过仿函数，我们可以在拥有函数功能的同时，拥有状态，依据函数生成对象，让函数能彼此继承。</p>
+<p>有时候仿函数的存在是为了让函数具有类的性质，通过仿函数，我们可以在拥有函数功能的同时，拥有状态，依据函数生成对象，让函数能彼此继承。仿函数主要在STl中使用，lambda的内部实现也是用的仿函数。</p>
 
                 
               </div>
