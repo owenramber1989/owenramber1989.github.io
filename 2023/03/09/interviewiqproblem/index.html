@@ -16,21 +16,32 @@
   <meta name="author" content="Jinming Zhang">
   <meta name="keywords" content="">
   
-    <meta property="og:type" content="website">
-<meta property="og:title" content="标签">
-<meta property="og:url" content="http://example.com/tags/index.html">
+    <meta name="description" content="整理了一些面试过程中碰到的智力题">
+<meta property="og:type" content="article">
+<meta property="og:title" content="面试智力题整理">
+<meta property="og:url" content="http://example.com/2023/03/09/interviewiqproblem/index.html">
 <meta property="og:site_name" content="ts1989">
+<meta property="og:description" content="整理了一些面试过程中碰到的智力题">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-03-09T11:02:49.000Z">
+<meta property="article:modified_time" content="2024-04-09T11:15:53.567Z">
 <meta property="article:author" content="Jinming Zhang">
+<meta property="article:tag" content="interview">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>标签 - ts1989</title>
+  <title>面试智力题整理 - ts1989</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
 
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
 
 
 
@@ -81,7 +92,7 @@
   <header>
     
 
-<div class="header-inner" style="height: 80vh;">
+<div class="header-inner" style="height: 70vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
@@ -187,17 +198,53 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="标签"></span>
+            <span id="subtitle" data-typed-text="面试智力题整理"></span>
           
         </div>
 
         
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-03-09 19:02" pubdate>
+          2023年3月9日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          451 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          4 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
       </div>
 
-      
-        <div class="scroll-down-bar">
-          <i class="iconfont icon-arrowdown"></i>
-        </div>
       
     </div>
   </div>
@@ -209,24 +256,154 @@
 
   <main>
     
-      <div class="container nopadding-x-md">
-        <div id="board"
-          >
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
+      
 
-<div class="text-center tagcloud">
-  <a href="/tags/basic/" style="font-size: 15px; color: #bbe">basic</a> <a href="/tags/book/" style="font-size: 15px; color: #bbe">book</a> <a href="/tags/cpp/" style="font-size: 30px; color: #337ab7">cpp</a> <a href="/tags/game/" style="font-size: 15px; color: #bbe">game</a> <a href="/tags/interview/" style="font-size: 15px; color: #bbe">interview</a> <a href="/tags/movie/" style="font-size: 15px; color: #bbe">movie</a> <a href="/tags/network/" style="font-size: 15px; color: #bbe">network</a>
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">面试智力题整理</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="抓球问题"><a href="#抓球问题" class="headerlink" title="抓球问题"></a>抓球问题</h2><p>550个球，每次必须抓7～11个，AB两人轮流抓，A先手，如何确保A抓到最后一个球</p>
+<p>答：A抓10个，之后不管B抓几个，A都让当前轮次二人抓球总和为18即可</p>
+<h2 id="装水问题"><a href="#装水问题" class="headerlink" title="装水问题"></a>装水问题</h2><p>无限多的水，一个5L容器，一个6L容器，如何获取3L水</p>
+<p>答：灌满6L，倒进5L容器，6L容器中有1L水，倒进5L容器，再重复这个流程，每次6L容器中会多出1L水，再重复一次即可</p>
+<h2 id="找毒药问题"><a href="#找毒药问题" class="headerlink" title="找毒药问题"></a>找毒药问题</h2><p>n 杯水中有一杯是毒药，找出这杯毒水至少需要多少试剂</p>
+<p>n 杯水，用 log2(n)个试剂可以找出来，或者说 x 个试剂，可以找出 2^n 杯中的毒药</p>
+<p>最简单情况，假设 2 个试剂，只经过一次测试，则最多可以在 4 瓶中找到毒药，具体方法是：A 测 1、3 号，B 测 2、3 号，若 A 有毒 B 有毒，毒药是 3 号；若 A 有毒 B 没，毒药是 1 号；若 A 没 B 有毒，毒药是 2 号；若 A 没 B 没，毒药是 4 号</p>
+<p>有点像二进制对应的位数 ——</p>
+<p>比如 1000 杯水，用二进制从 1 编号到 1000。 此时最大数的二进制位数就是 10，用 10 个试剂分别对应二进制的 0-9 位，试剂验出有毒的就说明该位二进制为 1 —— 就可以确认出毒药的二进制数</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/interview/" class="print-no-link">#interview</a>
+      
+    </div>
+  
 </div>
 
-              </div>
-            </div>
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>面试智力题整理</div>
+      <div>http://example.com/2023/03/09/interviewiqproblem/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Jinming Zhang</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年3月9日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
           </div>
         </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+            </div>
+
+            
+          </article>
+        </div>
       </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
     
 
     
@@ -320,6 +497,99 @@
 
 
 
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
 
   <script  src="/js/local-search.js" ></script>
 
