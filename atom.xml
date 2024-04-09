@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2024-04-08T12:20:01.209Z</updated>
+  <updated>2024-04-09T10:35:59.895Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>大端序与小端序的优缺点比较</title>
+    <link href="http://example.com/2024/04/09/littlebigendian/"/>
+    <id>http://example.com/2024/04/09/littlebigendian/</id>
+    <published>2024-04-09T10:12:04.000Z</published>
+    <updated>2024-04-09T10:35:59.895Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>高位数据在低位字节叫大端序，反之叫小端序</p><h2 id="大端序占优的场景"><a href="#大端序占优的场景" class="headerlink" title="大端序占优的场景"></a>大端序占优的场景</h2><ol><li>检查正负号</li></ol><p>这个很容易得知，大端序只要判断第一位是不是负号就行了。</p><h2 id="小端序占优的场景"><a href="#小端序占优的场景" class="headerlink" title="小端序占优的场景"></a>小端序占优的场景</h2><ol><li>判断奇偶性</li></ol><p>小端序数据的最后一位在最低位地址，判断奇偶性占优势。</p><ol start="2"><li>判断大小</li></ol><p>小端序数据已经按位对齐了，比较大小时占优势</p><ol start="3"><li>乘法</li></ol><p>小端序数据进行乘法时，每一位数据算出后可以直接写入内存，相比大端序具有明显优势。大端序的低位字节要存储的数据必须等到后面的位全部算出来了才能确定，小端序直接就可以确定。</p><p><img src="/image-1.png" alt="alt text"></p><ol start="4"><li>任意精度整数</li></ol><p>又称为大整数，其内部实现通常是把一个很大的数内部分成许多u64数据，小端序因为从左向右进位，每次只需要读取一个u64就可以计算，大端序就需要读取整个数据才能开始计算。</p><ol start="5"><li>强制类型转换</li></ol><p>比如把32位数转换成16位，小端序直接删掉后面2个字节就好了</p><p>网络字节序用的是大端序，TCP&#x2F;IP规定发送的一个字节为高位字节，主机字节序通常是小端序，小端序有利于计算，大端序更符合人类的阅读习惯。</p>]]></content>
+    
+    
+    <summary type="html">本文探讨了大端序和小端序的优缺点以及应用场景</summary>
+    
+    
+    
+    
+    <category term="basic" scheme="http://example.com/tags/basic/"/>
+    
+  </entry>
   
   <entry>
     <title>C++中的菱形继承问题</title>
