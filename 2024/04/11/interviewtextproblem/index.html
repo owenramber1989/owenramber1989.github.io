@@ -16,24 +16,24 @@
   <meta name="author" content="Jinming Zhang">
   <meta name="keywords" content="">
   
-    <meta name="description" content="本文探讨了大端序和小端序的优缺点以及应用场景">
+    <meta name="description" content="C++基础构造析构函数能不能抛异常最好不要，构造函数中抛出异常，会先调用直接父类的析构函数，再调用自身成员的析构函数，但是并没有调用自身类的析构函数，容易造成内存泄漏，比如下面这个例子 12345678910111213141516171819202122232425262728293031323334353637383940#include &lt;iostream&gt;using names">
 <meta property="og:type" content="article">
-<meta property="og:title" content="大端序与小端序的优缺点比较">
-<meta property="og:url" content="http://example.com/2024/04/09/littlebigendian/index.html">
+<meta property="og:title" content="面试题整理">
+<meta property="og:url" content="http://example.com/2024/04/11/interviewtextproblem/index.html">
 <meta property="og:site_name" content="ts1989">
-<meta property="og:description" content="本文探讨了大端序和小端序的优缺点以及应用场景">
+<meta property="og:description" content="C++基础构造析构函数能不能抛异常最好不要，构造函数中抛出异常，会先调用直接父类的析构函数，再调用自身成员的析构函数，但是并没有调用自身类的析构函数，容易造成内存泄漏，比如下面这个例子 12345678910111213141516171819202122232425262728293031323334353637383940#include &lt;iostream&gt;using names">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/image-1.png">
-<meta property="article:published_time" content="2024-04-09T10:12:04.000Z">
-<meta property="article:modified_time" content="2024-04-09T10:35:59.895Z">
+<meta property="og:image" content="http://example.com/image-2.png">
+<meta property="article:published_time" content="2024-04-11T11:08:54.000Z">
+<meta property="article:modified_time" content="2024-04-11T13:22:06.837Z">
 <meta property="article:author" content="Jinming Zhang">
-<meta property="article:tag" content="basic">
+<meta property="article:tag" content="interview">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/image-1.png">
+<meta name="twitter:image" content="http://example.com/image-2.png">
   
   
   
-  <title>大端序与小端序的优缺点比较 - ts1989</title>
+  <title>面试题整理 - ts1989</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -200,7 +200,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="大端序与小端序的优缺点比较"></span>
+            <span id="subtitle" data-typed-text="面试题整理"></span>
           
         </div>
 
@@ -211,8 +211,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-04-09 18:12" pubdate>
-          2024年4月9日 晚上
+        <time datetime="2024-04-11 19:08" pubdate>
+          2024年4月11日 晚上
         </time>
       </span>
     
@@ -223,7 +223,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          410 字
+          1.7k 字
         
       </span>
     
@@ -234,7 +234,7 @@
         
         
         
-          4 分钟
+          15 分钟
         
       </span>
     
@@ -271,39 +271,30 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">大端序与小端序的优缺点比较</h1>
+            <h1 id="seo-header">面试题整理</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>高位数据在低位字节叫大端序，反之叫小端序</p>
-<h2 id="大端序占优的场景"><a href="#大端序占优的场景" class="headerlink" title="大端序占优的场景"></a>大端序占优的场景</h2><ol>
-<li>检查正负号</li>
-</ol>
-<p>这个很容易得知，大端序只要判断第一位是不是负号就行了。</p>
-<h2 id="小端序占优的场景"><a href="#小端序占优的场景" class="headerlink" title="小端序占优的场景"></a>小端序占优的场景</h2><ol>
-<li>判断奇偶性</li>
-</ol>
-<p>小端序数据的最后一位在最低位地址，判断奇偶性占优势。</p>
-<ol start="2">
-<li>判断大小</li>
-</ol>
-<p>小端序数据已经按位对齐了，比较大小时占优势</p>
-<ol start="3">
-<li>乘法</li>
-</ol>
-<p>小端序数据进行乘法时，每一位数据算出后可以直接写入内存，相比大端序具有明显优势。大端序的低位字节要存储的数据必须等到后面的位全部算出来了才能确定，小端序直接就可以确定。</p>
-<p><img src="/image-1.png" srcset="/img/loading.gif" lazyload alt="alt text"></p>
-<ol start="4">
-<li>任意精度整数</li>
-</ol>
-<p>又称为大整数，其内部实现通常是把一个很大的数内部分成许多u64数据，小端序因为从左向右进位，每次只需要读取一个u64就可以计算，大端序就需要读取整个数据才能开始计算。</p>
-<ol start="5">
-<li>强制类型转换</li>
-</ol>
-<p>比如把32位数转换成16位，小端序直接删掉后面2个字节就好了</p>
-<p>网络字节序用的是大端序，TCP&#x2F;IP规定发送的一个字节为高位字节，主机字节序通常是小端序，小端序有利于计算，大端序更符合人类的阅读习惯。</p>
+                <h2 id="C-基础"><a href="#C-基础" class="headerlink" title="C++基础"></a>C++基础</h2><h3 id="构造析构函数能不能抛异常"><a href="#构造析构函数能不能抛异常" class="headerlink" title="构造析构函数能不能抛异常"></a>构造析构函数能不能抛异常</h3><p>最好不要，构造函数中抛出异常，会先调用直接父类的析构函数，再调用自身成员的析构函数，但是并没有调用自身类的析构函数，容易造成内存泄漏，比如下面这个例子</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">C</span>&#123;<br>    <span class="hljs-type">int</span> m;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-built_in">C</span>()&#123;cout&lt;&lt;<span class="hljs-string">&quot;in C constructor&quot;</span>&lt;&lt;endl;&#125;<br>    ~<span class="hljs-built_in">C</span>()&#123;cout&lt;&lt;<span class="hljs-string">&quot;in C destructor&quot;</span>&lt;&lt;endl;&#125;<br>&#125;;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">A</span>&#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-built_in">A</span>()&#123;cout&lt;&lt;<span class="hljs-string">&quot;in A constructor&quot;</span>&lt;&lt;endl;&#125;<br>    ~<span class="hljs-built_in">A</span>()&#123;cout&lt;&lt;<span class="hljs-string">&quot;in A destructor&quot;</span>&lt;&lt;endl;&#125;<br>&#125;;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">B</span>:<span class="hljs-keyword">public</span> A&#123;<br><span class="hljs-keyword">public</span>:<br>    C c;<br>    <span class="hljs-type">char</span>* resource;<br><br>    <span class="hljs-built_in">B</span>()&#123;<br>        resource=<span class="hljs-keyword">new</span> <span class="hljs-type">char</span>[<span class="hljs-number">100</span>];<br>        cout&lt;&lt;<span class="hljs-string">&quot;in B constructor&quot;</span>&lt;&lt;endl;<br>        <span class="hljs-keyword">throw</span> <span class="hljs-number">-1</span>;<br>    &#125;<br>    ~<span class="hljs-built_in">B</span>()&#123;<br>        cout&lt;&lt;<span class="hljs-string">&quot;in B destructor&quot;</span>&lt;&lt;endl;<br>        <span class="hljs-keyword">delete</span>[]  resource;<br>    &#125;<br>&#125;;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br><span class="hljs-keyword">try</span>&#123;<br>        B b;<br>    &#125;<br>    <span class="hljs-built_in">catch</span>(<span class="hljs-type">int</span>)&#123;<br>        cout&lt;&lt;<span class="hljs-string">&quot;catched&quot;</span>&lt;&lt;endl;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
+<p>输出是</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs c">in A constructor <br>in C constructor <br>in B constructor <br>in C destructor <br>in A destructor <br>catched<br></code></pre></td></tr></table></figure>
+<p>resource对应的内存就没有被回收</p>
+<p>如果在析构函数中抛出异常，异常点之后的步骤不会执行，这容易造成内存泄漏，栈展开的过程中又会调用栈中其他成员的析构函数，如果这时候又发生了异常（比如回收std::vector<MyOwn>,MyOwn的析构函数可能抛出异常），C++往往无法处理两个异常，直接std::terminate终止了，也会造成内存泄漏，如果一定要抛出异常，最好在try catch里面全部处理掉</p>
+<h3 id="线程同步的方法"><a href="#线程同步的方法" class="headerlink" title="线程同步的方法"></a>线程同步的方法</h3><h3 id="explicit"><a href="#explicit" class="headerlink" title="explicit"></a>explicit</h3><p>避免奇怪的拷贝构造</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;algorithm&gt;</span></span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Str</span>&#123;<br>	<span class="hljs-keyword">public</span>:<br>	 <span class="hljs-built_in">Str</span>(<span class="hljs-type">int</span> x)&#123;<br>		cout&lt;&lt;<span class="hljs-string">&quot;我是想把整数变字符串&quot;</span>&lt;&lt;endl;<br>	&#125;<br>	<span class="hljs-built_in">Str</span>(<span class="hljs-type">const</span> <span class="hljs-type">char</span>* a)<br>	&#123;<br>		cout&lt;&lt;<span class="hljs-string">&quot;我是想把字符数组变字符串&quot;</span>&lt;&lt;endl;<br>	&#125;<br><br>&#125;;<br><br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">( )</span></span>&#123;<br><br>	Str s=<span class="hljs-string">&#x27;c&#x27;</span>; <br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>会输出下面的结果</p>
+<p><img src="/image-2.png" srcset="/img/loading.gif" lazyload alt="alt text"></p>
+<p>直接成ascii码了</p>
+<h3 id="C-11新特性"><a href="#C-11新特性" class="headerlink" title="C++11新特性"></a>C++11新特性</h3><h3 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h3><ol>
+<li>模板的声明和定义必须放在一个文件中，因为模板实例化之后编译器才能确定生成对象的大小，只有模板声明的话编译器只能生成一个具有外部链接的符号，并寄希望于链接器将这个符号的地址决议出来，所以会在链接的时候报错</li>
+</ol>
+<h2 id="OS"><a href="#OS" class="headerlink" title="OS"></a>OS</h2><h3 id="协程"><a href="#协程" class="headerlink" title="协程"></a>协程</h3><h2 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h2><h3 id="IO多路复用"><a href="#IO多路复用" class="headerlink" title="IO多路复用"></a>IO多路复用</h3><h3 id="三次握手-四次挥手"><a href="#三次握手-四次挥手" class="headerlink" title="三次握手 四次挥手"></a>三次握手 四次挥手</h3><p>第三次握手干了什么，第四次挥手time_wait的作用</p>
+<h3 id="tcp"><a href="#tcp" class="headerlink" title="tcp"></a>tcp</h3><p>tcp加密，用udp实现tcp，用tcp实现http</p>
+<h3 id="http2-http1"><a href="#http2-http1" class="headerlink" title="http2 http1"></a>http2 http1</h3>
                 
               </div>
             
@@ -315,7 +306,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/basic/" class="print-no-link">#basic</a>
+        <a href="/tags/interview/" class="print-no-link">#interview</a>
       
     </div>
   
@@ -327,8 +318,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>大端序与小端序的优缺点比较</div>
-      <div>http://example.com/2024/04/09/littlebigendian/</div>
+      <div>面试题整理</div>
+      <div>http://example.com/2024/04/11/interviewtextproblem/</div>
     </div>
     <div class="license-meta">
       
@@ -340,7 +331,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年4月9日</div>
+          <div>2024年4月11日</div>
         </div>
       
       
@@ -367,29 +358,6 @@
 
 
 
-              
-                <div class="post-prevnext my-3">
-                  <article class="post-prev col-6">
-                    
-                    
-                      <a href="/2024/04/11/interviewalgoproblem/" title="interviewalgoproblem">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">interviewalgoproblem</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
-                  </article>
-                  <article class="post-next col-6">
-                    
-                    
-                      <a href="/2024/04/08/C-%E4%B8%AD%E7%9A%84%E8%8F%B1%E5%BD%A2%E7%BB%A7%E6%89%BF%E9%97%AE%E9%A2%98/" title="C++中的菱形继承问题">
-                        <span class="hidden-mobile">C++中的菱形继承问题</span>
-                        <span class="visible-mobile">下一篇</span>
-                        <i class="iconfont icon-arrowright"></i>
-                      </a>
-                    
-                  </article>
-                </div>
               
             </div>
 
