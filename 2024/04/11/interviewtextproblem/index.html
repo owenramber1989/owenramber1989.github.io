@@ -26,9 +26,10 @@
 <meta property="og:image" content="http://example.com/image-2.png">
 <meta property="og:image" content="http://example.com/image-3.png">
 <meta property="og:image" content="http://example.com/image-4.png">
+<meta property="og:image" content="http://example.com/image-5.png">
 <meta property="og:image" content="http://images.cnitblog.com/blog/305504/201308/17201205-8ac47f1f1fcd4773bd4edd947c0bb1f4.png">
 <meta property="article:published_time" content="2024-04-11T11:08:54.000Z">
-<meta property="article:modified_time" content="2024-04-15T16:53:46.805Z">
+<meta property="article:modified_time" content="2024-04-15T18:06:54.195Z">
 <meta property="article:author" content="Jinming Zhang">
 <meta property="article:tag" content="interview">
 <meta name="twitter:card" content="summary_large_image">
@@ -226,7 +227,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          6.5k 字
+          8.3k 字
         
       </span>
     
@@ -237,7 +238,7 @@
         
         
         
-          55 分钟
+          69 分钟
         
       </span>
     
@@ -323,8 +324,37 @@ netstat -tuln     # 查看所有监听端口
 <pre><code class="hljs">  top 或 htop 命令：这些命令不仅能用来查看进程信息，也能显示内存和CPU的使用情况。
 </code></pre>
 <p>大多数命令都支持通过 | grep [keyword] 来过滤显示的结果，</p>
-<h3 id="共享内存究竟是怎么共享的"><a href="#共享内存究竟是怎么共享的" class="headerlink" title="共享内存究竟是怎么共享的"></a>共享内存究竟是怎么共享的</h3><h3 id="IPC"><a href="#IPC" class="headerlink" title="IPC"></a>IPC</h3><h3 id="CPU调度算法"><a href="#CPU调度算法" class="headerlink" title="CPU调度算法"></a>CPU调度算法</h3><h2 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h2><h3 id="TCP的可靠性"><a href="#TCP的可靠性" class="headerlink" title="TCP的可靠性"></a>TCP的可靠性</h3><h3 id="TLS的全过程"><a href="#TLS的全过程" class="headerlink" title="TLS的全过程"></a>TLS的全过程</h3><h3 id="IO多路复用"><a href="#IO多路复用" class="headerlink" title="IO多路复用"></a>IO多路复用</h3><p>epoll wait ctl 为什么要分开</p>
-<h3 id="select、poll、epoll之间的区别总结-整理"><a href="#select、poll、epoll之间的区别总结-整理" class="headerlink" title="select、poll、epoll之间的区别总结[整理]"></a>select、poll、epoll之间的区别总结[整理]</h3><p>select，poll，epoll都是IO多路复用的机制。I&#x2F;O多路复用就通过一种机制，可以监视多个描述符，一旦某个描述符就绪（一般是读就绪或者写就绪），能够通知程序进行相应的读写操作。<strong>但select，poll，epoll本质上都是同步I&#x2F;O，因为他们都需要在读写事件就绪后自己负责进行读写，也就是说这个读写过程是阻塞的</strong>，而异步I&#x2F;O则无需自己负责进行读写，异步I&#x2F;O的实现会负责把数据从内核拷贝到用户空间。关于这三种IO多路复用的用法，前面三篇总结写的很清楚，并用服务器回射echo程序进行了测试。连接如下所示：</p>
+<h3 id="共享内存究竟是怎么共享的"><a href="#共享内存究竟是怎么共享的" class="headerlink" title="共享内存究竟是怎么共享的"></a>共享内存究竟是怎么共享的</h3><h3 id="IPC"><a href="#IPC" class="headerlink" title="IPC"></a>IPC</h3><h3 id="CPU调度算法"><a href="#CPU调度算法" class="headerlink" title="CPU调度算法"></a>CPU调度算法</h3><h3 id="多进程和多线程"><a href="#多进程和多线程" class="headerlink" title="多进程和多线程"></a>多进程和多线程</h3><p><img src="/image-5.png" srcset="/img/loading.gif" lazyload alt="alt text"></p>
+<p>多进程适合CPU密集，多线程适合IO密集，多协程适合IO密集并且需要超多任务运行<br>多线程的优点：</p>
+<p>无需跨进程边界；程序逻辑和控制方式简单；所有线程可以直接共享内存和变量；线程方式消耗的总资源比进程少</p>
+<p>多进程的优点 ：</p>
+<p>每个进程相互独立，不影响主程序的稳定性，子进程崩溃没关系；通过增加CPU就可以容易扩充性能；可以尽量减少线程加锁&#x2F;解锁的影响，极大提高性能；</p>
+<p>多线程的缺点：</p>
+<p>每条线程与主程序共用地址空间，大小受限；线程之间的同步和加锁比较麻烦；一个线程的崩溃可能影响到整个程序的稳定性；到达一定的线程数后，即使在增加CPU也无法提高性能；</p>
+<p>多进程的缺点：</p>
+<p>逻辑控制复杂，需要和主程序交互；需要跨进程边界，如果有大数据传输，不适合；多进程调度开销比较大</p>
+<p>应用情况如下：</p>
+<p>1）需要频繁创建销毁的用线程</p>
+<p>这种原则最常见的就是Web服务器了，来一个连接建立一个线程，断了就销毁线程。如果用进程，创建销毁的代价是很难承受的。</p>
+<p>2）需要进行大量计算的优先用线程</p>
+<p>所谓大量计算就是消耗很多CPU，切换频繁，这种情况下线程是最合适的。</p>
+<p>这种原则最常用的就是图像处理，算法处理。</p>
+<p>3）强相关的处理用线程，弱相关的处理用进程</p>
+<p>什么叫强相关、弱相关?理论上很难定义，举一个例子加以解释。</p>
+<p>一般的Server需要完成如下任务：消息收发、消息处理。“消息收发”、“消息处理”就是弱相关的处理，而“消息处理”里面又分为“消息解码”、“业务处理”，这两个业务相对来说就强很多。因此“消息收发”、“消息处理”可以分进程设计，“消息解码”、“业务处理”可以分线程设计。</p>
+<p>4）可能扩展到多机分布的用进程，多核分布的用线程（具体原因请看上表）</p>
+<p>消耗资源：</p>
+<p>从内核的观点看，进程的目的就是担任分配系统资源（CPU时间、内存等）的基本单位。线程是进程的一条执行流，是CPU调度和分派的基本单位，它是比进程更小的能独立运行的基本单位。</p>
+<p>线程，他们之间使用相同的地址空间，共享大部分数据，启动一个线程所花费的空间远远小于启动一个进程所花费的空间，而且线程间彼此切换所需要的时间也远远小于进程间切换所用的时间。</p>
+<p>通讯方式：</p>
+<p>进程间传递数据只能通过通讯的方式，既费时又不方便。线程时间数据大部分共享，快捷方便，但是数据同步需要锁。</p>
+<p>线程自身优势：</p>
+<p>提高应用程序相应；使用CPU系统更加有效；操作系统会保证当线程数目不大于CPU数目时候，不同的线程运行在不同的CPU上；改善程序结构，一个即长又复杂的进程可以考虑分为多个线程，成为几个独立或者半独立的部分，这样的程序会易于理解和修改。</p>
+<h3 id="进程-线程"><a href="#进程-线程" class="headerlink" title="进程 线程"></a>进程 线程</h3><p>堆是进程层面的，相同进程的线程共享堆，但栈是线程层面的</p>
+<h3 id="线程和协程的区别"><a href="#线程和协程的区别" class="headerlink" title="线程和协程的区别"></a>线程和协程的区别</h3><h3 id="线程安全的定义"><a href="#线程安全的定义" class="headerlink" title="线程安全的定义"></a>线程安全的定义</h3><p>当多个线程同时访问一个对象时，如果不用考虑这些线程在运行时环境下的调度和交替执行，也不需要进行额外的同步，或者在调用方进行任何其他的协调操作，调用这个对象的行为都可以获得正确的结果，那就称这个对象时线程安全的。</p>
+<h2 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h2><h3 id="TCP的可靠性"><a href="#TCP的可靠性" class="headerlink" title="TCP的可靠性"></a>TCP的可靠性</h3><h3 id="TLS的全过程"><a href="#TLS的全过程" class="headerlink" title="TLS的全过程"></a>TLS的全过程</h3><h3 id="IO多路复用"><a href="#IO多路复用" class="headerlink" title="IO多路复用"></a>IO多路复用</h3><p>epoll wait ctl 为什么要分开</p>
+<h3 id="HTTP-无状态"><a href="#HTTP-无状态" class="headerlink" title="HTTP 无状态"></a>HTTP 无状态</h3><p>虽然 HTTP 协议本身是无状态的，即每个请求都是相互独立的，服务器不会保存客户端的状态信息，但是可以通过以下方式来保存用户状态：<br>1.Cookies<br>通过在客户端存储一些标识信息，服务器可以识别用户。当服务器向客户端发送 HTTP 响应时，可以在响应头中添加 Set-Cookie 字段，客户端收到响应后会将 Cookie 保存起来，然后在后续的请求中通过 Cookie 字段将信息发送给服务器，从而实现用户状态的保存。<br>2.Session<br>服务器可以在后端保存用户的状态信息，每个用户都有一个唯一的标识符，通过这个标识符来识别用户。一般情况下，这个标识符会存储在 Cookie 中，也可以通过 URL 重写或者隐藏表单域来传递。<br>3.Token<br>使用 Token 来保存用户状态，服务器在用户登录成功后生成一个 Token，并将 Token 返回给客户端，客户端在后续的请求中通过在请求头中携带 Token 来进行身份验证和状态保存。<br>4.URL 重写<br>在 URL 中携带用户状态信息，例如在 URL 中添加用户 ID 或者 Session ID 来标识用户，服务器可以通过解析 URL 来获取用户状态信息。<br>这些方式都是通过在客户端或者服务器端保存一些标识信息来实现用户状态的保存，从而在 HTTP 协议无状态的基础上实现用户状态的管理。</p>
+<h3 id="NGINX负载均衡中为什么有权值轮询"><a href="#NGINX负载均衡中为什么有权值轮询" class="headerlink" title="NGINX负载均衡中为什么有权值轮询"></a>NGINX负载均衡中为什么有权值轮询</h3><h3 id="select、poll、epoll之间的区别总结-整理"><a href="#select、poll、epoll之间的区别总结-整理" class="headerlink" title="select、poll、epoll之间的区别总结[整理]"></a>select、poll、epoll之间的区别总结[整理]</h3><p>select，poll，epoll都是IO多路复用的机制。I&#x2F;O多路复用就通过一种机制，可以监视多个描述符，一旦某个描述符就绪（一般是读就绪或者写就绪），能够通知程序进行相应的读写操作。<strong>但select，poll，epoll本质上都是同步I&#x2F;O，因为他们都需要在读写事件就绪后自己负责进行读写，也就是说这个读写过程是阻塞的</strong>，而异步I&#x2F;O则无需自己负责进行读写，异步I&#x2F;O的实现会负责把数据从内核拷贝到用户空间。关于这三种IO多路复用的用法，前面三篇总结写的很清楚，并用服务器回射echo程序进行了测试。连接如下所示：</p>
 <p>select：<a target="_blank" rel="noopener" href="http://www.cnblogs.com/Anker/archive/2013/08/14/3258674.html">http://www.cnblogs.com/Anker/archive/2013/08/14/3258674.html</a></p>
 <p>poll：<a target="_blank" rel="noopener" href="http://www.cnblogs.com/Anker/archive/2013/08/15/3261006.html">http://www.cnblogs.com/Anker/archive/2013/08/15/3261006.html</a></p>
 <p>epoll：<a target="_blank" rel="noopener" href="http://www.cnblogs.com/Anker/archive/2013/08/17/3263780.html">http://www.cnblogs.com/Anker/archive/2013/08/17/3263780.html</a></p>
@@ -367,7 +397,7 @@ netstat -tuln     # 查看所有监听端口
 <h3 id="网络模型有哪些"><a href="#网络模型有哪些" class="headerlink" title="网络模型有哪些"></a>网络模型有哪些</h3><p>reactor之类的</p>
 <h3 id="网络协议序列化的方法"><a href="#网络协议序列化的方法" class="headerlink" title="网络协议序列化的方法"></a>网络协议序列化的方法</h3><h3 id="三次握手-四次挥手"><a href="#三次握手-四次挥手" class="headerlink" title="三次握手 四次挥手"></a>三次握手 四次挥手</h3><p>第三次握手干了什么，第四次挥手time_wait的作用</p>
 <h3 id="tcp"><a href="#tcp" class="headerlink" title="tcp"></a>tcp</h3><p>tcp加密，用udp实现tcp，用tcp实现http</p>
-<h3 id="http3-http2-http1"><a href="#http3-http2-http1" class="headerlink" title="http3 http2 http1"></a>http3 http2 http1</h3><h3 id="输入url的过程"><a href="#输入url的过程" class="headerlink" title="输入url的过程"></a>输入url的过程</h3><h3 id="json通信的优劣，序列化和反序列化"><a href="#json通信的优劣，序列化和反序列化" class="headerlink" title="json通信的优劣，序列化和反序列化"></a>json通信的优劣，序列化和反序列化</h3><h3 id="POP3和IMAP的区别"><a href="#POP3和IMAP的区别" class="headerlink" title="POP3和IMAP的区别"></a>POP3和IMAP的区别</h3><h3 id="epoll与bio-nio-aio-dio"><a href="#epoll与bio-nio-aio-dio" class="headerlink" title="epoll与bio&#x2F;nio&#x2F;aio&#x2F;dio"></a>epoll与bio&#x2F;nio&#x2F;aio&#x2F;dio</h3><h2 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h2><h3 id="B-树每个节点存储的值的类型"><a href="#B-树每个节点存储的值的类型" class="headerlink" title="B+树每个节点存储的值的类型"></a>B+树每个节点存储的值的类型</h3><h3 id="mysql如何实现acid"><a href="#mysql如何实现acid" class="headerlink" title="mysql如何实现acid"></a>mysql如何实现acid</h3><h3 id="范式"><a href="#范式" class="headerlink" title="范式"></a>范式</h3><h3 id="redis为什么高效"><a href="#redis为什么高效" class="headerlink" title="redis为什么高效"></a>redis为什么高效</h3><h3 id="数据库连接池"><a href="#数据库连接池" class="headerlink" title="数据库连接池"></a>数据库连接池</h3><h3 id="redis数据类型，应用场景，优缺点，底层实现"><a href="#redis数据类型，应用场景，优缺点，底层实现" class="headerlink" title="redis数据类型，应用场景，优缺点，底层实现"></a>redis数据类型，应用场景，优缺点，底层实现</h3>
+<h3 id="http3-http2-http1"><a href="#http3-http2-http1" class="headerlink" title="http3 http2 http1"></a>http3 http2 http1</h3><h3 id="输入url的过程"><a href="#输入url的过程" class="headerlink" title="输入url的过程"></a>输入url的过程</h3><h3 id="json通信的优劣，序列化和反序列化"><a href="#json通信的优劣，序列化和反序列化" class="headerlink" title="json通信的优劣，序列化和反序列化"></a>json通信的优劣，序列化和反序列化</h3><h3 id="POP3和IMAP的区别"><a href="#POP3和IMAP的区别" class="headerlink" title="POP3和IMAP的区别"></a>POP3和IMAP的区别</h3><h3 id="epoll与bio-nio-aio-dio"><a href="#epoll与bio-nio-aio-dio" class="headerlink" title="epoll与bio&#x2F;nio&#x2F;aio&#x2F;dio"></a>epoll与bio&#x2F;nio&#x2F;aio&#x2F;dio</h3><h2 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h2><h3 id="B-树每个节点存储的值的类型"><a href="#B-树每个节点存储的值的类型" class="headerlink" title="B+树每个节点存储的值的类型"></a>B+树每个节点存储的值的类型</h3><h3 id="mysql如何实现acid"><a href="#mysql如何实现acid" class="headerlink" title="mysql如何实现acid"></a>mysql如何实现acid</h3><h3 id="mysql-各个级别解决的问题"><a href="#mysql-各个级别解决的问题" class="headerlink" title="mysql 各个级别解决的问题"></a>mysql 各个级别解决的问题</h3><h3 id="范式"><a href="#范式" class="headerlink" title="范式"></a>范式</h3><h3 id="redis为什么高效"><a href="#redis为什么高效" class="headerlink" title="redis为什么高效"></a>redis为什么高效</h3><h3 id="数据库连接池"><a href="#数据库连接池" class="headerlink" title="数据库连接池"></a>数据库连接池</h3><h3 id="redis数据类型，应用场景，优缺点，底层实现"><a href="#redis数据类型，应用场景，优缺点，底层实现" class="headerlink" title="redis数据类型，应用场景，优缺点，底层实现"></a>redis数据类型，应用场景，优缺点，底层实现</h3>
                 
               </div>
             
