@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/image-2.png">
 <meta property="article:published_time" content="2024-04-11T11:08:54.000Z">
-<meta property="article:modified_time" content="2024-04-11T13:22:06.837Z">
+<meta property="article:modified_time" content="2024-04-11T13:24:54.532Z">
 <meta property="article:author" content="Jinming Zhang">
 <meta property="article:tag" content="interview">
 <meta name="twitter:card" content="summary_large_image">
@@ -223,7 +223,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.7k 字
+          2.5k 字
         
       </span>
     
@@ -234,7 +234,7 @@
         
         
         
-          15 分钟
+          21 分钟
         
       </span>
     
@@ -292,6 +292,9 @@
 <h3 id="C-11新特性"><a href="#C-11新特性" class="headerlink" title="C++11新特性"></a>C++11新特性</h3><h3 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h3><ol>
 <li>模板的声明和定义必须放在一个文件中，因为模板实例化之后编译器才能确定生成对象的大小，只有模板声明的话编译器只能生成一个具有外部链接的符号，并寄希望于链接器将这个符号的地址决议出来，所以会在链接的时候报错</li>
 </ol>
+<h3 id="内存问题"><a href="#内存问题" class="headerlink" title="内存问题"></a>内存问题</h3><p>实现下面两个函数<br>void *AlignedMalloc(size_t size, size_t aligned)<br>void AlignedFree(void *data)<br>其中 AlignedMalloc 申请一段 size 大小的内存空间，其起始地址是 aligned 的整数倍，AlignedFree 则释放这段内存空间</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdlib.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdint.h&gt;</span></span><br><br><span class="hljs-function"><span class="hljs-type">void</span> *<span class="hljs-title">AlignedMalloc</span><span class="hljs-params">(<span class="hljs-type">size_t</span> size, <span class="hljs-type">size_t</span> aligned)</span> </span>&#123;<br>    <span class="hljs-type">void</span> *ptr = <span class="hljs-built_in">malloc</span>(size + aligned - <span class="hljs-number">1</span> + <span class="hljs-built_in">sizeof</span>(<span class="hljs-type">void</span>*));<br>    <span class="hljs-keyword">if</span> (ptr == <span class="hljs-literal">NULL</span>) &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">NULL</span>; <span class="hljs-comment">// 内存分配失败</span><br>    &#125;<br><br>    <span class="hljs-type">uintptr_t</span> address = (<span class="hljs-type">uintptr_t</span>)ptr + <span class="hljs-built_in">sizeof</span>(<span class="hljs-type">void</span>*);<br>    <span class="hljs-type">uintptr_t</span> aligned_address = (address + aligned - <span class="hljs-number">1</span>) &amp; ~(aligned - <span class="hljs-number">1</span>);<br>    <span class="hljs-type">void</span> **aligned_ptr = (<span class="hljs-type">void</span>**)(aligned_address - <span class="hljs-built_in">sizeof</span>(<span class="hljs-type">void</span>*));<br>    *aligned_ptr = ptr;<br>    <span class="hljs-keyword">return</span> (<span class="hljs-type">void</span>*)aligned_address;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">AlignedFree</span><span class="hljs-params">(<span class="hljs-type">void</span> *data)</span> </span>&#123;<br>    <span class="hljs-keyword">if</span> (data == <span class="hljs-literal">NULL</span>) &#123;<br>        <span class="hljs-keyword">return</span>; <span class="hljs-comment">// 如果传入空指针，则直接返回</span><br>    &#125;<br>    <br>    <span class="hljs-type">void</span> **aligned_ptr = (<span class="hljs-type">void</span>**)((<span class="hljs-type">uintptr_t</span>)data - <span class="hljs-built_in">sizeof</span>(<span class="hljs-type">void</span>*));<br>    <span class="hljs-type">void</span> *ptr = *aligned_ptr;<br>    <span class="hljs-built_in">free</span>(ptr);<br>&#125;<br></code></pre></td></tr></table></figure>
+
 <h2 id="OS"><a href="#OS" class="headerlink" title="OS"></a>OS</h2><h3 id="协程"><a href="#协程" class="headerlink" title="协程"></a>协程</h3><h2 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h2><h3 id="IO多路复用"><a href="#IO多路复用" class="headerlink" title="IO多路复用"></a>IO多路复用</h3><h3 id="三次握手-四次挥手"><a href="#三次握手-四次挥手" class="headerlink" title="三次握手 四次挥手"></a>三次握手 四次挥手</h3><p>第三次握手干了什么，第四次挥手time_wait的作用</p>
 <h3 id="tcp"><a href="#tcp" class="headerlink" title="tcp"></a>tcp</h3><p>tcp加密，用udp实现tcp，用tcp实现http</p>
 <h3 id="http2-http1"><a href="#http2-http1" class="headerlink" title="http2 http1"></a>http2 http1</h3>
