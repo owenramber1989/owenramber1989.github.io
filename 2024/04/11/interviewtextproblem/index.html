@@ -24,8 +24,11 @@
 <meta property="og:description" content="C++基础构造析构函数能不能抛异常最好不要，构造函数中抛出异常，会先调用直接父类的析构函数，再调用自身成员的析构函数，但是并没有调用自身类的析构函数，容易造成内存泄漏，比如下面这个例子 12345678910111213141516171819202122232425262728293031323334353637383940#include &lt;iostream&gt;using names">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/image-2.png">
+<meta property="og:image" content="http://example.com/image-3.png">
+<meta property="og:image" content="http://example.com/image-4.png">
+<meta property="og:image" content="http://images.cnitblog.com/blog/305504/201308/17201205-8ac47f1f1fcd4773bd4edd947c0bb1f4.png">
 <meta property="article:published_time" content="2024-04-11T11:08:54.000Z">
-<meta property="article:modified_time" content="2024-04-11T13:24:54.532Z">
+<meta property="article:modified_time" content="2024-04-15T16:53:46.805Z">
 <meta property="article:author" content="Jinming Zhang">
 <meta property="article:tag" content="interview">
 <meta name="twitter:card" content="summary_large_image">
@@ -223,7 +226,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.5k 字
+          6.5k 字
         
       </span>
     
@@ -234,7 +237,7 @@
         
         
         
-          21 分钟
+          55 分钟
         
       </span>
     
@@ -294,10 +297,77 @@
 </ol>
 <h3 id="内存问题"><a href="#内存问题" class="headerlink" title="内存问题"></a>内存问题</h3><p>实现下面两个函数<br>void *AlignedMalloc(size_t size, size_t aligned)<br>void AlignedFree(void *data)<br>其中 AlignedMalloc 申请一段 size 大小的内存空间，其起始地址是 aligned 的整数倍，AlignedFree 则释放这段内存空间</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdlib.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdint.h&gt;</span></span><br><br><span class="hljs-function"><span class="hljs-type">void</span> *<span class="hljs-title">AlignedMalloc</span><span class="hljs-params">(<span class="hljs-type">size_t</span> size, <span class="hljs-type">size_t</span> aligned)</span> </span>&#123;<br>    <span class="hljs-type">void</span> *ptr = <span class="hljs-built_in">malloc</span>(size + aligned - <span class="hljs-number">1</span> + <span class="hljs-built_in">sizeof</span>(<span class="hljs-type">void</span>*));<br>    <span class="hljs-keyword">if</span> (ptr == <span class="hljs-literal">NULL</span>) &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">NULL</span>; <span class="hljs-comment">// 内存分配失败</span><br>    &#125;<br><br>    <span class="hljs-type">uintptr_t</span> address = (<span class="hljs-type">uintptr_t</span>)ptr + <span class="hljs-built_in">sizeof</span>(<span class="hljs-type">void</span>*);<br>    <span class="hljs-type">uintptr_t</span> aligned_address = (address + aligned - <span class="hljs-number">1</span>) &amp; ~(aligned - <span class="hljs-number">1</span>);<br>    <span class="hljs-type">void</span> **aligned_ptr = (<span class="hljs-type">void</span>**)(aligned_address - <span class="hljs-built_in">sizeof</span>(<span class="hljs-type">void</span>*));<br>    *aligned_ptr = ptr;<br>    <span class="hljs-keyword">return</span> (<span class="hljs-type">void</span>*)aligned_address;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">AlignedFree</span><span class="hljs-params">(<span class="hljs-type">void</span> *data)</span> </span>&#123;<br>    <span class="hljs-keyword">if</span> (data == <span class="hljs-literal">NULL</span>) &#123;<br>        <span class="hljs-keyword">return</span>; <span class="hljs-comment">// 如果传入空指针，则直接返回</span><br>    &#125;<br>    <br>    <span class="hljs-type">void</span> **aligned_ptr = (<span class="hljs-type">void</span>**)((<span class="hljs-type">uintptr_t</span>)data - <span class="hljs-built_in">sizeof</span>(<span class="hljs-type">void</span>*));<br>    <span class="hljs-type">void</span> *ptr = *aligned_ptr;<br>    <span class="hljs-built_in">free</span>(ptr);<br>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h3><h3 id="vector-list"><a href="#vector-list" class="headerlink" title="vector&amp;&amp;list"></a>vector&amp;&amp;list</h3><h3 id="用c实现面向对象"><a href="#用c实现面向对象" class="headerlink" title="用c实现面向对象"></a>用c实现面向对象</h3><h3 id="deque底层实现"><a href="#deque底层实现" class="headerlink" title="deque底层实现"></a>deque底层实现</h3><h3 id="deque迭代器怎么实现"><a href="#deque迭代器怎么实现" class="headerlink" title="deque迭代器怎么实现"></a>deque迭代器怎么实现</h3><h3 id="STL容器的线程安全问题"><a href="#STL容器的线程安全问题" class="headerlink" title="STL容器的线程安全问题"></a>STL容器的线程安全问题</h3><h3 id="vector-resize会不会改变之前元素的地址"><a href="#vector-resize会不会改变之前元素的地址" class="headerlink" title="vector resize会不会改变之前元素的地址"></a>vector resize会不会改变之前元素的地址</h3><h3 id="写一个死锁程序"><a href="#写一个死锁程序" class="headerlink" title="写一个死锁程序"></a>写一个死锁程序</h3><h2 id="OS"><a href="#OS" class="headerlink" title="OS"></a>OS</h2><h3 id="查看cpu有几个核"><a href="#查看cpu有几个核" class="headerlink" title="查看cpu有几个核"></a>查看cpu有几个核</h3><p><img src="/image-3.png" srcset="/img/loading.gif" lazyload alt="alt text"></p>
+<h3 id="查看日志"><a href="#查看日志" class="headerlink" title="查看日志"></a>查看日志</h3><p><img src="/image-4.png" srcset="/img/loading.gif" lazyload alt="alt text"></p>
+<h3 id="协程"><a href="#协程" class="headerlink" title="协程"></a>协程</h3><p>调度的具体方式</p>
+<h3 id="mmap"><a href="#mmap" class="headerlink" title="mmap"></a>mmap</h3><h3 id="PCB的内容"><a href="#PCB的内容" class="headerlink" title="PCB的内容"></a>PCB的内容</h3><h3 id="内存分配（内核和用户态的区别）"><a href="#内存分配（内核和用户态的区别）" class="headerlink" title="内存分配（内核和用户态的区别）"></a>内存分配（内核和用户态的区别）</h3><h3 id="性能监控"><a href="#性能监控" class="headerlink" title="性能监控"></a>性能监控</h3><p>top free ps netstat 全是time_wait说明了什么</p>
+<p>-Linux下进程状态</p>
+<pre><code class="hljs">ps aux    # 查看当前系统的进程状态。不换行
 
-<h2 id="OS"><a href="#OS" class="headerlink" title="OS"></a>OS</h2><h3 id="协程"><a href="#协程" class="headerlink" title="协程"></a>协程</h3><h2 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h2><h3 id="IO多路复用"><a href="#IO多路复用" class="headerlink" title="IO多路复用"></a>IO多路复用</h3><h3 id="三次握手-四次挥手"><a href="#三次握手-四次挥手" class="headerlink" title="三次握手 四次挥手"></a>三次握手 四次挥手</h3><p>第三次握手干了什么，第四次挥手time_wait的作用</p>
+ps -ef    
+
+top       # 实时显示进程状态
+</code></pre>
+<p>-端口占用</p>
+<pre><code class="hljs">netstat 命令：显示网络连接、路由表、接口状态等信息。
+
+netstat -tuln     # 查看所有监听端口
+
+ netstat -tulnp    # 查看所有监听端口，并显示对应的程序名
+</code></pre>
+<p>  lsof 命令：列出当前系统打开文件的工具，也可以用来显示打开的端口。</p>
+<pre><code class="hljs">lsopf -i : [port] 查看具体的端口占用
+</code></pre>
+<p>-内存查看</p>
+<p>  free 命令：</p>
+<pre><code class="hljs">  top 或 htop 命令：这些命令不仅能用来查看进程信息，也能显示内存和CPU的使用情况。
+</code></pre>
+<p>大多数命令都支持通过 | grep [keyword] 来过滤显示的结果，</p>
+<h3 id="共享内存究竟是怎么共享的"><a href="#共享内存究竟是怎么共享的" class="headerlink" title="共享内存究竟是怎么共享的"></a>共享内存究竟是怎么共享的</h3><h3 id="IPC"><a href="#IPC" class="headerlink" title="IPC"></a>IPC</h3><h3 id="CPU调度算法"><a href="#CPU调度算法" class="headerlink" title="CPU调度算法"></a>CPU调度算法</h3><h2 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h2><h3 id="TCP的可靠性"><a href="#TCP的可靠性" class="headerlink" title="TCP的可靠性"></a>TCP的可靠性</h3><h3 id="TLS的全过程"><a href="#TLS的全过程" class="headerlink" title="TLS的全过程"></a>TLS的全过程</h3><h3 id="IO多路复用"><a href="#IO多路复用" class="headerlink" title="IO多路复用"></a>IO多路复用</h3><p>epoll wait ctl 为什么要分开</p>
+<h3 id="select、poll、epoll之间的区别总结-整理"><a href="#select、poll、epoll之间的区别总结-整理" class="headerlink" title="select、poll、epoll之间的区别总结[整理]"></a>select、poll、epoll之间的区别总结[整理]</h3><p>select，poll，epoll都是IO多路复用的机制。I&#x2F;O多路复用就通过一种机制，可以监视多个描述符，一旦某个描述符就绪（一般是读就绪或者写就绪），能够通知程序进行相应的读写操作。<strong>但select，poll，epoll本质上都是同步I&#x2F;O，因为他们都需要在读写事件就绪后自己负责进行读写，也就是说这个读写过程是阻塞的</strong>，而异步I&#x2F;O则无需自己负责进行读写，异步I&#x2F;O的实现会负责把数据从内核拷贝到用户空间。关于这三种IO多路复用的用法，前面三篇总结写的很清楚，并用服务器回射echo程序进行了测试。连接如下所示：</p>
+<p>select：<a target="_blank" rel="noopener" href="http://www.cnblogs.com/Anker/archive/2013/08/14/3258674.html">http://www.cnblogs.com/Anker/archive/2013/08/14/3258674.html</a></p>
+<p>poll：<a target="_blank" rel="noopener" href="http://www.cnblogs.com/Anker/archive/2013/08/15/3261006.html">http://www.cnblogs.com/Anker/archive/2013/08/15/3261006.html</a></p>
+<p>epoll：<a target="_blank" rel="noopener" href="http://www.cnblogs.com/Anker/archive/2013/08/17/3263780.html">http://www.cnblogs.com/Anker/archive/2013/08/17/3263780.html</a></p>
+<p>　　今天对这三种IO多路复用进行对比，参考网上和书上面的资料，整理如下：</p>
+<h4 id="1、select实现"><a href="#1、select实现" class="headerlink" title="1、select实现"></a><strong>1、select实现</strong></h4><p><strong>select的调用过程如下所示：</strong></p>
+<p><strong><img src="http://images.cnitblog.com/blog/305504/201308/17201205-8ac47f1f1fcd4773bd4edd947c0bb1f4.png" srcset="/img/loading.gif" lazyload alt="img"></strong></p>
+<p>（1）使用copy_from_user从用户空间拷贝fd_set到内核空间</p>
+<p>（2）注册回调函数__pollwait</p>
+<p>（3）遍历所有fd，调用其对应的poll方法（对于socket，这个poll方法是sock_poll，sock_poll根据情况会调用到tcp_poll,udp_poll或者datagram_poll）</p>
+<p>（4）以tcp_poll为例，其核心实现就是__pollwait，也就是上面注册的回调函数。</p>
+<p>（5）__pollwait的主要工作就是把current（当前进程）挂到设备的等待队列中，不同的设备有不同的等待队列，对于tcp_poll来说，其等待队列是sk-&gt;sk_sleep（注意把进程挂到等待队列中并不代表进程已经睡眠了）。在设备收到一条消息（网络设备）或填写完文件数据（磁盘设备）后，会唤醒设备等待队列上睡眠的进程，这时current便被唤醒了。</p>
+<p>（6）poll方法返回时会返回一个描述读写操作是否就绪的mask掩码，根据这个mask掩码给fd_set赋值。</p>
+<p>（7）如果遍历完所有的fd，还没有返回一个可读写的mask掩码，则会调用schedule_timeout是调用select的进程（也就是current）进入睡眠。当设备驱动发生自身资源可读写后，会唤醒其等待队列上睡眠的进程。如果超过一定的超时时间（schedule_timeout指定），还是没人唤醒，则调用select的进程会重新被唤醒获得CPU，进而重新遍历fd，判断有没有就绪的fd。</p>
+<p>（8）把fd_set从内核空间拷贝到用户空间。</p>
+<p><strong>总结：</strong></p>
+<p><strong>select的几大缺点：</strong></p>
+<p><strong>（1）每次调用select，都需要把fd集合从用户态拷贝到内核态，这个开销在fd很多时会很大</strong></p>
+<p><strong>（2）同时每次调用select都需要在内核遍历传递进来的所有fd，这个开销在fd很多时也很大</strong></p>
+<p><strong>（3）select支持的文件描述符数量太小了，默认是1024</strong></p>
+<h4 id="2-poll实现"><a href="#2-poll实现" class="headerlink" title="2 poll实现"></a><strong>2 poll实现</strong></h4><p>　　poll的实现和select非常相似，只是描述fd集合的方式不同，poll使用pollfd结构而不是select的fd_set结构，其他的都差不多。</p>
+<p>关于select和poll的实现分析，可以参考下面几篇博文：</p>
+<p><a target="_blank" rel="noopener" href="http://blog.csdn.net/lizhiguo0532/article/details/6568964#comments">http://blog.csdn.net/lizhiguo0532/article/details/6568964#comments</a></p>
+<p><a target="_blank" rel="noopener" href="http://blog.csdn.net/lizhiguo0532/article/details/6568968">http://blog.csdn.net/lizhiguo0532/article/details/6568968</a></p>
+<p><a target="_blank" rel="noopener" href="http://blog.csdn.net/lizhiguo0532/article/details/6568969">http://blog.csdn.net/lizhiguo0532/article/details/6568969</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.ibm.com/developerworks/cn/linux/l-cn-edntwk/index.html?ca=drs-">http://www.ibm.com/developerworks/cn/linux/l-cn-edntwk/index.html?ca=drs-</a></p>
+<p><a target="_blank" rel="noopener" href="http://linux.chinaunix.net/techdoc/net/2009/05/03/1109887.shtml">http://linux.chinaunix.net/techdoc/net/2009/05/03/1109887.shtml</a></p>
+<h4 id="3、epoll"><a href="#3、epoll" class="headerlink" title="3、epoll"></a><strong>3、epoll</strong></h4><p>　　epoll既然是对select和poll的改进，就应该能避免上述的三个缺点。那epoll都是怎么解决的呢？在此之前，我们先看一下epoll和select和poll的调用接口上的不同，select和poll都只提供了一个函数——select或者poll函数。而epoll提供了三个函数，epoll_create,epoll_ctl和epoll_wait，epoll_create是创建一个epoll句柄；epoll_ctl是注册要监听的事件类型；epoll_wait则是等待事件的产生。</p>
+<p>　　对于第一个缺点，epoll的解决方案在epoll_ctl函数中。每次注册新的事件到epoll句柄中时（在epoll_ctl中指定EPOLL_CTL_ADD），会把所有的fd拷贝进内核，而不是在epoll_wait的时候重复拷贝。epoll保证了每个fd在整个过程中只会拷贝一次。</p>
+<p>　　对于第二个缺点，epoll的解决方案不像select或poll一样每次都把current轮流加入fd对应的设备等待队列中，而只在epoll_ctl时把current挂一遍（这一遍必不可少）并为每个fd指定一个回调函数，当设备就绪，唤醒等待队列上的等待者时，就会调用这个回调函数，而这个回调函数会把就绪的fd加入一个就绪链表）。epoll_wait的工作实际上就是在这个就绪链表中查看有没有就绪的fd（利用schedule_timeout()实现睡一会，判断一会的效果，和select实现中的第7步是类似的）。</p>
+<p>　　对于第三个缺点，epoll没有这个限制，它所支持的FD上限是最大可以打开文件的数目，这个数字一般远大于2048,举个例子,在1GB内存的机器上大约是10万左右，具体数目可以cat &#x2F;proc&#x2F;sys&#x2F;fs&#x2F;file-max察看,一般来说这个数目和系统内存关系很大。</p>
+<p><strong>总结：</strong></p>
+<p>（1）select，poll实现需要自己不断轮询所有fd集合，直到设备就绪，期间可能要睡眠和唤醒多次交替。而epoll其实也需要调用epoll_wait不断轮询就绪链表，期间也可能多次睡眠和唤醒交替，但是它是设备就绪时，调用回调函数，把就绪fd放入就绪链表中，并唤醒在epoll_wait中进入睡眠的进程。虽然都要睡眠和交替，但是select和poll在“醒着”的时候要遍历整个fd集合，而epoll在“醒着”的时候只要判断一下就绪链表是否为空就行了，这节省了大量的CPU时间。这就是回调机制带来的性能提升。</p>
+<p>（2）select，poll每次调用都要把fd集合从用户态往内核态拷贝一次，并且要把current往设备等待队列中挂一次，而epoll只要一次拷贝，而且把current往等待队列上挂也只挂一次（在epoll_wait的开始，注意这里的等待队列并不是设备等待队列，只是一个epoll内部定义的等待队列）。这也能节省不少的开销。</p>
+<p><strong>参考资料：</strong></p>
+<p><a target="_blank" rel="noopener" href="http://www.cnblogs.com/apprentice89/archive/2013/05/09/3070051.html">http://www.cnblogs.com/apprentice89/archive/2013/05/09/3070051.html</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.linuxidc.com/Linux/2012-05/59873p3.htm">http://www.linuxidc.com/Linux/2012-05/59873p3.htm</a></p>
+<p><a target="_blank" rel="noopener" href="http://xingyunbaijunwei.blog.163.com/blog/static/76538067201241685556302/">http://xingyunbaijunwei.blog.163.com/blog/static/76538067201241685556302/</a></p>
+<p><a target="_blank" rel="noopener" href="http://blog.csdn.net/kkxgx/article/details/7717125">http://blog.csdn.net/kkxgx/article/details/7717125</a></p>
+<p><a target="_blank" rel="noopener" href="https://banu.com/blog/2/how-to-use-epoll-a-complete-example-in-c/epoll-example.c">https://banu.com/blog/2/how-to-use-epoll-a-complete-example-in-c/epoll-example.c</a></p>
+<h3 id="网络模型有哪些"><a href="#网络模型有哪些" class="headerlink" title="网络模型有哪些"></a>网络模型有哪些</h3><p>reactor之类的</p>
+<h3 id="网络协议序列化的方法"><a href="#网络协议序列化的方法" class="headerlink" title="网络协议序列化的方法"></a>网络协议序列化的方法</h3><h3 id="三次握手-四次挥手"><a href="#三次握手-四次挥手" class="headerlink" title="三次握手 四次挥手"></a>三次握手 四次挥手</h3><p>第三次握手干了什么，第四次挥手time_wait的作用</p>
 <h3 id="tcp"><a href="#tcp" class="headerlink" title="tcp"></a>tcp</h3><p>tcp加密，用udp实现tcp，用tcp实现http</p>
-<h3 id="http2-http1"><a href="#http2-http1" class="headerlink" title="http2 http1"></a>http2 http1</h3>
+<h3 id="http3-http2-http1"><a href="#http3-http2-http1" class="headerlink" title="http3 http2 http1"></a>http3 http2 http1</h3><h3 id="输入url的过程"><a href="#输入url的过程" class="headerlink" title="输入url的过程"></a>输入url的过程</h3><h3 id="json通信的优劣，序列化和反序列化"><a href="#json通信的优劣，序列化和反序列化" class="headerlink" title="json通信的优劣，序列化和反序列化"></a>json通信的优劣，序列化和反序列化</h3><h3 id="POP3和IMAP的区别"><a href="#POP3和IMAP的区别" class="headerlink" title="POP3和IMAP的区别"></a>POP3和IMAP的区别</h3><h3 id="epoll与bio-nio-aio-dio"><a href="#epoll与bio-nio-aio-dio" class="headerlink" title="epoll与bio&#x2F;nio&#x2F;aio&#x2F;dio"></a>epoll与bio&#x2F;nio&#x2F;aio&#x2F;dio</h3><h2 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h2><h3 id="B-树每个节点存储的值的类型"><a href="#B-树每个节点存储的值的类型" class="headerlink" title="B+树每个节点存储的值的类型"></a>B+树每个节点存储的值的类型</h3><h3 id="mysql如何实现acid"><a href="#mysql如何实现acid" class="headerlink" title="mysql如何实现acid"></a>mysql如何实现acid</h3><h3 id="范式"><a href="#范式" class="headerlink" title="范式"></a>范式</h3><h3 id="redis为什么高效"><a href="#redis为什么高效" class="headerlink" title="redis为什么高效"></a>redis为什么高效</h3><h3 id="数据库连接池"><a href="#数据库连接池" class="headerlink" title="数据库连接池"></a>数据库连接池</h3><h3 id="redis数据类型，应用场景，优缺点，底层实现"><a href="#redis数据类型，应用场景，优缺点，底层实现" class="headerlink" title="redis数据类型，应用场景，优缺点，底层实现"></a>redis数据类型，应用场景，优缺点，底层实现</h3>
                 
               </div>
             
