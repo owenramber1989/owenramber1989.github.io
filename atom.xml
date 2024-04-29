@@ -74,11 +74,11 @@
   </entry>
   
   <entry>
-    <title>struct和clas的本质区别</title>
+    <title>struct和class的本质区别</title>
     <link href="http://example.com/2024/01/02/struct%E5%92%8Cclas%E7%9A%84%E6%9C%AC%E8%B4%A8%E5%8C%BA%E5%88%AB/"/>
     <id>http://example.com/2024/01/02/struct%E5%92%8Cclas%E7%9A%84%E6%9C%AC%E8%B4%A8%E5%8C%BA%E5%88%AB/</id>
     <published>2024-01-02T13:21:24.000Z</published>
-    <updated>2024-04-01T06:57:58.231Z</updated>
+    <updated>2024-04-19T04:16:38.800Z</updated>
     
     <content type="html"><![CDATA[<h2 id="本质区别"><a href="#本质区别" class="headerlink" title="本质区别"></a>本质区别</h2><p>struct是值类型，而class是引用类型。值类型的实例通常是在线程栈上分配的（静态分配），但是在某些情形下可以存储在堆中。引用类型的对象总是在进程堆中分配（动态分配）。虽然堆栈的执行效率要比堆的高，但是堆栈资源却很有限，不适合处理逻辑复杂的大对象，因此struct常用来处理作为基类型对待的小对象，用class来处理更复杂的商业逻辑。</p><h2 id="其他的使用上的区别"><a href="#其他的使用上的区别" class="headerlink" title="其他的使用上的区别"></a>其他的使用上的区别</h2><ol><li>struct字段和继承方式默认public，class则是private</li><li>结构体存储自身的数据，class仅存储一个动态对象的引用</li><li>C语言中struct不可以为空，但是C++中可以</li></ol>]]></content>
     
