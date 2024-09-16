@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2024-04-09T10:35:59.895Z</updated>
+  <updated>2024-09-16T08:15:57.430Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>火焰纹章Engage分析</title>
+    <link href="http://example.com/2024/09/16/game/tbs/fe/engage/"/>
+    <id>http://example.com/2024/09/16/game/tbs/fe/engage/</id>
+    <published>2024-09-16T07:50:38.000Z</published>
+    <updated>2024-09-16T08:15:57.430Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="本作特点"><a href="#本作特点" class="headerlink" title="本作特点"></a>本作特点</h2><p>  Engage为火纹系列第18部正传，作为风花雪月的后继者，Engage取消了前作的学园系统，削弱了社交因素，取消了多线叙事，回归了纯粹的回合制策略游戏玩法。<br>作为一款SRPG，Engage的策略玩法毫无疑问是很优秀的，但是也因为其故事背景的过于老套以及人物刻画的不足而饱受诟病。</p>]]></content>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;本作特点&quot;&gt;&lt;a href=&quot;#本作特点&quot; class=&quot;headerlink&quot; title=&quot;本作特点&quot;&gt;&lt;/a&gt;本作特点&lt;/h2&gt;&lt;p&gt; </summary>
+        
+      
+    
+    
+    
+    
+    <category term="game" scheme="http://example.com/tags/game/"/>
+    
+    <category term="tbs" scheme="http://example.com/tags/tbs/"/>
+    
+    <category term="fire emblem" scheme="http://example.com/tags/fire-emblem/"/>
+    
+  </entry>
   
   <entry>
     <title>大端序与小端序的优缺点比较</title>
