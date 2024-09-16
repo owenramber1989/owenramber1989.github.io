@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2024-09-16T08:15:57.430Z</updated>
+  <updated>2024-09-16T08:46:44.934Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,13 +17,38 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>电子游戏为何让我们感到快乐</title>
+    <link href="http://example.com/2024/09/16/game/fun/"/>
+    <id>http://example.com/2024/09/16/game/fun/</id>
+    <published>2024-09-16T08:18:14.000Z</published>
+    <updated>2024-09-16T08:46:44.934Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="我们为什么需要游戏"><a href="#我们为什么需要游戏" class="headerlink" title="我们为什么需要游戏"></a>我们为什么需要游戏</h2><p>游戏行为，其实是一个非常普遍的现象，它并不局限于人类个体。动物行为学领域有一个专门的研究分支，就是游戏行为。许多哺乳动物都有游戏行为，猫会扑咬同伴，狗会嘻戏打闹，丰富的游戏行为使得这些动物幼崽更好地提前适应自然界，在这些游戏中学到的生存技能决定了他们的命运。<br>人类也是如此，天生热爱游戏。可以回想一下，童年时期的那些游戏，捉迷藏、跳房子，为什么会那么强烈地吸引着我们。这些游戏，可以拆解成创造问题和解决问题的过程。就捉迷藏而言，它先是将参与者分为两个阵营，尽力隐藏自身的人，与尽力发现人类的鬼，对人而言，游戏带来的问题就是，如何隐藏自身并在不被鬼发现的情况下抵达终点；对鬼而言，它要解决的问题就是，如何尽快寻获隐藏起来的人类。在游戏进程中，双方的位置在不断发生变化，他们均需要通过对方的脚步声判断敌方走向，从而调整自身的位置，这便是游戏中的内循环。整个游戏过程充满刺激，隐藏自身与发现猎物，是人类数百万年发展历史中永远的循环，而捉迷藏这个游戏，则是这个循环的缩影。</p>]]></content>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;我们为什么需要游戏&quot;&gt;&lt;a href=&quot;#我们为什么需要游戏&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="-- game" scheme="http://example.com/tags/game/"/>
+    
+  </entry>
+  
+  <entry>
     <title>火焰纹章Engage分析</title>
     <link href="http://example.com/2024/09/16/game/tbs/fe/engage/"/>
     <id>http://example.com/2024/09/16/game/tbs/fe/engage/</id>
     <published>2024-09-16T07:50:38.000Z</published>
-    <updated>2024-09-16T08:15:57.430Z</updated>
+    <updated>2024-09-16T08:17:32.675Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="本作特点"><a href="#本作特点" class="headerlink" title="本作特点"></a>本作特点</h2><p>  Engage为火纹系列第18部正传，作为风花雪月的后继者，Engage取消了前作的学园系统，削弱了社交因素，取消了多线叙事，回归了纯粹的回合制策略游戏玩法。<br>作为一款SRPG，Engage的策略玩法毫无疑问是很优秀的，但是也因为其故事背景的过于老套以及人物刻画的不足而饱受诟病。</p>]]></content>
+    <content type="html"><![CDATA[<h2 id="本作特点"><a href="#本作特点" class="headerlink" title="本作特点"></a>本作特点</h2><p>  Engage为火纹系列第18部正传，作为风花雪月的后继者，Engage取消了前作的学园系统，削弱了社交因素，取消了多线叙事，回归了纯粹的回合制策略游戏玩法。作为一款SRPG，Engage的策略玩法毫无疑问是很优秀的，但是也因为其故事背景的过于老套以及人物刻画的不足而饱受诟病。</p>]]></content>
     
     
       
